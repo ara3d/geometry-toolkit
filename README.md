@@ -1,6 +1,6 @@
 # 📐 Ara 3D Geometry Toolkit
 
-A set of components, scripts, and libraries for geometry creation and manipulation for use in Unity. 
+A set of components, scripts, and libraries for geometry creation and manipulation in the Unity editor. 
 This library is intended to help in the creation of editor tools, and for learning and experimenting 
 with geometric routines. 
 
@@ -18,7 +18,6 @@ counter-clock-wise ordering of vertices.
 ## ⚠️ Warning: Not optimized for use in real-time games
 
 This library is not optimized. It is not intended to be used as-is in real-time games.
-We recommend using it to test and debug geometry algorithms, and build editor tools.  
 
 ## 🔎 Related Work
 
