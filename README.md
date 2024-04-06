@@ -12,8 +12,10 @@ The [geometry](https://github.com/ara3d/geometry) and [math](https://github.com/
 are written from the ground-up in .NET Standard 2.0 compatible C#.
 This makes it possible to reuse the mathematical and geometry code in other applications without any dependencies on Unity. 
 
-The Ara 3D geometry libraries differ from Unity in that they assume a Z-up coordinate system, and normals are computed assuming a 
-counter-clock-wise ordering of vertices.
+The Ara 3D geometry algorithms differ from Unity:
+
+* It uses a Z-up coordinate system
+* Normals are computed assuming a counter-clock-wise vertex ordering
 
 ## ⚠️ Warning: Not optimized for use in real-time games
 
