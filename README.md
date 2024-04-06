@@ -19,6 +19,14 @@ counter-clock-wise ordering of vertices.
 
 This library is not optimized. It is not intended to be used as-is in real-time games.
 
+## 🔭The Future
+
+This Ara 3D mathematics and geometry libraries will be ported to the [Plato](https://github.com/cdiggins/plato). 
+Plato is a high-performance pure functional language designed especially for mathematical computation.
+
+We will be next writing an open-source Plato to C# compiler optimized for the Unity burst compiler. 
+If your organization is interested in accelerating development, [let's talk](mailto:cdiggins@gmail.com)!
+
 ## 🔎 Related Work
 
 Other libraries related to procedural geometry creation in Unity:
