@@ -1,10 +1,10 @@
 # 📐 Ara 3D Geometry Toolkit
 
-A set of components, scripts, and libraries for geometry creation and manipulation in the Unity editor. 
+A set of components, scripts, and libraries for geometry creation and manipulation primarily in the Unity editor. 
 This library is intended to help in the creation of editor tools, and for learning and experimenting 
 with geometric routines. 
 
-This project is built and tested using the Universal Rendering Pipeline (URP) and Unity 2021. 
+The code is being built for the built-in (standard) rendering pipeline.  
 
 ## ℹ️ About Ara 3D Geometry and Mathematics
 
@@ -12,14 +12,14 @@ The [geometry](https://github.com/ara3d/geometry) and [math](https://github.com/
 are written from the ground-up in .NET Standard 2.0 compatible C#.
 This makes it possible to reuse the mathematical and geometry code in other applications without any dependencies on Unity. 
 
-The Ara 3D geometry algorithms differ from Unity:
+The Ara 3D geometry algorithms differ from Unity libraries:
 
 * It uses a Z-up coordinate system
 * Normals are computed assuming a counter-clock-wise vertex ordering
 
-## ⚠️ Warning: Not optimized for use in real-time games
+## ⚠️ Use at your own risk
 
-This library is not optimized. It is not intended to be used as-is in real-time games.
+This library is not intended for use in real-time games, and might not represent best practices.  
 
 ## 🔭The Future
 
@@ -28,6 +28,16 @@ Plato is a high-performance pure functional language designed especially for mat
 
 We will be next writing an open-source Plato to C# compiler optimized for the Unity burst compiler. 
 If your organization is interested in accelerating development, [let's talk](mailto:cdiggins@gmail.com)!
+
+## 🌱 References
+
+Many technical problems in developing this code were solved with help from these people and posts:
+
+* https://github.com/noisecrime/Unity-InstancedIndirectExamples 
+* https://github.com/ttvertex/Unity-InstancedIndirectExamples
+* https://forum.unity.com/members/bgolus.163285/ 
+* https://toqoz.fyi/thousands-of-meshes.html 
+
 
 ## 🔎 Related Work
 

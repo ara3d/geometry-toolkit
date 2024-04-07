@@ -1,0 +1,30 @@
+﻿#pragma kernel CSPositionKernel
+ 
+ #define thread_group_size_x 64
+ #define thread_group_size_y 1
+
+AppendStructuredBuffer<float4> positionBuffer;
+
+float _Dim;
+
+float rand(in float2 uv)
+{
+	float2 noise = (frac(sin(dot(uv ,float2(12.9898,78.233)*2.0)) * 43758.5453));
+	return abs(noise.x + noise.y) * 0.5;
+}
+
+[numthreads(thread_group_size_x, thread_group_size_y, 1)]
+void CSPositionKernel (uint3 id : SV_DispatchThreadID)
+{
+	// this uv assumes the # of instances is _Dim * _Dim. 
+	// so we calculate the uv inside a grid of _Dim x _Dim elements.
+	float2 uv = float2( floor(id.x / _Dim) / _Dim, (id.x % (int)_Dim) / _Dim);
+	
+	// in this case, _Dim can be replaced by the grid size in the world
+    float4 pos = float4((uv.x - 0.5) * _Dim * 2, 0, (uv.y - 0.5) * _Dim * 2, rand(uv));
+
+    /// in this example, not all threads will output a position.
+    /// note: the output order is not deterministic!
+    if (rand(uv) > 0.5)
+        positionBuffer.Append(pos);
+}
