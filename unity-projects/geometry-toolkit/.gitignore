@@ -23,6 +23,8 @@ obj/
 *.user
 *.unityproj
 *.booproj
+*.vsconfig
+*.vsidx
 
 # ============ #
 # OS generated #

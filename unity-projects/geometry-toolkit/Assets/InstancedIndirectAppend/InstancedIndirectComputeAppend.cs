@@ -30,7 +30,7 @@ public class InstancedIndirectComputeAppend : MonoBehaviour
 
 	void Update()
 	{
-		// Update position buffer
+		// UpdateGpuData position buffer
 		UpdateBuffers();
 
 		// Render - same old, only now we'll have argsBuffer with the count set from the append result.

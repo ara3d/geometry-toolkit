@@ -31,7 +31,7 @@ public class InstancedIndirectComputeExample : MonoBehaviour
 
     void Update()
 	{ 
-        // Update position buffer
+        // UpdateGpuData position buffer
         UpdateBuffers();
 
         // Render

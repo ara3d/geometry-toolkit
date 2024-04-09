@@ -33,7 +33,7 @@ public class InstancedIndirectExample3 : MonoBehaviour
 
     void Update()
 	{ 
-        // Update starting position buffer
+        // UpdateGpuData starting position buffer
         if (cachedInstanceCount != instanceCount) UpdateBuffers();
 
         // Pad input
