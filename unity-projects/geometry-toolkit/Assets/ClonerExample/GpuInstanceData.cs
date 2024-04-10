@@ -4,12 +4,13 @@ namespace Assets.ClonerExample
 {
     public struct GpuInstanceData
     {
-        public Matrix4x4 Matrix;
+        public Vector3 Pos;
+        public Quaternion Rot;
+        public Vector3 Scl;
         public Vector4 Color;
         public float Smoothness;
         public float Metallic;
         public uint Id;
-        public uint Padding;
-        public static int Size => 96;
+        public static int Size => 17 * 4;
     }
 }

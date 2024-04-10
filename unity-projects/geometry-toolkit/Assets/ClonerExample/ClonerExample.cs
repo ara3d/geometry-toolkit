@@ -60,8 +60,7 @@ namespace Assets.ClonerExample
         { 
             if ( instanceCount < 1 ) instanceCount = 1;
             if ( gpuBuffer != null ) gpuBuffer.Release();
-            if ( argsBuffer == null) argsBuffer = 
-                new ComputeBuffer(5, sizeof(uint), ComputeBufferType.IndirectArguments);
+            if ( argsBuffer == null) argsBuffer = new ComputeBuffer(5, sizeof(uint), ComputeBufferType.IndirectArguments);
 
             gpuInstanceData = new GpuInstanceData[instanceCount];
         
@@ -71,12 +70,16 @@ namespace Assets.ClonerExample
                 var distance = Random.Range(20.0f, 100.0f);
                 var height = Random.Range(-2.0f, 2.0f);
                 var pos = new Vector3(Mathf.Sin(angle) * distance, height, Mathf.Cos(angle) * distance);
-                var matrix = Matrix4x4.Translate(pos);
                 var color = new Vector4(Random.value, Random.value, Random.value, alpha);
+                var rot = Quaternion.identity;
+                var scl = Vector3.one;
+
                 gpuInstanceData[i] = new GpuInstanceData()
                 {
-                    Color = color, 
-                    Matrix = matrix,
+                    Pos = pos,
+                    Rot = rot,
+                    Scl = scl,
+                    Color = color,
                     Smoothness = Random.Range(0f, 1f),
                     Metallic = Random.Range(0f, 1f),
                 };

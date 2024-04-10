@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 namespace Assets.ClonerExample
@@ -7,7 +7,8 @@ namespace Assets.ClonerExample
     [ExecuteAlways]
     public class ClonerComponent : MonoBehaviour
     {
-        public CpuInstanceData[] Instances = Array.Empty<CpuInstanceData>();
+        public NativeArray<CpuInstanceData> CpuArray;
+        public NativeArray<GpuInstanceData> GpuArray;
 
         public int Rows = 5;
         public int Columns = 5;
@@ -17,29 +18,65 @@ namespace Assets.ClonerExample
         public Color Color = Color.blue;
         public Quaternion Rotation = Quaternion.identity;
         public Vector3 Scale = Vector3.one;
-        
+
+        public void OnEnable()
+        {
+            CreateNativeArrays();
+        }
+
+        public void CreateNativeArrays()
+        {
+            if (Count != CpuArray.Length || !CpuArray.IsCreated)
+            {
+                if (CpuArray.IsCreated) CpuArray.Dispose();
+                CpuArray = new NativeArray<CpuInstanceData>(Count, Allocator.Persistent);
+            }
+
+            if (Count != GpuArray.Length || !GpuArray.IsCreated)
+            {
+                if (GpuArray.IsCreated) GpuArray.Dispose();
+                GpuArray = new NativeArray<GpuInstanceData>(Count, Allocator.Persistent);
+            }
+
+        }
+
         public void Update()
         {
-            if (Count != Instances.Length)
-                Array.Resize(ref Instances, Count);
+            CreateNativeArrays();
+
             for (var i = 0; i < Count; i++)
             {
                 var col = i % Columns;
                 var row = (i / Columns) % Rows;
                 var layer = (i / (Columns * Rows));
-                if (Instances[i] == null)
-                    Instances[i] = new CpuInstanceData();
-                var inst = Instances[i];
-                inst.Age = 0;
-                inst.Position = col * Vector3.right * Spacing
-                                + row * Vector3.forward * Spacing
-                                + layer * Vector3.up * Spacing;
-                inst.Rotation = Rotation;
-                inst.Scale = Scale;
-                inst.Color = new Vector3(Color.r, Color.g, Color.b);
-                inst.Alpha = Color.a;
-                inst.Enabled = true;
+
+                var position = col * Vector3.right * Spacing
+                               + row * Vector3.forward * Spacing
+                               + layer * Vector3.up * Spacing;
+                var rotation = Rotation;
+                var scale = Scale;
+
+                var mat = Matrix4x4.TRS(position, rotation, scale);
+                ;
+                GpuArray[i] = new GpuInstanceData()
+                {
+                    Pos = position,
+                    Rot = rotation,
+                    Scl = scale,
+                    Color = new Vector4(Color.r, Color.g, Color.b, 1),
+                };
+
+                CpuArray[i] = new CpuInstanceData()
+                {
+                    Id = (uint)i
+                };
             }
+        }
+
+        public void OnDisable()
+        {
+            CpuArray.Dispose();
+            GpuArray.Dispose();
         }
     }
 }   

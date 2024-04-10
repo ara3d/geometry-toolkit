@@ -9,7 +9,7 @@ namespace Assets.ClonerExample
     {
         public Mesh mesh; 
         public Material material;
-        public CloneData cloneData;
+        public CloneRenderData CloneRenderData;
         public ShadowCastingMode shadowCasting = ShadowCastingMode.Off;
         public bool receiveShadows = false;
 
@@ -18,29 +18,28 @@ namespace Assets.ClonerExample
 
         public void OnEnable()
         {
-            cloneData = new CloneData();
+            CloneRenderData = new CloneRenderData();
         }
 
         public void OnDisable()
         {
-            cloneData.Dispose();
-            cloneData = null;
+            CloneRenderData.Dispose();
+            CloneRenderData = null;
         }
 
         public void Update()
         {
             Debug.Assert(mesh != null);
             Debug.Assert(material != null);
-            Debug.Assert(cloneData != null);
+            Debug.Assert(CloneRenderData != null);
 
-            if ((elaspedSinceRecompute += Time.deltaTime) > maxElapsed)
-            {
-                var component = GetComponent<ClonerComponent>();
-                cloneData.UpdateGpuData(component.Instances, material);
-                elaspedSinceRecompute = 0;
-            }
+            var component = GetComponent<ClonerComponent>();
+            
+            if (component == null || component.enabled == false)
+                return;
 
-            cloneData.Render(mesh, shadowCasting, receiveShadows);
+            CloneRenderData.UpdateGpuData(mesh, component.GpuArray, material);
+            CloneRenderData.Render(shadowCasting, receiveShadows);
         }
     }
 }

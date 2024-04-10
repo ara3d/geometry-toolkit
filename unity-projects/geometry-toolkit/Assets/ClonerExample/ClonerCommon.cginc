@@ -7,24 +7,44 @@
 
 		struct InstanceData 
 		{
-			float4x4 mat;
+			float3 pos;
+			float4 rot;
+			float3 scl;
 			float4 col;
 			float smoothness;
 			float metallic;
-			float padding1;
-			float padding2;
+			uint id;
 		};
 
 #ifdef UNITY_PROCEDURAL_INSTANCING_ENABLED
 		StructuredBuffer<InstanceData> instanceBuffer;
 #endif
 
+		float4x4 QuatToMatrix(float4 q)
+		{
+			float4x4 rotMat = float4x4
+			(
+				float4(1 - 2 * q.y * q.y - 2 * q.z * q.z, 2 * q.x * q.y + 2 * q.w * q.z, 2 * q.x * q.z - 2 * q.w * q.y, 0),
+				float4(2 * q.x * q.y - 2 * q.w * q.z, 1 - 2 * q.x * q.x - 2 * q.z * q.z, 2 * q.y * q.z + 2 * q.w * q.x, 0),
+				float4(2 * q.x * q.z + 2 * q.w * q.y, 2 * q.y * q.z - 2 * q.w * q.x, 1 - 2 * q.x * q.x - 2 * q.y * q.y, 0),
+				float4(0, 0, 0, 1)
+			);
+			return rotMat;
+		}
+ 
+		float4x4 MakeTRSMatrix(float3 pos, float4 rotQuat, float3 scale)
+		{
+			float4x4 rotPart = QuatToMatrix(rotQuat);
+			float4x4 trPart = float4x4(float4(scale.x, 0, 0, 0), float4(0, scale.y, 0, 0), float4(0, 0, scale.z, 0), float4(pos, 1));
+			return mul(transpose(rotPart), transpose(trPart));
+		}
+ 
 		void setup()
 		{
 #ifdef UNITY_PROCEDURAL_INSTANCING_ENABLED
 			InstanceData inst = instanceBuffer[unity_InstanceID];
-			float4x4 mat = inst.mat;
-			unity_ObjectToWorld = inst.col.w == 0 ? 0 : mat;
+			float4x4 mat = MakeTRSMatrix(inst.pos, inst.rot, inst.scl);
+			unity_ObjectToWorld = mat;
 #endif
 		}
 
