@@ -1,13 +1,13 @@
-using UnityEngine;
+using Unity.Mathematics;
 
 namespace Assets.ClonerExample
 {
     public struct GpuInstanceData
     {
-        public Vector3 Pos;
-        public Quaternion Rot;
-        public Vector3 Scl;
-        public Vector4 Color;
+        public float3 Pos;
+        public quaternion Rot;
+        public float3 Scl;
+        public float4 Color;
         public float Smoothness;
         public float Metallic;
         public uint Id;

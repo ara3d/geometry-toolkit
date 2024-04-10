@@ -1,9 +1,54 @@
 using System.Collections.Generic;
 using Unity.Collections;
+using Unity.Jobs;
+using Unity.Mathematics;
 using UnityEngine;
+using Unity.Burst;
 
 namespace Assets.ClonerExample
 {
+
+    [BurstCompile(CompileSynchronously = true)]
+    public struct InitializeDataJob : IJobParallelFor
+    {
+        [WriteOnly] public NativeArray<CpuInstanceData> CpuArray;
+        [WriteOnly] public NativeArray<GpuInstanceData> GpuArray;
+
+        public int Rows;
+        public int Columns;
+        public float Spacing;
+        
+        public float4 Color;
+        public quaternion Rotation;
+        public float3 Scale;
+
+        public void Execute(int i)
+        {
+            var col = i % Columns;
+            var row = (i / Columns) % Rows;
+            var layer = (i / (Columns * Rows));
+
+            var position = col * new float3(1, 0, 0) * Spacing
+                           + row * new float3(0, 0, 1) * Spacing
+                           + layer * new float3(0, 1, 0) * Spacing;
+            var rotation = Rotation;
+            var scale = Scale;
+
+            GpuArray[i] = new GpuInstanceData()
+            {
+                Pos = position,
+                Rot = rotation,
+                Scl = scale,
+                Color = Color,
+            };
+
+            CpuArray[i] = new CpuInstanceData()
+            {
+                Id = (uint)i
+            };
+        }
+    }
+
     [ExecuteAlways]
     public class ClonerComponent : MonoBehaviour
     {
@@ -44,33 +89,20 @@ namespace Assets.ClonerExample
         {
             CreateNativeArrays();
 
-            for (var i = 0; i < Count; i++)
+            var job = new InitializeDataJob
             {
-                var col = i % Columns;
-                var row = (i / Columns) % Rows;
-                var layer = (i / (Columns * Rows));
+                Rows = Rows,
+                Columns = Columns,
+                Spacing = Spacing,
+                Color = new float4(Color.r, Color.g, Color.b, Color.a),
+                Rotation = Rotation,
+                Scale = Scale,
+                CpuArray = CpuArray,
+                GpuArray = GpuArray
+            };
 
-                var position = col * Vector3.right * Spacing
-                               + row * Vector3.forward * Spacing
-                               + layer * Vector3.up * Spacing;
-                var rotation = Rotation;
-                var scale = Scale;
-
-                var mat = Matrix4x4.TRS(position, rotation, scale);
-                ;
-                GpuArray[i] = new GpuInstanceData()
-                {
-                    Pos = position,
-                    Rot = rotation,
-                    Scl = scale,
-                    Color = new Vector4(Color.r, Color.g, Color.b, 1),
-                };
-
-                CpuArray[i] = new CpuInstanceData()
-                {
-                    Id = (uint)i
-                };
-            }
+            var handle = job.Schedule(Count, 1);
+            handle.Complete();
         }
 
         public void OnDisable()
@@ -78,5 +110,6 @@ namespace Assets.ClonerExample
             CpuArray.Dispose();
             GpuArray.Dispose();
         }
+
     }
 }   
