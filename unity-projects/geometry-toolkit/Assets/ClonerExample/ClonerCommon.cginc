@@ -36,7 +36,7 @@
 		{
 			float4x4 rotPart = QuatToMatrix(rotQuat);
 			float4x4 trPart = float4x4(float4(scale.x, 0, 0, 0), float4(0, scale.y, 0, 0), float4(0, 0, scale.z, 0), float4(pos, 1));
-			return mul(transpose(rotPart), transpose(trPart));
+			return mul(transpose(trPart), transpose(rotPart));
 		}
  
 		void setup()

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -21,9 +20,6 @@ namespace Assets.ClonerExample
         private uint[] args = new uint[5] { 0, 0, 0, 0, 0 };
         private ComputeBuffer argsBuffer;
         private ComputeBuffer gpuBuffer;
-
-        public float elapsed;
-        public float maxElapsed;
 
         public void UpdateGpuData(Mesh mesh, NativeArray<GpuInstanceData> gpuInstances, Material material)
         {
