@@ -23,7 +23,7 @@ namespace Assets.ClonerExample
             var r1 = math.mul(r0, Rotation);
             var r2 = math.slerp(r0, r1, a);
             Data.GpuInstance(i).Rot = r2;
-            var t1 = math.mul(r2, Translation);
+            var t1 = math.mul(r0, Translation);
             var p1 = p0 + t1;
             var p2 = math.lerp(p0, p1, a);
             Data.GpuInstance(i).Pos = p2;

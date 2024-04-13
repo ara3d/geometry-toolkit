@@ -12,22 +12,22 @@ namespace Assets.ClonerExample
         public bool UseSelection;
         public float Strength;
         
-        public bool ApplyTranslation;
+        public bool SetTranslation;
         public float3 Translation;
 
-        public bool ApplyRotation;
+        public bool SetRotation;
         public quaternion Rotation;
 
-        public bool ApplyScaling;
+        public bool SetScaling;
         public float3 Scaling;
 
-        public bool ApplyColor;
+        public bool SetColor;
         public float4 Color;
 
-        public bool ApplySmoothness;
+        public bool SetSmoothness;
         public float Smoothness;
 
-        public bool ApplyMetallic;
+        public bool SetMetallic;
         public float Metallic;
 
         public void Execute(int i)
@@ -35,17 +35,17 @@ namespace Assets.ClonerExample
             var sel = UseSelection 
                 ? math.lerp(0, Data.CpuInstance(i).Selection, Strength) 
                 : Strength;
-            if (ApplyColor)
+            if (SetColor)
                 Data.GpuInstance(i).Color = math.lerp(Data.GpuInstance(i).Color, Color, sel);
-            if (ApplyTranslation)
+            if (SetTranslation)
                 Data.GpuInstance(i).Pos = math.lerp(Data.GpuInstance(i).Pos, Translation, sel);
-            if (ApplyScaling)
+            if (SetScaling)
                 Data.GpuInstance(i).Scl = math.lerp(Data.GpuInstance(i).Scl, Scaling, sel);
-            if (ApplyRotation)
+            if (SetRotation)
                 Data.GpuInstance(i).Rot = math.slerp(Data.GpuInstance(i).Rot, Rotation, sel);
-            if (ApplySmoothness)
+            if (SetSmoothness)
                 Data.GpuInstance(i).Smoothness = math.lerp(Data.GpuInstance(i).Smoothness, Smoothness, sel);
-            if (ApplyMetallic)
+            if (SetMetallic)
                 Data.GpuInstance(i).Metallic = math.lerp(Data.GpuInstance(i).Metallic, Metallic, sel);
         }
 
