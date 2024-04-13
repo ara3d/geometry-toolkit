@@ -7,7 +7,10 @@ namespace Assets.ClonerExample
     {
         public int Count => CpuArray.Length;
 
+        [NativeDisableParallelForRestriction]
         public NativeArray<CpuInstanceData> CpuArray;
+        
+        [NativeDisableParallelForRestriction]
         public NativeArray<GpuInstanceData> GpuArray;
 
         public ref CpuInstanceData CpuInstance(int i) => ref CpuArray.GetRef(i);
@@ -33,8 +36,8 @@ namespace Assets.ClonerExample
 
         public void Dispose()
         {
-            CpuArray.Dispose();
-            GpuArray.Dispose();
+            if (CpuArray.IsCreated) CpuArray.Dispose();
+            if (CpuArray.IsCreated) GpuArray.Dispose();
         }
     }
 }

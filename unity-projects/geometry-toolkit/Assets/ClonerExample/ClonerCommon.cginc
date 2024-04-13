@@ -42,8 +42,8 @@
 		void setup()
 		{
 #ifdef UNITY_PROCEDURAL_INSTANCING_ENABLED
-			InstanceData inst = instanceBuffer[unity_InstanceID];
-			float4x4 mat = MakeTRSMatrix(inst.pos, inst.rot, inst.scl);
+			InstanceData inst = instanceBuffer[unity_InstanceID];	
+			float4x4 mat = (inst.col.a > 0) ? MakeTRSMatrix(inst.pos, inst.rot, inst.scl) : 0;
 			unity_ObjectToWorld = mat;
 #endif
 		}

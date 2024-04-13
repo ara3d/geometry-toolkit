@@ -29,7 +29,7 @@ namespace Assets.ClonerExample
                     MinStrength = MinStrength,
                     MaxStrength = MaxStrength,
                 }
-                .Schedule(previousData.Count, 1, previousHandle));
+                .Schedule(previousData.Count, 16, previousHandle));
         }
     }
 
@@ -57,11 +57,9 @@ namespace Assets.ClonerExample
             var relIndex = (float)i / CloneData.Count;
             var halfExtent = Extent / 2;
             var dist = math.abs(Center - relIndex);
-            if (dist > halfExtent) return;
             var amount = dist / halfExtent;
-
-            var sel = math.lerp(MaxStrength, MinStrength, amount);
-            if (Invert) sel = 1.0f - sel;
+            if (Invert) amount = 1.0f - amount;
+            var sel = math.lerp(MinStrength, MaxStrength, amount);
             CloneData.CpuInstance(i).Selection = sel;
         }
 
