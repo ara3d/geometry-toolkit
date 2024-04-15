@@ -21,8 +21,7 @@ namespace Assets.ClonerExample
         {
             if (Randomize)
             {
-                var rng = new Rng(Seed, (uint)(i + 35000));
-                Data.CpuInstance(i).Selection = rng.Float;
+                Data.CpuInstance(i).Selection = Rng.GetNthFloat(Seed, (ulong)i);
                 return;
             }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    public class ColorPaletteGenerator : MonoBehaviour
+    public class UtilGenerateColorPalette : MonoBehaviour
     {
         [Range(0, 360)] public float Hue = 180;
         [Range(0, 1)] public float Saturation = 0.8f;
