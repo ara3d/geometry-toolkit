@@ -12,7 +12,7 @@ Shader "GeometryToolkit/ClonerTransparent"
 			"Queue" = "Transparent" 
 		}
 		LOD 200
-
+		ZWrite Off
 		Blend SrcAlpha OneMinusSrcAlpha		
 		
 		CGPROGRAM
