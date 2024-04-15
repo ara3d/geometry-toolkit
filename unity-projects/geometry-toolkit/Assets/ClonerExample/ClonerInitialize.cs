@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    public class ClonerComponent : ClonerJobComponent
+    public class ClonerInitialize : ClonerJobComponent
     {
         public CloneData CloneData;
 

@@ -18,14 +18,8 @@ namespace Assets.ClonerExample
 
         public void Resize(int n)
         {
-            if (n == Count && CpuArray.IsCreated && GpuArray.IsCreated)
-                return;
-
-            if (CpuArray.IsCreated) CpuArray.Dispose();
-            if (GpuArray.IsCreated) GpuArray.Dispose();
-
-            CpuArray = new NativeArray<CpuInstanceData>(n, Allocator.Persistent, NativeArrayOptions.UninitializedMemory);
-            GpuArray = new NativeArray<GpuInstanceData>(n, Allocator.Persistent, NativeArrayOptions.UninitializedMemory);
+            CpuArray.Resize(n);
+            GpuArray.Resize(n);
         }
 
         public void Replicate(CloneData other, int count)
@@ -36,8 +30,8 @@ namespace Assets.ClonerExample
 
         public void Dispose()
         {
-            if (CpuArray.IsCreated) CpuArray.Dispose();
-            if (CpuArray.IsCreated) GpuArray.Dispose();
+            CpuArray.SafeDispose();
+            GpuArray.SafeDispose();
         }
     }
 }

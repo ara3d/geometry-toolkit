@@ -1,4 +1,3 @@
-using Unity.Burst;
 using Unity.Jobs;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ namespace Assets.ClonerExample
         
         public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
         {
-            return (previousData, new SelectRangeJob()
+            return (previousData, new JobSelectRange()
             {
                 Data = previousData,
                 From = From,
@@ -23,22 +22,6 @@ namespace Assets.ClonerExample
                 Strength = Strength
             }
                 .Schedule(previousData.Count, 16, previousHandle));
-        }
-    }
-
-    [BurstCompile(CompileSynchronously = true)]
-    public struct SelectRangeJob : IJobParallelFor
-    {
-        public CloneData Data;
-        public int From;
-        public int Count;
-        public int Stride;
-        public float Strength;
-
-        public void Execute(int i)
-        {
-            var n = i - From;
-            Data.CpuInstance(i).Selection = n >= 0 && n < Count && (n % Stride == 0) ? Strength : 0;
         }
     }
 }

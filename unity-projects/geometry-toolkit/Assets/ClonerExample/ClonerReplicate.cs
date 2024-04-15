@@ -38,9 +38,7 @@ namespace Assets.ClonerExample
 
         public void OnDisable()
         {
-            {
-                CloneData.Dispose();
-            }
+            CloneData.Dispose();
         }
     }
 }

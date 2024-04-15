@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    [RequireComponent(typeof(ClonerComponent))]
+    [RequireComponent(typeof(ClonerInitialize))]
     public class ClonerRenderer : MonoBehaviour
     {
         public Mesh mesh; 
@@ -14,10 +14,7 @@ namespace Assets.ClonerExample
         public ShadowCastingMode shadowCasting = ShadowCastingMode.Off;
         public bool receiveShadows = false;
 
-        public float elasped = 0;
-        public float maxElapsed = 0.2f;
-
-        public void OnEnable()
+       public void OnEnable()
         {
             CloneRenderData = new CloneRenderData();
         }
@@ -34,23 +31,23 @@ namespace Assets.ClonerExample
             Debug.Assert(material != null);
             Debug.Assert(CloneRenderData != null);
 
-            //if ((elasped += Time.deltaTime) > maxElapsed)
+            CloneData data = default;
+            JobHandle handle = default;
+            var jobComponents = gameObject.GetComponents<ClonerJobComponent>();
+            foreach (var jc in jobComponents)
             {
-                CloneData data = default;
-                JobHandle handle = default;
-                var jobComponents = gameObject.GetComponents<ClonerJobComponent>();
-                foreach (var jc in jobComponents)
+                if (jc.enabled)
                 {
-                    if (jc.enabled)
-                    {
-                        (data, handle) = jc.Schedule(data, handle);
-                    }
+                    (data, handle) = jc.Schedule(data, handle);
                 }
-                handle.Complete();
-                CloneRenderData.UpdateGpuData(mesh, data.GpuArray, material);
-                elasped = 0;
             }
-
+            handle.Complete();
+            if (CloneRenderData == null)
+            {
+                Debug.LogError("Clone render data is not created");
+                return;
+            }
+            CloneRenderData.UpdateGpuData(mesh, data.GpuArray, material);
             CloneRenderData.Render(shadowCasting, receiveShadows);
         }
     }

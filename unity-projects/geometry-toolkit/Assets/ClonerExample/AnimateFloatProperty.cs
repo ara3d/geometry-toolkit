@@ -2,7 +2,6 @@ using System;
 using System.Reflection;
 using UnityEngine;
 
-[ExecuteAlways]
 public class AnimateFloatProperty : MonoBehaviour
 {
     public Component Component;
