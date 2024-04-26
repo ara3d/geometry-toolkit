@@ -14,7 +14,7 @@ Shader "GeometryToolkit/ClonerOpaque"
 
 		CGPROGRAM
 
-#pragma surface surf Standard addshadow 
+#pragma surface surf Standard addshadow // vertex:vert
 #pragma multi_compile_instancing
 #pragma instancing_options procedural:setup
 

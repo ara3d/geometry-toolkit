@@ -46,8 +46,8 @@ public class InstancedIndirectNoBuffer : MonoBehaviour
 
         colorBuffer = new ComputeBuffer(instanceCount, 16);
 
-		Vector4[] colors = new Vector4[instanceCount];
-        for (int i = 0; i < instanceCount; i++)
+		var colors = new Vector4[instanceCount];
+        for (var i = 0; i < instanceCount; i++)
             colors[i] = Random.ColorHSV();
 
         colorBuffer.SetData(colors);
@@ -55,7 +55,7 @@ public class InstancedIndirectNoBuffer : MonoBehaviour
         instanceMaterial.SetBuffer("colorBuffer", colorBuffer);
 
         // indirect args
-        uint numIndices = (instanceMesh != null) ? (uint)instanceMesh.GetIndexCount(0) : 0;
+        var numIndices = (instanceMesh != null) ? (uint)instanceMesh.GetIndexCount(0) : 0;
         args[0] = numIndices;
         args[1] = (uint)instanceCount;
         argsBuffer.SetData(args);

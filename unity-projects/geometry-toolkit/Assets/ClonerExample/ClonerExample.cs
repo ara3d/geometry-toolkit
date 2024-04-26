@@ -77,7 +77,7 @@ namespace Assets.ClonerExample
                 gpuInstanceData[i] = new GpuInstanceData()
                 {
                     Pos = pos,
-                    Rot = rot,
+                    Orientation = rot,
                     Scl = scl,
                     Color = color,
                     Smoothness = Random.Range(0f, 1f),

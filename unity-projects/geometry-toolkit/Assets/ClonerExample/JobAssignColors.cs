@@ -18,7 +18,7 @@ namespace Assets.ClonerExample
         public void Execute(int index)
         {
             var c0 = Data.GpuInstance(index).Color;
-            var n = Randomize ? Rng.GetNthInt(RandomSeed, index) : index;
+            var n = Randomize ? Rng.GetNthInt(RandomSeed, (ulong)index) : index;
             var c1 = Colors[n % Colors.Length];
             Data.GpuInstance(index).Color = math.lerp(c0, c1, Strength);
         }

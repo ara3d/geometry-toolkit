@@ -29,7 +29,7 @@ namespace UnityTemplateProjects
 
             public void Translate(Vector3 translation)
             {
-                Vector3 rotatedTranslation = Quaternion.Euler(pitch, yaw, roll) * translation;
+                var rotatedTranslation = Quaternion.Euler(pitch, yaw, roll) * translation;
 
                 x += rotatedTranslation.x;
                 y += rotatedTranslation.y;
@@ -70,7 +70,7 @@ namespace UnityTemplateProjects
         [Tooltip("Multiplier for the sensitivity of the rotation.")]
         public float mouseSensitivity = 60.0f;
 
-        [Tooltip("X = Change in mouse position.\nY = Multiplicative factor for camera rotation.")]
+        [Tooltip("X = Change in mouse position. \nY = Multiplicative factor for camera rotation.")]
         public AnimationCurve mouseSensitivityCurve = new AnimationCurve(new Keyframe(0f, 0.5f, 0f, 5f), new Keyframe(1f, 2.5f, 0f, 0f));
 
         [Tooltip("Time it takes to interpolate camera rotation 99% of the way to the target."), Range(0.001f, 1f)]
@@ -88,7 +88,7 @@ namespace UnityTemplateProjects
 
         Vector3 GetInputTranslationDirection()
         {
-            Vector3 direction = Vector3.zero;
+            var direction = Vector3.zero;
 
             if (Input.GetKey(KeyCode.W))
             {

@@ -19,10 +19,10 @@ namespace Assets.ClonerExample
                 ? math.lerp(0, Data.CpuInstance(i).Selection, Strength) 
                 : Strength;
             var p0 = Data.GpuInstance(i).Pos;
-            var r0 = Data.GpuInstance(i).Rot;
+            var r0 = Data.GpuInstance(i).Orientation;
             var r1 = math.mul(r0, Rotation);
             var r2 = math.slerp(r0, r1, a);
-            Data.GpuInstance(i).Rot = r2;
+            Data.GpuInstance(i).Orientation = r2;
             var t1 = math.mul(r0, Translation);
             var p1 = p0 + t1;
             var p2 = math.lerp(p0, p1, a);

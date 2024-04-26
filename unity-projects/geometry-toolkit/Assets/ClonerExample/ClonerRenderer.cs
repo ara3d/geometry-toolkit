@@ -5,34 +5,34 @@ using UnityEngine.Rendering;
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    [RequireComponent(typeof(ClonerInitialize))]
     public class ClonerRenderer : MonoBehaviour
     {
         public Mesh mesh; 
         public Material material;
-        public CloneRenderData CloneRenderData;
+        public CloneRenderData _cloneRenderData;
         public ShadowCastingMode shadowCasting = ShadowCastingMode.Off;
         public bool receiveShadows = false;
 
-       public void OnEnable()
+        public void OnEnable()
         {
-            CloneRenderData = new CloneRenderData();
+            _cloneRenderData = new CloneRenderData();
         }
 
         public void OnDisable()
         {
-            CloneRenderData.Dispose();
-            CloneRenderData = null;
+            _cloneRenderData.Dispose();
+            _cloneRenderData = null;
         }
 
         public void Update()
         {
             Debug.Assert(mesh != null);
             Debug.Assert(material != null);
-            Debug.Assert(CloneRenderData != null);
+            Debug.Assert(_cloneRenderData != null);
 
             CloneData data = default;
             JobHandle handle = default;
+            
             var jobComponents = gameObject.GetComponents<ClonerJobComponent>();
             foreach (var jc in jobComponents)
             {
@@ -42,13 +42,13 @@ namespace Assets.ClonerExample
                 }
             }
             handle.Complete();
-            if (CloneRenderData == null)
+            if (_cloneRenderData == null)
             {
                 Debug.LogError("Clone render data is not created");
                 return;
             }
-            CloneRenderData.UpdateGpuData(mesh, data.GpuArray, material);
-            CloneRenderData.Render(shadowCasting, receiveShadows);
+            _cloneRenderData.UpdateGpuData(mesh, data.GpuArray, material);
+            _cloneRenderData.Render(shadowCasting, receiveShadows);
         }
     }
 }

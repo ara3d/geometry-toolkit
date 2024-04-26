@@ -62,15 +62,15 @@ public class InstancedIndirectExample3 : MonoBehaviour
         positionBuffer	= new ComputeBuffer(instanceCount, 16);
 		colorBuffer		= new ComputeBuffer(instanceCount, 4*4);
 
-        Vector4[] positions = new Vector4[instanceCount];
-		Vector4[] colors	= new Vector4[instanceCount];
+        var positions = new Vector4[instanceCount];
+		var colors	= new Vector4[instanceCount];
 
-        for (int i=0; i < instanceCount; i++)
+        for (var i=0; i < instanceCount; i++)
 		{
-            float angle = Random.Range(0.0f, Mathf.PI * 2.0f);
-            float distance = Random.Range(20.0f, 100.0f);
-            float height = Random.Range(-2.0f, 2.0f);
-            float size = Random.Range(0.05f, 0.25f);
+            var angle = Random.Range(0.0f, Mathf.PI * 2.0f);
+            var distance = Random.Range(20.0f, 100.0f);
+            var height = Random.Range(-2.0f, 2.0f);
+            var size = Random.Range(0.05f, 0.25f);
             positions[i]	= new Vector4(Mathf.Sin(angle) * distance, height, Mathf.Cos(angle) * distance, size);
 			colors[i]		= new Vector4( Random.value, Random.value, Random.value, 1f );
         }
@@ -86,13 +86,13 @@ public class InstancedIndirectExample3 : MonoBehaviour
 
         // indirect args
         {
-            uint numIndices = (opaqueMesh != null) ? (uint)opaqueMesh.GetIndexCount(0) : 0;
+            var numIndices = (opaqueMesh != null) ? (uint)opaqueMesh.GetIndexCount(0) : 0;
             opaqueArgs[0] = numIndices;
             opaqueArgs[1] = (uint)instanceCount;
             opaqueArgsBuffer.SetData(opaqueArgs);
         }
         {
-            uint numIndices = (transparentMesh != null) ? (uint)transparentMesh.GetIndexCount(0) : 0;
+            var numIndices = (transparentMesh != null) ? (uint)transparentMesh.GetIndexCount(0) : 0;
             transparentArgs[0] = numIndices;
             transparentArgs[1] = (uint)instanceCount;
             transparentArgsBuffer.SetData(transparentArgs);

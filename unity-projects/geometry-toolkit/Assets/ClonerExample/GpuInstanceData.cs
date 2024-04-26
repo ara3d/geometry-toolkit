@@ -5,7 +5,7 @@ namespace Assets.ClonerExample
     public struct GpuInstanceData
     {
         public float3 Pos;
-        public quaternion Rot;
+        public quaternion Orientation;
         public float3 Scl;
         public float4 Color;
         public float Smoothness;

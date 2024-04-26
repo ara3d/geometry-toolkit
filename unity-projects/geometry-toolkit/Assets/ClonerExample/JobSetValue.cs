@@ -42,7 +42,7 @@ namespace Assets.ClonerExample
             if (SetScaling)
                 Data.GpuInstance(i).Scl = math.lerp(Data.GpuInstance(i).Scl, Scaling, sel);
             if (SetRotation)
-                Data.GpuInstance(i).Rot = math.slerp(Data.GpuInstance(i).Rot, Rotation, sel);
+                Data.GpuInstance(i).Orientation = math.slerp(Data.GpuInstance(i).Orientation, Rotation, sel);
             if (SetSmoothness)
                 Data.GpuInstance(i).Smoothness = math.lerp(Data.GpuInstance(i).Smoothness, Smoothness, sel);
             if (SetMetallic)

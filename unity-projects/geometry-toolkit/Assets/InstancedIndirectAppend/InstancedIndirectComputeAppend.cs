@@ -44,7 +44,7 @@ public class InstancedIndirectComputeAppend : MonoBehaviour
 		positionAppendBuffer.SetCounterValue(0);
 
 		/// TODO this only works with POT, integral sqrt vals
-		int bs = instanceCount / 64;
+		var bs = instanceCount / 64;
 		positionComputeShader.Dispatch(positionComputeKernelId, bs, 1, 1);
 		positionComputeShader.SetBuffer(positionComputeKernelId, "positionBuffer", positionAppendBuffer);
 		positionComputeShader.SetFloat("_Dim", Mathf.Sqrt(instanceCount));
@@ -75,7 +75,7 @@ public class InstancedIndirectComputeAppend : MonoBehaviour
 		instanceMaterial.SetBuffer("positionBuffer", positionAppendBuffer);
 
 		// indirect args
-		uint numIndices = (instanceMesh != null) ? (uint)instanceMesh.GetIndexCount(0) : 0;
+		var numIndices = (instanceMesh != null) ? (uint)instanceMesh.GetIndexCount(0) : 0;
 		argsBuffer.SetData(new uint[5] { numIndices, (uint)instanceCount, 0, 0, 0 });
 	}
 

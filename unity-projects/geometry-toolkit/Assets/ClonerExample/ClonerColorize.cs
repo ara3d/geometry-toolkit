@@ -21,7 +21,7 @@ namespace Assets.ClonerExample
             Update();
         }
 
-        public void Update()
+        public new void Update()
         {
             Colors = UtilGenerateColorPalette.GenerateTriadColors(Hue * 360f, Saturation);
         }

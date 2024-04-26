@@ -60,7 +60,7 @@ public class InstancedIndirectExample4 : MonoBehaviour
 		
         gpuInstanceData = new GpuInstanceData[instanceCount];
         
-        for (int i=0; i < instanceCount; i++)
+        for (var i=0; i < instanceCount; i++)
 		{
             var angle = Random.Range(0.0f, Mathf.PI * 2.0f);
             var distance = Random.Range(20.0f, 100.0f);
@@ -78,7 +78,7 @@ public class InstancedIndirectExample4 : MonoBehaviour
 
         // indirect args
         {
-            uint numIndices = (opaqueMesh != null) ? (uint)opaqueMesh.GetIndexCount(0) : 0;
+            var numIndices = (opaqueMesh != null) ? (uint)opaqueMesh.GetIndexCount(0) : 0;
             opaqueArgs[0] = numIndices;
             opaqueArgs[1] = (uint)instanceCount;
             opaqueArgsBuffer.SetData(opaqueArgs);

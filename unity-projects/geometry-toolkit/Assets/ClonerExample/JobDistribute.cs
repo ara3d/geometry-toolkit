@@ -22,9 +22,9 @@ namespace Assets.ClonerExample
 
             if (ApplyRotation)
             {
-                var r0 = Data.GpuInstance(i).Rot;
+                var r0 = Data.GpuInstance(i).Orientation;
                 var r1 = math.mul(r0, quaternion.RotateY(t));
-                Data.GpuInstance(i).Rot = math.slerp(r0, r1, Strength);
+                Data.GpuInstance(i).Orientation = math.slerp(r0, r1, Strength);
             }
 
         }

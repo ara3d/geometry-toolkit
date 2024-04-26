@@ -48,8 +48,8 @@ public class InstancedIndirectSelection : MonoBehaviour
 
 	void OnGUI()
 	{
-		int decodedID = DecodeFloatRGBA(m_LastSelection);
-		string validSelection = decodedID == 16777215 ? "Nothing" : "A valid ID";
+		var decodedID = DecodeFloatRGBA(m_LastSelection);
+		var validSelection = decodedID == 16777215 ? "Nothing" : "A valid ID";
 		GUI.Label(new Rect(25, Screen.height-48, 512, 30), "Selected " + validSelection + " [ " + decodedID.ToString("N0") + " ]   Color: " + m_LastSelection  );
 		
 		if( m_ShowRenderTexture && null != m_SelectorRenderTexture) GUI.DrawTexture( new Rect( 0, 0, Screen.width/m_DisplayDownScale, Screen.height/m_DisplayDownScale ), m_SelectorRenderTexture, ScaleMode.ScaleToFit, true );
@@ -63,8 +63,8 @@ public class InstancedIndirectSelection : MonoBehaviour
 		BuildRenderTexture();
 
 		// Cache Camera Values
-		int cachedCullingMask			= m_TargetCamera.cullingMask;
-		Color cachedBackground			= m_TargetCamera.backgroundColor;
+		var cachedCullingMask			= m_TargetCamera.cullingMask;
+		var cachedBackground			= m_TargetCamera.backgroundColor;
 
 		// Override Camera Values			
 		m_TargetCamera.cullingMask		= 256;							// Set the camera cullingMask to only render layer 8 ('Selection')  // 1 << 8; // Layer 8 = 256

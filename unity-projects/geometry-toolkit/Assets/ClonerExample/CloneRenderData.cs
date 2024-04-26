@@ -24,6 +24,9 @@ namespace Assets.ClonerExample
         public void UpdateGpuData(Mesh mesh, NativeArray<GpuInstanceData> gpuInstances, Material material)
         {
             Mesh = mesh;
+            Material = material;
+            if (!gpuInstances.IsCreated)
+                return;
 
             if (argsBuffer == null) argsBuffer =
                 new ComputeBuffer(5, sizeof(uint), ComputeBufferType.IndirectArguments);
@@ -31,6 +34,7 @@ namespace Assets.ClonerExample
             var numIndices = (Mesh != null) ? Mesh.GetIndexCount(0) : 0u;
             var numInstances = (uint)gpuInstances.Length;
 
+            // Only reallocate the gpuBuffer is the number of instances has changed 
             if (numInstances != NumInstances || gpuBuffer == null)
             {
                 if (gpuBuffer != null)
@@ -39,11 +43,13 @@ namespace Assets.ClonerExample
                 if (gpuInstances.Length != 0)
                 {
                     gpuBuffer = new ComputeBuffer(gpuInstances.Length, GpuInstanceData.Size);
+                    Material.SetBuffer("instanceBuffer", gpuBuffer);
                 }
             }
 
             if (gpuBuffer != null)
             {
+                // Copy the data into the ComputeBuffer (should be fast)
                 gpuBuffer.SetData(gpuInstances);
             }
 
@@ -53,9 +59,6 @@ namespace Assets.ClonerExample
                 args[1] = numInstances;
                 argsBuffer.SetData(args);
             }
-
-            Material = material;
-            Material.SetBuffer("instanceBuffer", gpuBuffer);
         }
 
         public void Render(ShadowCastingMode shadowCasting, bool receiveShadows)
@@ -70,11 +73,11 @@ namespace Assets.ClonerExample
             {
                 Debug.Log("No instances present");
                 return;
-            }
+            }   
             
             if (NumIndices == 0)
             {
-                Debug.Log("No mesh indices present");
+                Debug.Log("No mesh Indices present");
                 return;
             }
 

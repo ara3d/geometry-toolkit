@@ -18,14 +18,14 @@ namespace Assets.ClonerExample
         {
             Debug.Assert(DataSink.Count == DataSource.Count * Count);
             var pos = DataSource.GpuInstance(index).Pos;
-            var rot = DataSource.GpuInstance(index).Rot;
+            var rot = DataSource.GpuInstance(index).Orientation;
             for (var i = 0; i < Count; ++i)
             {
                 var j = index * Count + i;
                 DataSink.GpuArray[j] = DataSource.GpuArray[index];
                 DataSink.CpuArray[j] = DataSource.CpuArray[index];
                 DataSink.GpuInstance(j).Pos = pos;
-                DataSink.GpuInstance(j).Rot = rot;
+                DataSink.GpuInstance(j).Orientation = rot;
                 pos += Translation;
                 rot *= Rotation;
             }

@@ -20,6 +20,12 @@
 		StructuredBuffer<InstanceData> instanceBuffer;
 #endif
 
+		// NOTE: not currently used, but demonstrates how we could deform vertices as well. 
+		void vert (inout appdata_full v) 
+		{
+			v.vertex.xyz += v.normal.xyz * 0.5f;
+		}
+
 		float4x4 QuatToMatrix(float4 q)
 		{
 			float4x4 rotMat = float4x4
