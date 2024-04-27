@@ -3,10 +3,13 @@ using UnityEngine;
 
 namespace Ara3D.UnityBridge
 {
+    [ExecuteAlways]
+    [RequireComponent(typeof(MeshFilter))]
     public abstract class ProceduralGeometryObject : MonoBehaviour
     {
         private ITriMesh _newGeometry;
         private ITriMesh _oldGeometry;
+        private Mesh Mesh;
 
         public virtual void Reset()
         {
@@ -17,13 +20,17 @@ namespace Ara3D.UnityBridge
 
         public virtual void Update()
         {
+            if (Mesh == null)
+                Mesh = new Mesh();
+
             if (_newGeometry == null)
-                _newGeometry = ComputeMesh();
+                _newGeometry = ComputeGeometry();
 
             if (_newGeometry != _oldGeometry)
             {
                 _oldGeometry = _newGeometry;
-                this.UpdateMesh(_newGeometry);
+                Mesh.UpdateMesh(_newGeometry);
+                GetComponent<MeshFilter>().mesh = Mesh;
             }
         }
 
@@ -39,9 +46,9 @@ namespace Ara3D.UnityBridge
 
         public void OnValidate()
         {
-            _newGeometry = ComputeMesh();
+            _newGeometry = ComputeGeometry();
         }
 
-        public abstract ITriMesh ComputeMesh();
+        public abstract ITriMesh ComputeGeometry();
     }
 }

@@ -10,7 +10,7 @@ public class Polygon : ProceduralGeometryObject
     public PlatonicSolidsEnum MarkerType = PlatonicSolidsEnum.Icosahedron;
     public float Size = 10;
 
-    public override ITriMesh ComputeMesh()
+    public override ITriMesh ComputeGeometry()
     {
         var polygon = PolygonType.ToPolygon().To3D().Scale(Size);
         var marker = MarkerType.ToMesh();

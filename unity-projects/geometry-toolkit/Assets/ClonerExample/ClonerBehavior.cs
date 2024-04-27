@@ -1,5 +1,6 @@
 using Unity.Burst;
 using Unity.Jobs;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Assets.ClonerExample
@@ -9,6 +10,7 @@ namespace Assets.ClonerExample
     {
         public float MinSpeed;
         public float MaxSpeed;
+        public Vector3 Forward = new Vector3(1,0,0);
         public float MinGoalTime;
         public float MaxGoalTime;
         public ulong Seed = 441;
@@ -21,6 +23,7 @@ namespace Assets.ClonerExample
                 Time.time,
                 MinSpeed,
                 MaxSpeed,
+                Forward,
                 MinGoalTime,
                 MaxGoalTime)
                 .Schedule(previousData.Count, 32, previousHandle));
@@ -34,11 +37,12 @@ namespace Assets.ClonerExample
         private readonly ulong Seed;
         private readonly float MinSpeed;
         private readonly float MaxSpeed;
+        private readonly float3 Forward;
         private readonly float MinGoalTime;
         private readonly float MaxGoalTime;
         private readonly float CurrentTime;
 
-        public JobUpdateGoals(CloneData data, ulong seed, float currentTime, float minSpeed, float maxSpeed, float minGoalTime,
+        public JobUpdateGoals(CloneData data, ulong seed, float currentTime, float minSpeed, float maxSpeed, float3 forward, float minGoalTime,
             float maxGoalTime)
         {
             Data = data;
@@ -46,6 +50,7 @@ namespace Assets.ClonerExample
             CurrentTime = currentTime;
             MinSpeed = minSpeed;
             MaxSpeed = maxSpeed;
+            Forward = forward;
             MinGoalTime = minGoalTime;
             MaxGoalTime = maxGoalTime;
         }
@@ -62,7 +67,7 @@ namespace Assets.ClonerExample
                 var goal = new GoalState(
                     cpu.LastUpdateTime + Rng.GetNthFloat(newSeed + 1, (ulong)index, MinGoalTime, MaxGoalTime),
                     Rng.GetNthQuaternion(newSeed + 3, (ulong)index),
-                    Rng.GetNthFloat(newSeed + 2, (ulong)index, MinSpeed, MaxSpeed)
+                    Rng.GetNthFloat(newSeed + 2, (ulong)index, MinSpeed, MaxSpeed) * Forward
                 );
                 Data.CpuInstance(index).SetGoal(CurrentTime, goal, ref Data.GpuInstance(index));
             }

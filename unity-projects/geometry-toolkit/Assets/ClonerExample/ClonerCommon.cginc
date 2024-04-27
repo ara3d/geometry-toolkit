@@ -41,8 +41,9 @@
 		float4x4 MakeTRSMatrix(float3 pos, float4 rotQuat, float3 scale)
 		{
 			float4x4 rotPart = QuatToMatrix(rotQuat);
-			float4x4 trPart = float4x4(float4(scale.x, 0, 0, 0), float4(0, scale.y, 0, 0), float4(0, 0, scale.z, 0), float4(pos, 1));
-			return mul(transpose(trPart), transpose(rotPart));
+			float4x4 sclPart = float4x4(float4(scale.x, 0, 0, 0), float4(0, scale.y, 0, 0), float4(0, 0, scale.z, 0), float4(0, 0, 0, 1));
+			float4x4 trPart = float4x4(float4(1, 0, 0, 0), float4(0, 1, 0, 0), float4(0, 0, 1, 0), float4(pos, 1));
+			return mul(mul(transpose(trPart), transpose(rotPart)), transpose(sclPart));
 		}
  
 		void setup()

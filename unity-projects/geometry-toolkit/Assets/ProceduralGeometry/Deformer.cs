@@ -18,7 +18,7 @@ namespace Ara3D.UnityBridge
         public virtual void Update()
         {
             //Debug.Log("Update called");
-            var mesh = this.GetMesh();
+            var mesh = GetComponent<MeshFilter>().mesh;
             if (mesh == null) return;
             _source = _source ?? (_source = new UnityTriMesh(mesh));
 
@@ -49,7 +49,9 @@ namespace Ara3D.UnityBridge
         {
             //Debug.Log("Disabling");
             // Restore the original mesh
-            _source?.AssignToMesh(this.GetMesh());
+            var mesh = GetComponent<MeshFilter>().mesh;
+            if (mesh == null) return;
+            _source?.AssignToMesh(mesh);
             _source = null;
         }
 

@@ -36,6 +36,7 @@ namespace Assets.ClonerExample
             }
             var nTris = Mesh.triangles.Length / 3;
 
+            GridResolution = Mathf.Clamp(GridResolution, 0, 10000);
             _gridResolution = GridResolution;
             _voxels.Update(Bounds, GridResolution);
 
@@ -45,9 +46,11 @@ namespace Assets.ClonerExample
                 Voxels = _voxels
             };
             var md = dataArray[0];
-            job.Vertices = new NativeArray<float3>(md.vertexCount, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
+            using var verts = new NativeArray<float3>(md.vertexCount, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
+            job.Vertices = verts;
             md.GetVertices(job.Vertices.Reinterpret<Vector3>());
-            job.Indices = new NativeArray<int3>(nTris, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
+            using var indices = new NativeArray<int3>(nTris, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
+            job.Indices = indices;
             md.GetIndices(job.Indices.Reinterpret<int>(sizeof(int3)), 0);
             job.Schedule(nTris, 64).Complete();
         }

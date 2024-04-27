@@ -6,9 +6,9 @@ namespace Assets.ClonerExample
     {
         public readonly float Time;
         public readonly quaternion Orientation;
-        public readonly float Propulsion;
+        public readonly float3 Propulsion;
 
-        public GoalState(float time, quaternion orientation, float propulsion)
+        public GoalState(float time, quaternion orientation, float3 propulsion)
         {
             Time = time;
             Orientation = orientation;

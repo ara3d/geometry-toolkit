@@ -7,7 +7,7 @@ namespace Assets.ClonerExample
     {
         public float3 Velocity;
         public float3 Acceleration;
-        public float Propulsion;
+        public float3 Propulsion;
         public uint GroupId;
         public float2 Uv;
         public float Mass;
@@ -39,12 +39,12 @@ namespace Assets.ClonerExample
         {
             var t = currentTime - LastUpdateTime;
             LastUpdateTime = currentTime;
-            var forward = math.mul(gpu.Orientation, new float3(1, 0, 0));
+            var forward = math.mul(gpu.Orientation, Propulsion);
             
             //gpu.Pos += Velocity * t + Propulsion * forward * t;
             //Velocity += Acceleration * t;
 
-            gpu.Pos += Propulsion * forward * t;
+            gpu.Pos += forward * t;
 
             if (SeekGoal)
             {

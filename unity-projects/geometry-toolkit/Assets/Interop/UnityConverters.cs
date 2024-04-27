@@ -191,12 +191,6 @@ namespace Ara3D.UnityBridge
             return filter.sharedMesh;
         }
 
-        public static Mesh GetMesh(this MonoBehaviour mono)
-            => mono.GetComponent<MeshFilter>().GetMesh();
-
-        public static Mesh UpdateMesh(this MonoBehaviour mono, ITriMesh m)
-            => UpdateMesh(mono.GetMesh(), m);
-
         public static Mesh ToUnity(this ITriMesh m)
             => UpdateMesh(new Mesh(), m);
 

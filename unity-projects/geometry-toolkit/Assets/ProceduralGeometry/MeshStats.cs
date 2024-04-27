@@ -20,8 +20,8 @@ public class MeshStats : MonoBehaviour
 
     public void OnValidate()
     {
-        var mesh = this.GetMesh();
-        if (mesh != null)
+        var mesh = GetComponent<MeshFilter>().mesh;
+       if (mesh != null)
         {
             NumVertices = mesh.vertexCount;
             NumSubMeshes = mesh.subMeshCount;

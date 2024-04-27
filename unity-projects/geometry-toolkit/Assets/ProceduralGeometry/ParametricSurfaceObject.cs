@@ -87,7 +87,7 @@ public class ParametricSurfaceObject : ProceduralGeometryObject
                 return uv;
         }
     }
-    public override ITriMesh ComputeMesh()
+    public override ITriMesh ComputeGeometry()
     {
         return new ParametricSurface(uv => Eval(uv), ClosedU, ClosedV)
             .Tesselate(USegments, VSegments)

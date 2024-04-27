@@ -36,6 +36,7 @@ namespace Assets.ClonerExample
 
             var voxels = previousJob.ScheduleNow().Voxels;
 
+            _queue.SafeDispose();
             _queue = new NativeQueue<float3>(Allocator.Persistent);
 
             _job.Voxels = voxels;
@@ -45,6 +46,7 @@ namespace Assets.ClonerExample
             var h = _job.Schedule(voxels.VoxelCount, 64, previousHandle);
             h.Complete();
 
+            _points.SafeDispose();
             _points = _queue.ToArray(Allocator.Persistent);
             var count = _points.Length;
 
