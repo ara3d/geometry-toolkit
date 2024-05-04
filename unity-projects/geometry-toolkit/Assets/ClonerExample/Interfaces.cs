@@ -31,6 +31,10 @@ namespace Assets.ClonerExample
         ref CloneData CloneData { get; }
     }
 
+    public interface IMesh : IJobData
+    {
+    }
+
     public interface IJobResult 
     {
         JobHandle Handle { get; }

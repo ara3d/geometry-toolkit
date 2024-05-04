@@ -5,13 +5,13 @@ using UnityEngine;
 namespace ProceduralNoiseProject
 {
 
-    public enum NOISE_TYPE {  PERLIN, VALUE, SIMPLEX, VORONOI, WORLEY }
+    public enum NoiseType {  Perlin, Value, Simplex, Voronoi, Worley }
 
     [ExecuteAlways]
     public class Example : MonoBehaviour
     {
 
-        public NOISE_TYPE noiseType = NOISE_TYPE.PERLIN;
+        public NoiseType noiseType = NoiseType.Perlin;
 
         public int seed = 0;
 
@@ -89,19 +89,19 @@ namespace ProceduralNoiseProject
         {
             switch (noiseType)
             {
-                case NOISE_TYPE.PERLIN:
+                case NoiseType.Perlin:
                     return new PerlinNoise(seed, 20);
 
-                case NOISE_TYPE.VALUE:
+                case NoiseType.Value:
                     return new ValueNoise(seed, 20);
 
-                case NOISE_TYPE.SIMPLEX:
+                case NoiseType.Simplex:
                     return new SimplexNoise(seed, 20);
 
-                case NOISE_TYPE.VORONOI:
+                case NoiseType.Voronoi:
                     return new VoronoiNoise(seed, 20);
 
-                case NOISE_TYPE.WORLEY:
+                case NoiseType.Worley:
                     return new WorleyNoise(seed, 20, 1.0f);
 
                 default:

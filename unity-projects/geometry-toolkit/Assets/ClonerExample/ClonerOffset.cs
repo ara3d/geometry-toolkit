@@ -13,9 +13,10 @@ namespace Assets.ClonerExample
 
         public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
         {
+            Debug.Log($"Offset see {previousData.Count}");
             return (previousData,
                 new JobOffset() { Data = previousData, Translation = Translation, Rotation = Rotation, Strength = Strength, UseSelection = UseSelection }
                     .Schedule(previousData.Count, 32, previousHandle));
         }
     }
-}
+}   

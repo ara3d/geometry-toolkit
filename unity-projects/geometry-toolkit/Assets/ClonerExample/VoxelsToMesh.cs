@@ -1,3 +1,4 @@
+using System.Linq;
 using Assets.ClonerExample;
 using Unity.Burst;
 using Unity.Collections;
@@ -5,30 +6,48 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class VoxelsToMesh : MonoBehaviour
+[ExecuteAlways]
+public class VoxelsToMesh : JobScheduler<IVoxels, IMesh>, IMesh
 {
-    public void Update()
-    {
-        // TODO: 
-    }
-}
+    private Mesh Mesh;
+    public Material Material;
+    public bool Interpolate;
+    public float Threshold = 0.5f;
+    private NativeQueue<float3x3> triangles;
 
-public struct ParallelMeshBuilder
-{
-    public NativeQueue<float3x3> Triangles;
-    public NativeQueue<float3x3>.ParallelWriter Writer => Triangles.AsParallelWriter();
-
-    public Mesh CreateMesh()
+    public unsafe void Update()
     {
-        var mesh = new Mesh();
-        var tris = Triangles.ToArray(Allocator.Temp);
-        var verts = tris.Reinterpret<Vector3>();
-        mesh.SetVertices(verts);
+        this.ScheduleNow();
+        
+        Mesh = new Mesh();
+        var tris = triangles.ToArray(Allocator.Temp);
+        var verts = tris.Reinterpret<Vector3>(sizeof(float3x3));
+        Mesh.SetVertices(verts);
+        Mesh.triangles = Enumerable.Range(0, verts.Length).ToArray();
         tris.Dispose();
-        mesh.RecalculateNormals();
-        return mesh;
+        Mesh.RecalculateNormals();
+
+        var t = gameObject.GetComponent<Transform>();
+        Graphics.DrawMesh(Mesh, t.position, t.rotation, Material, 0);
     }
+
+    public override JobHandle ScheduleJob(IVoxels inputData, JobHandle previousHandle)
+    {
+        triangles.SafeDispose();
+        triangles = new NativeQueue<float3x3>(Allocator.Persistent);
+        var job = new MarchingCubesJob()
+        {
+            Voxels = inputData.Voxels,
+            Interpolate = Interpolate,
+            Threshold = Threshold,
+            triangleQueueWriter = triangles.AsParallelWriter(),
+        };
+        return job.Schedule(inputData.Voxels.VoxelCount, 64, previousHandle);
+    }
+
+    public override IMesh Result => this;
 }
+
 
 // This script returns a queue of triangles given a scalar field using the marching cubes algorithm
 // and the Unity Job system.
@@ -45,14 +64,6 @@ public struct MarchingCubesJob : IJobParallelFor
     public int NY => Voxels.GridHeight;
     public int NZ => Voxels.GridDepth;
 
-    public MarchingCubesJob(VoxelData<float> voxels, float threshold, bool interpolation)
-    {
-        Voxels = voxels;
-        Threshold = threshold;
-        Interpolate = interpolation;
-        triangleQueueWriter = default;
-    }
-
     public void Execute(int i)
     {
         var coords = Voxels.ToIndex3(i);
@@ -61,30 +72,34 @@ public struct MarchingCubesJob : IJobParallelFor
 
     // If Interpolate == True, linearly interpolate the vertices depending on the value of the 
     // scalar field at that point. Else just take the midpoint.
-    public float3 InterpolateVertices(Vector3 vertex0, Vector3 vertex1, float fieldValue0, float fieldValue1)
+    public float3 InterpolateVertices(float3 vertex0, float3 vertex1, float fieldValue0, float fieldValue1)
     {
         if (Interpolate)
         {
-            if (math.abs(fieldValue0) < 0.00001f)
+            var lerpAmount = math.unlerp(fieldValue0, fieldValue1, Threshold);
+            if (lerpAmount >= 0 && lerpAmount <= 1)
+                return math.lerp(vertex0, vertex1, lerpAmount);
+            /*
+                     const float eps = 0.00001f;
+        
+
+            if (math.abs(fieldValue0) < eps)
                 return vertex0;
 
-            if (math.abs(fieldValue1) < 0.00001f)
+            if (math.abs(fieldValue1) < eps)
                 return vertex1;
 
-            if (math.abs(fieldValue0 - fieldValue1) < 0.00001f)
-                return vertex0;
-
-            var mu = (fieldValue0) / (fieldValue1 - fieldValue0);
-
-            return math.float3(
-                vertex0.x + mu * (vertex1.x - vertex0.x),
-                vertex0.y + mu * (vertex1.y - vertex0.y),
-                vertex0.z + mu * (vertex1.z - vertex0.z));
+            if (math.abs(fieldValue0 - fieldValue1) > eps)
+            {
+                var mu = (fieldValue0) / (fieldValue1 - fieldValue0);
+                return vertex0 + mu * (vertex1 - vertex0);
+                
+                //return (vertex0 + vertex1) / 2;
+            }
+            */
         }
 
-        return math.float3((vertex0.x + vertex1.x) / 2,
-            (vertex0.y + vertex1.y) / 2,
-            (vertex0.z + vertex1.z) / 2);
+        return (vertex0 + vertex1) / 2;
     }
 
     // Returns the vertices for a specific cube within the scalar field.
@@ -150,6 +165,10 @@ public struct MarchingCubesJob : IJobParallelFor
                 edgeCutList[triTableOneDim[cubeIndex * 16 + l + 2]]);
 
             triangleQueueWriter.Enqueue(triangle);
+
+            // Reverse triangle.
+            var triangle2 = math.float3x3(triangle.c2, triangle.c1, triangle.c0);
+            triangleQueueWriter.Enqueue(triangle2);
         }
     }
 

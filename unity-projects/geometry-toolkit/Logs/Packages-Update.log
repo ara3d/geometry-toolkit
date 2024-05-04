@@ -45,3 +45,20 @@ The following packages were added:
   com.unity.timeline@1.6.4
   com.unity.ugui@1.0.0
   com.unity.visualscripting@1.7.8
+
+=== Sat Apr 27 11:04:35 2024
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were added:
+  com.unity.ai.navigation@1.1.5
+The following packages were updated:
+  com.unity.burst from version 1.6.6 to 1.8.13
+  com.unity.collab-proxy from version 1.17.7 to 2.3.1
+  com.unity.ide.rider from version 3.0.16 to 3.0.28
+  com.unity.ide.visualstudio from version 2.0.16 to 2.0.22
+  com.unity.postprocessing from version 3.2.2 to 3.4.0
+  com.unity.test-framework from version 1.1.31 to 1.1.33
+  com.unity.timeline from version 1.6.4 to 1.7.6
+  com.unity.visualscripting from version 1.7.8 to 1.9.2

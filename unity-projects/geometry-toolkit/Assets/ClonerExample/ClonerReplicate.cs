@@ -10,7 +10,7 @@ namespace Assets.ClonerExample
     {
         public int Count;
         public Vector3 Translation;
-        public Quaternion Rotation;
+        public Quaternion Rotation = Quaternion.identity;
 
         public CloneData CloneData;
 

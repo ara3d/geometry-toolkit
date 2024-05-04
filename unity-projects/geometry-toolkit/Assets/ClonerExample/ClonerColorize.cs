@@ -30,7 +30,7 @@ namespace Assets.ClonerExample
         {
             Colors = UtilGenerateColorPalette.GenerateTriadColors(Hue * 360f, Saturation);
             cachedColors.Assign(Colors, ToFloat4);
-
+            Debug.Log($"Clorize sees {previousData.Count}");
             return (previousData, new JobAssignColors()
             {
                 Colors = cachedColors,

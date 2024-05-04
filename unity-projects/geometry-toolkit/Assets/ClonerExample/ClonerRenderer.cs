@@ -9,6 +9,7 @@ namespace Assets.ClonerExample
     {
         public Mesh mesh; 
         public Material material;
+        private Material _material;
         public CloneRenderData _cloneRenderData;
         public ShadowCastingMode shadowCasting = ShadowCastingMode.Off;
         public bool receiveShadows = false;
@@ -16,6 +17,11 @@ namespace Assets.ClonerExample
         public void OnEnable()
         {
             _cloneRenderData = new CloneRenderData();
+        }
+
+        public void OnValidate()
+        {
+            _material = null;
         }
 
         public void OnDisable()
@@ -29,6 +35,11 @@ namespace Assets.ClonerExample
             Debug.Assert(mesh != null);
             Debug.Assert(material != null);
             Debug.Assert(_cloneRenderData != null);
+
+            if (_material == null)
+            {
+                _material = new Material(material);
+            }
 
             CloneData data = default;
             JobHandle handle = default;
@@ -47,7 +58,7 @@ namespace Assets.ClonerExample
                 Debug.LogError("Clone render data is not created");
                 return;
             }
-            _cloneRenderData.UpdateGpuData(mesh, data.GpuArray, material);
+            _cloneRenderData.UpdateGpuData(mesh, data.GpuArray, _material);
             _cloneRenderData.Render(shadowCasting, receiveShadows);
         }
     }

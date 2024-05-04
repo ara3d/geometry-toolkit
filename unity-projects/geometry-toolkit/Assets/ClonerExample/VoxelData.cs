@@ -73,6 +73,9 @@ namespace Assets.ClonerExample
         public float3 GetRelPos(float3 pos)
             => math.unlerp(Min, Max, pos);
 
+        public float3 GetRelPos(int3 index)
+            => math.unlerp(0, math.float3(GridDim), math.float3(index));
+
         public float3x2 GetBounds(int i)
             => GetBounds(ToIndex3(i));
 

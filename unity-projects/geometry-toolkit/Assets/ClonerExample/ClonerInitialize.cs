@@ -30,7 +30,7 @@ namespace Assets.ClonerExample
         }
 
         public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
-        {
+        { 
             CloneData.Resize(Count);
             if (RunSimulation)
             {

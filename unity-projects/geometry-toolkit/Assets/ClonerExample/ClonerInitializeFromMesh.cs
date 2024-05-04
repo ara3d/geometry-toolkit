@@ -120,18 +120,19 @@ namespace Assets.ClonerExample
         public float Metallic;
         public float Smoothness;
 
-        public static readonly float3 up = new float3(0, 0, -1);
+        public static readonly float3 up = new float3(0, 1, 0);
 
         [ReadOnly] public NativeArray<float3> Points;
 
         public void Execute(int i)
         {
-            var a = Points[i / 3];
-            var b = Points[(i / 3 + 1) % 3];
+            var a = Points[i];
+
+            var b = Points[i + ((i % 3 == 2) ? -2 : 1)];
             var v = b - a;
 
             var rotation = quaternion.LookRotationSafe(v, up);
-            var scale = new float3(1, math.length(v), 1);
+            var scale = new float3(0.1F, math.length(v), 0.1F);
             
             CloneData.GpuArray[i] = new GpuInstanceData()
             {

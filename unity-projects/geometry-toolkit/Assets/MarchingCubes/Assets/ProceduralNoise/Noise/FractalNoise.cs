@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace ProceduralNoiseProject
@@ -130,13 +131,6 @@ namespace ProceduralNoiseProject
 			return Noises[i].Sample1D(x * frq) * Amplitudes[i] * Amplitude;
 		}
 		
-        /// <summary>
-        /// Returns the noise value from a octave in a 2D fractal.
-        /// </summary>
-        /// <param name="i">The octave to sample.</param>
-        /// <param name="x">A value on the x axis.</param>
-        /// <param name="y">A value on the y axis.</param>
-        /// <returns>A noise value between -Amp and Amp.</returns>
 		public virtual float Octave2D(int i, float x, float y)
 		{
             if (i >= Octaves) return 0.0f;
@@ -149,14 +143,6 @@ namespace ProceduralNoiseProject
             return Noises[i].Sample2D(x * frq, y * frq) * Amplitudes[i] * Amplitude;
 		}
 		
-        /// <summary>
-        /// Returns the noise value from a octave in a 3D fractal.
-        /// </summary>
-        /// <param name="i">The octave to sample.</param>
-        /// <param name="x">A value on the x axis.</param>
-        /// <param name="y">A value on the y axis.</param>
-        /// <param name="z">A value on the z axis.</param>
-        /// <returns>A noise value between -Amp and Amp.</returns>
 		public virtual float Octave3D(int i, float x, float y, float z)
 		{
             if (i >= Octaves) return 0.0f;
@@ -230,6 +216,20 @@ namespace ProceduralNoiseProject
                     sum += Noises[i].Sample3D(x * frq, y * frq, z * frq) * Amplitudes[i];
 	        }
 			return sum * Amplitude;
+        }
+
+        public virtual float Sample3D(float3 v)
+        {
+            v += (float3)Offset;
+
+            float sum = 0, frq;
+            for (var i = 0; i < Octaves; i++)
+            {
+                frq = Frequencies[i];
+                if (Noises[i] != null)
+                    sum += Noises[i].Sample3D(v * frq) * Amplitudes[i];
+            }
+            return sum * Amplitude;
         }
     }
 }
