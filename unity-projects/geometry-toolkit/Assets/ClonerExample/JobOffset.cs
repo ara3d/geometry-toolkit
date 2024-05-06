@@ -1,19 +1,21 @@
 using Unity.Burst;
+using Unity.Burst.CompilerServices;
 using Unity.Jobs;
 using Unity.Collections;
 using Unity.Mathematics;
 
 namespace Assets.ClonerExample
 {
-    [BurstCompile(CompileSynchronously = true)]
+    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = false, DisableSafetyChecks = true)]
     public struct JobOffset : IJobParallelFor
     {
         public CloneData Data;
         public float3 Translation;
         public quaternion Rotation;
         public float Strength;
-        public bool UseSelection; 
+        public bool UseSelection;
 
+        [SkipLocalsInit]
         public void Execute(int i)
         {
             var a = UseSelection 

@@ -90,7 +90,7 @@ public class ClonerSurfaceDistribution : ClonerJobComponent
 
     public NativeArray<float3> CachedPoints; 
 
-    public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+    public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
     {
         var ps = new ParametricSurface(Eval, false, false);
         var n = previousData.Count;
@@ -109,7 +109,7 @@ public class ClonerSurfaceDistribution : ClonerJobComponent
             CachedPoints = CachedPoints, 
             CloneData = previousData
         }
-            .Schedule(previousData.Count, 32, previousHandle));
+            .Schedule(previousData.Count, batchSize, previousHandle));
     }
 }
 

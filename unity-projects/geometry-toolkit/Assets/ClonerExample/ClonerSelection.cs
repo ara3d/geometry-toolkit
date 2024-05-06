@@ -15,7 +15,7 @@ namespace Assets.ClonerExample
         public float MaxStrength = 1f;
         public bool WrapAround = true;
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             return (previousData, new JobSelect()
                 {
@@ -29,7 +29,7 @@ namespace Assets.ClonerExample
                     MaxStrength = MaxStrength,
                     WrapAround = WrapAround,
                 }
-                .Schedule(previousData.Count, 16, previousHandle));
+                .Schedule(previousData.Count, batchSize, previousHandle));
         }
     }
 }

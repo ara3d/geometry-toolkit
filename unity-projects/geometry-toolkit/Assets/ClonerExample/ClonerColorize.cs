@@ -26,7 +26,7 @@ namespace Assets.ClonerExample
             Colors = UtilGenerateColorPalette.GenerateTriadColors(Hue * 360f, Saturation);
         }
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             Colors = UtilGenerateColorPalette.GenerateTriadColors(Hue * 360f, Saturation);
             cachedColors.Assign(Colors, ToFloat4);
@@ -39,7 +39,7 @@ namespace Assets.ClonerExample
                 Randomize = Randomize,
                 RandomSeed = RandomSeed,
             }
-            .Schedule(previousData.Count, 32, previousHandle));
+            .Schedule(previousData.Count, batchSize, previousHandle));
         }
 
         public static float4 ToFloat4(Color c)

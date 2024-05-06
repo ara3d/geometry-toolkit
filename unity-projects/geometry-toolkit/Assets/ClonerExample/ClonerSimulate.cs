@@ -20,7 +20,7 @@ namespace Assets.ClonerExample
         [Range(0, 1)] public float Metallic = 0.5f;
         [Range(0, 1)] public float Smoothness = 0.5f;
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             if (!RunSimulation)
                 return (previousData, previousHandle);
@@ -51,7 +51,7 @@ namespace Assets.ClonerExample
             }
 
             return (CloneData, new JobUpdate(CloneData, Time.time)
-                .Schedule(Count, 32, previousHandle));
+                .Schedule(Count, batchSize, previousHandle));
 
         }
     }

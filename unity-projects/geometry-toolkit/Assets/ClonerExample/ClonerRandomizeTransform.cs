@@ -22,7 +22,7 @@ namespace Assets.ClonerExample
         public Vector3 MinScaling = Vector3.one;
         public Vector3 MaxScaling = Vector3.one;
 
-        public override (CloneData, JobHandle) Schedule(CloneData cloneData, JobHandle h)
+        public override (CloneData, JobHandle) Schedule(CloneData cloneData, JobHandle h, int batchSize)
         {
             return (cloneData, new JobRandomize()
                 {
@@ -38,7 +38,7 @@ namespace Assets.ClonerExample
                     MaxRotation = MaxRotation,
                     MaxScaling = MaxScaling,
                 }
-                .Schedule(cloneData.Count, 16, h));
+                .Schedule(cloneData.Count, batchSize, h));
         }
     }
 

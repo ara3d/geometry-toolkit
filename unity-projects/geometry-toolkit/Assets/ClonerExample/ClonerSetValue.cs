@@ -29,7 +29,7 @@ namespace Assets.ClonerExample
         public bool SetSmoothness = true;
         [Range(0, 1)] public float Smoothness  = 0.5f;
 
-        public override (CloneData, JobHandle) Schedule(CloneData cloneData, JobHandle h)
+        public override (CloneData, JobHandle) Schedule(CloneData cloneData, JobHandle h, int batchSize)
         {
             return (cloneData, new JobSetValue()
                 {
@@ -49,7 +49,7 @@ namespace Assets.ClonerExample
                     Smoothness = Smoothness,
                     Color = new float4(Color.r, Color.g, Color.b, Color.a),
                 }
-                .Schedule(cloneData.Count, 16, h));
+                .Schedule(cloneData.Count, batchSize, h));
         }
     }
 

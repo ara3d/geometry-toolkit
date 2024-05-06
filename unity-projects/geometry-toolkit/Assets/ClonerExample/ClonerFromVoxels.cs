@@ -28,7 +28,7 @@ namespace Assets.ClonerExample
             CloneData.Dispose();
         }
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             var previousJob = this.GetPreviousComponent<IJobScheduler<IVoxels>>();
             if (previousJob == null)
@@ -57,7 +57,7 @@ namespace Assets.ClonerExample
                 Metallic,
                 Smoothness,
                 voxels.VoxelSize);
-            var h2 = job.Schedule(count, 64, previousHandle);
+            var h2 = job.Schedule(count, batchSize, previousHandle);
             return (CloneData, h2);
         }
 

@@ -15,7 +15,7 @@ namespace Assets.ClonerExample
         public float MaxGoalTime;
         public ulong Seed = 441;
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             return (previousData, new JobUpdateGoals(
                 previousData,
@@ -26,7 +26,7 @@ namespace Assets.ClonerExample
                 Forward,
                 MinGoalTime,
                 MaxGoalTime)
-                .Schedule(previousData.Count, 32, previousHandle));
+                .Schedule(previousData.Count, batchSize, previousHandle));
         }
     }
 

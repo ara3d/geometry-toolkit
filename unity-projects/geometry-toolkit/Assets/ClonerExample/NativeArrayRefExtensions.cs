@@ -51,6 +51,13 @@ namespace Assets.ClonerExample
                 self.Dispose();
         }
 
+        public static void SafeDispose<T>(this ref NativeList<T> self)
+            where T : unmanaged
+        {
+            if (self.IsCreated)
+                self.Dispose();
+        }
+
         public static void Clear<T>(this ref NativeArray<T> self) where T : unmanaged
             => UnsafeUtility.MemClear(self.GetUnsafePtr(), (long)self.Length * sizeof(T));
     }

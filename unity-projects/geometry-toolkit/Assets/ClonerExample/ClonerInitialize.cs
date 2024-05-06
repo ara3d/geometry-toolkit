@@ -1,5 +1,6 @@
 using System;
 using Unity.Burst;
+using Unity.Burst.CompilerServices;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
@@ -7,9 +8,9 @@ using UnityEngine;
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    public class ClonerInitialize : ClonerJobComponent
+    public class ClonerInitialize : ClonerJobComponent, ICloneJob
     {
-        public CloneData CloneData;
+        public CloneData _cloneData;
 
         public bool RunSimulation;
 
@@ -23,24 +24,26 @@ namespace Assets.ClonerExample
         [Range(0, 1)] public float Metallic = 0.5f;
         [Range(0, 1)] public float Smoothness = 0.5f;
 
+        public ICloneJob Previous => null;
+        public JobHandle Handle { get; set; }
+        public ref CloneData CloneData => ref _cloneData;
+
+        public JobHandle Schedule(ICloneJob previous)
+        { 
+            CloneData.Resize(Count);
+            return Handle = CreateJob(ref CloneData).Schedule(Count, 256);
+        }
+
         public void OnValidate()
         {
             Rows = Math.Max(1, Rows);
             Columns = Math.Max(1, Columns);
         }
-
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
-        { 
-            CloneData.Resize(Count);
-            if (RunSimulation)
-            {
-                return (CloneData, 
-                    new JobUpdate(CloneData, Time.time)
-                        .Schedule(Count, 16, previousHandle));
-            }
-
-            return (CloneData, new JobInitializeData(
-                CloneData,
+        
+        public JobInitializeData CreateJob(ref CloneData cloneData)
+        {
+            return new JobInitializeData(
+                cloneData,
                 Time.time,
                 Rows,
                 Columns,
@@ -49,14 +52,27 @@ namespace Assets.ClonerExample
                 Scale,
                 new float4(Color.r, Color.g, Color.b, Color.a),
                 Metallic,
-                Smoothness)
-            .Schedule(Count, 16, previousHandle));
+                Smoothness);
+        }
+
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
+        { 
+            CloneData.Resize(Count);
+            if (RunSimulation)
+            {
+                return (CloneData, 
+                    new JobUpdate(CloneData, Time.time)
+                        .Schedule(Count, batchSize, previousHandle));
+            }
+
+            return (CloneData, CreateJob(ref CloneData).Schedule(Count, batchSize, previousHandle));
         }
 
         private void OnDisable()
         {
             CloneData.Dispose();
         }
+
     }
 
     [BurstCompile(CompileSynchronously = true)]
@@ -72,7 +88,8 @@ namespace Assets.ClonerExample
             => Data.Update(CurrentTime, i);
     }
 
-    [BurstCompile(CompileSynchronously = true)]
+    //[BurstCompile(CompileSynchronously = true)]
+    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = false, DisableSafetyChecks = true)]
     public struct JobInitializeData : IJobParallelFor
     {
         private CloneData Data;
@@ -83,7 +100,6 @@ namespace Assets.ClonerExample
         private readonly float Spacing;
         private readonly quaternion Rotation;
         private readonly float3 Scale;
-
         private readonly float4 Color;
         private readonly float Metallic;
         private readonly float Smoothness;
@@ -104,6 +120,7 @@ namespace Assets.ClonerExample
             Smoothness = smoothness;
         }
 
+        [SkipLocalsInit]
         public void Execute(int i)
         {
             var col = i % Columns;

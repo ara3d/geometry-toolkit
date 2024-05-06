@@ -13,7 +13,7 @@ namespace Assets.ClonerExample
         [Range(0, 1)] public float Metallic = 0.5f;
         [Range(0, 1)] public float Smoothness = 0.5f;
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             var previousJob = this.GetPreviousComponent<IJobScheduler<IPoints>>();
             if (previousJob == null)
@@ -35,7 +35,7 @@ namespace Assets.ClonerExample
                 Metallic,
                 Smoothness,
                 math.float3(1,1,1));
-            var h = job.Schedule(count, 64, previousHandle);
+            var h = job.Schedule(count, batchSize, previousHandle);
             return (CloneData, h);
         }
 

@@ -30,7 +30,7 @@ namespace Assets.ClonerExample
             return r;
         }
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             var count = Mesh != null
                 ? PointsOrEdges
@@ -55,7 +55,7 @@ namespace Assets.ClonerExample
                     Metallic = Metallic,
                     Smoothness = Smoothness,
                 }
-                .Schedule(count, 64, previousHandle))
+                .Schedule(count, batchSize, previousHandle))
                 :
                 (CloneData, new JobInitializeFromEdges()
                     {
@@ -65,7 +65,7 @@ namespace Assets.ClonerExample
                         Metallic = Metallic,
                         Smoothness = Smoothness,
                     }
-                    .Schedule(count, 64, previousHandle));
+                    .Schedule(count, batchSize, previousHandle));
         }
 
         void OnDisable()

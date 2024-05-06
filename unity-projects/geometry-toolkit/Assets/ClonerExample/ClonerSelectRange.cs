@@ -11,7 +11,7 @@ namespace Assets.ClonerExample
         public int Stride = 1;
         [Range(0, 1)] public float Strength = 1f;
         
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             return (previousData, new JobSelectRange()
             {
@@ -21,7 +21,7 @@ namespace Assets.ClonerExample
                 Stride = Stride,
                 Strength = Strength
             }
-                .Schedule(previousData.Count, 16, previousHandle));
+                .Schedule(previousData.Count, batchSize, previousHandle));
         }
     }
 }

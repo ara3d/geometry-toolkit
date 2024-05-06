@@ -11,11 +11,11 @@ namespace Assets.ClonerExample
         [Range(0, 1)] public float Strength = 1;
         public bool ApplyRotation = true;
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             return (previousData,
                 new JobDistribute() { Data = previousData, Radius = Radius, Strength = Strength, ApplyRotation = ApplyRotation }
-                    .Schedule(previousData.Count, 32, previousHandle));
+                    .Schedule(previousData.Count, batchSize, previousHandle));
         }
     }
 }

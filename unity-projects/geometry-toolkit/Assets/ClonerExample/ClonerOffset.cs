@@ -1,22 +1,48 @@
+using System.Collections.Generic;
+using Unity.Burst;
 using Unity.Jobs;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    public class ClonerOffset : ClonerJobComponent
+    public class ClonerOffset : ClonerJobComponent, ICloneJob
     {
         public Vector3 Translation;
         public Quaternion Rotation;
         [Range(0, 1)] public float Strength = 1;
         public bool UseSelection;
+        
+        public ICloneJob Previous { get; set; }
+        public JobHandle Handle { get; set; } 
+        public int Count => Previous?.Count ?? 0;
+        public ref CloneData CloneData => ref Previous.CloneData;
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public JobHandle Schedule(ICloneJob previous)
+        {
+            Previous = previous;
+            return Handle = CreateJob(ref previous.CloneData).Schedule(previous.Count, 256, previous.Handle);
+        }
+
+        public JobOffset CreateJob(ref CloneData cloneData)
+        {
+            return new JobOffset()
+            {
+                Data = cloneData, 
+                Translation = Translation, 
+                Rotation = Rotation, 
+                Strength = Strength,
+                UseSelection = UseSelection
+            };
+        }
+
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             Debug.Log($"Offset see {previousData.Count}");
             return (previousData,
-                new JobOffset() { Data = previousData, Translation = Translation, Rotation = Rotation, Strength = Strength, UseSelection = UseSelection }
-                    .Schedule(previousData.Count, 32, previousHandle));
+                CreateJob(ref previousData).Schedule(previousData.Count, batchSize, previousHandle));
         }
     }
 }   

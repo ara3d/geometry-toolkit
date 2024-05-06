@@ -19,7 +19,7 @@ namespace Assets.ClonerExample
             Count = Math.Max(1, Count);
         }
 
-        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle)
+        public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
             CloneData.Replicate(previousData, Count);
             if (CloneData.Count == 0)
@@ -33,7 +33,7 @@ namespace Assets.ClonerExample
                     DataSource = previousData,
                     DataSink = CloneData,
                 }
-                .Schedule(previousData.Count, 4, previousHandle));
+                .Schedule(previousData.Count, batchSize, previousHandle));
         }
 
         public void OnDisable()
