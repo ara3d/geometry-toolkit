@@ -17,7 +17,10 @@ namespace Assets.ClonerExample
         
         public static float GetNthFloat(ulong seed, ulong index, float min, float max) 
             => math.lerp(min, max, GetNthFloat(seed, index));
-        
+
+        public static int GetNthInt(ulong seed, ulong index, int minValue, int maxValue)
+            => GetNthInt(seed, index, (maxValue - minValue)) + minValue;
+
         public static int GetNthInt(ulong seed, ulong index, int maxValue = int.MaxValue) 
             => Math.Abs((int)GetNth(seed, (ulong)index) % maxValue);
 

@@ -18,7 +18,7 @@ namespace Assets.ClonerExample
             CpuArray.Resize(n);
             GpuArray.Resize(n);
         }
-
+        
         public void Replicate(CloneData other, int count)
         {
             var n = other.Count * count;
@@ -27,6 +27,12 @@ namespace Assets.ClonerExample
 
         public bool IsValid
             => CpuArray.IsCreated && GpuArray.IsCreated;
+
+        
+        public bool Expired(int i, float currentTime, float maxAge)
+        {
+            return CpuInstance(i).GetAge(currentTime) > maxAge;
+        }
 
         public void Dispose()
         {

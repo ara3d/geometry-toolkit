@@ -35,20 +35,6 @@ namespace Ara3D.UnityBridge
             return mesh;
         }
 
-        
-        /// <summary>
-        /// Creates a game object whose transform matches that of the given matrix.
-        /// </summary>
-        public static GameObject CreateGameObject(Matrix4x4 matrix, string name, Transform parent = null, bool worldPositionStays = true)
-        {
-            var obj = new GameObject(name);
-            obj.transform.SetFromMatrix(matrix);
-            if (parent != null)
-                obj.transform.SetParent(parent, worldPositionStays);
-            obj.isStatic = true;
-            return obj;
-        }
-
         /// <summary>
         /// Builds a renderable game object from mesh and material
         /// </summary>
@@ -67,17 +53,6 @@ namespace Ara3D.UnityBridge
             }
             gameObject.isStatic = true;
             return gameObject;
-        }
-
-        /// <summary>
-        /// Creates an instance of the game object based on the given node's transform.
-        /// </summary>
-        public static Transform CreateInstance(this GameObject obj, string name, Matrix4x4 matrix, bool worldPositionStays = true)
-        {
-            var transform = UnityEngine.Object.Instantiate(obj.transform, obj.transform.parent, worldPositionStays);
-            transform.SetFromMatrix(matrix);
-            transform.gameObject.name = name;
-            return transform;
         }
 
         public static void AssignTransform(this Transform dest, Transform src)

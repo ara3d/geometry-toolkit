@@ -3,6 +3,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 
+
 namespace Assets.ClonerExample
 {
     public interface IJobData

@@ -9,6 +9,7 @@ namespace Ara3D.ProceduralGeometry.Unity
     {
         public bool Load = false;
         public Material Material;
+        public Material TransparentMaterial;
 
         public string File =
             @"C:\Users\cdigg\git\3d-format-shootout\data\files\vim\Wolford_Residence.r2023.om_v5.0.0.vim";
@@ -41,7 +42,8 @@ namespace Ara3D.ProceduralGeometry.Unity
             go.name = "VIM Scene Renderer";
             var scene = vim.ToUnity();
             var comp = go.AddComponent<SceneRenderer>();
-            comp.Material = Material;
+            comp.Material = new Material(Material);
+            comp.TransparentMaterial = new Material(TransparentMaterial);
             comp.Init(scene);
             Debug.Log("Finished initializing scene");
         }

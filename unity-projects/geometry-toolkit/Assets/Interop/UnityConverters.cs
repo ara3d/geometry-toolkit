@@ -40,21 +40,20 @@ namespace Ara3D.UnityBridge
         public static int QuadFaceToUnity(int index)
             => PolyFaceToUnity(index, 4);
 
-        // TODO: This should be pushed into the exporter.  The world deals in metric.
-        public static UVector3 ToUnity(this Vector3 v)
-            => new UVector3(v.X, v.Y, v.Z);
+        public static UVector3 ToUnityFromAra3D(this Vector3 v)
+            => ToUnityFromAra3D(v.X, v.Y, v.Z);
 
-        public static UVector2 ToUnity(this Vector2 v)
-            => new UVector2(v.X, v.Y);
+        public static UVector3 ToUnityFromVim(this Vector3 v)
+            => ToUnityFromVim(v.X, v.Y, v.Z);
 
-        public static UVector3 PositionToUnity(float x, float y, float z)
+        public static UVector3 ToUnityFromAra3D(float x, float y, float z)
             => new UVector3(-x, z, -y);
 
-        public static UVector3 PositionToUnity(Vector3 pos)
-            => PositionToUnity(pos.X, pos.Y, pos.Z);
-
-        public static UQuaternion RotationToUnity(Quaternion rot)
-            => new UQuaternion(rot.X, -rot.Z, rot.Y, rot.W);
+        public static UVector3 ToUnityFromVim(float x, float y, float z)
+            => ToUnityFromAra3D(x, y, z) * FeetToMeters;
+            
+        public static UQuaternion ToUnity(this Quaternion rot)
+            => new(rot.X, -rot.Z, rot.Y, rot.W);
 
         public static UVector3 SwizzleToUnity(float x, float y, float z)
             => new UVector3(x, z, y);
@@ -62,18 +61,18 @@ namespace Ara3D.UnityBridge
         public static UVector3 SwizzleToUnity(Vector3 v)
             => SwizzleToUnity(v.X, v.Z, v.Y);
 
-        public static UVector3 ScaleToUnity(Vector3 scl)
+        public static UVector3 ToUnityScale(this Vector3 scl)
             => SwizzleToUnity(scl);
 
-        public static Bounds ToUnity(this AABox box)
-            => new Bounds(PositionToUnity(box.Center), SwizzleToUnity(box.Extent));
+        public static Bounds ToUnityFromVim(this AABox box)
+            => new Bounds(ToUnityFromVim(box.Center), SwizzleToUnity(box.Extent));
 
-        public static UVector3[] ToUnity(this IArray<Vector3> vertices)
-            => vertices.Select(ToUnity).ToArray();
+        public static UVector3[] ToUnityFromVim(this IArray<Vector3> vertices)
+            => vertices.Select(ToUnityFromVim).ToArray();
 
         public static Mesh UpdateMeshVertices(this Mesh mesh, IArray<Vector3> vertices)
         {
-            mesh.vertices = vertices.ToUnity();
+            mesh.vertices = vertices.ToUnityFromVim();
             return mesh;
         }
 
@@ -194,55 +193,6 @@ namespace Ara3D.UnityBridge
         public static Mesh ToUnity(this ITriMesh m)
             => UpdateMesh(new Mesh(), m);
 
-        public static void SetFromMatrix(this Transform transform, Matrix4x4 matrix) {
-            var decomposed = Matrix4x4.Decompose(matrix, out var scl, out var rot, out var pos);
-            if (!decomposed)
-                throw new Exception("Can't decompose matrix");
-            transform.position = PositionToUnity(pos);
-            transform.rotation = RotationToUnity(rot);
-            transform.localScale = ScaleToUnity(scl);
-        }
-
-        public static (UVector3 pos, UQuaternion rot, UVector3 scl) ToUnityTRS(this Matrix4x4 matrix)
-        {
-            var decomposed = Matrix4x4.Decompose(matrix, out var scl, out var rot, out var pos);
-            if (!decomposed)
-                throw new Exception("Can't decompose matrix");
-
-            return ToUnityTRS(pos, rot, scl);
-        }
-
-        public static UnityEngine.Matrix4x4 ToUnityFlipped(this Matrix4x4 matrix)
-        {
-            var decomposed = Matrix4x4.Decompose(matrix, out var scl, out var rot, out var pos);
-            if (!decomposed)
-                throw new Exception("Can't decompose matrix");
-
-            var (t, r, s) = ToUnityTRS(pos, rot, scl);
-            return UnityEngine.Matrix4x4.TRS(t, r, s);
-        }
-
-        /// <summary>
-        /// Converts the given VIM based coordinates into Unity coordinates.
-        /// </summary>
-        public static (UVector3 pos, UQuaternion rot, UVector3 scl) ToUnityTRS(
-            Vector3 pos,
-            Quaternion rot,
-            Vector3 scale
-        )
-        {
-            // Pose space is mirrored on X, and then rotated 90 degrees around X
-            var p = PositionToUnity(pos);
-
-            // Quaternion is mirrored the same way, but then negated via W = -W because that's just easier to read
-            var r = RotationToUnity(rot);
-
-            // TODO: test this, current scale is completely untested
-            var s = ScaleToUnity(scale);
-
-            return (p, r, s);
-        }
-
         public static UnityEngine.Matrix4x4 ToUnityRaw(this Matrix4x4 matrix)
             => new UnityEngine.Matrix4x4(
                 new UVector4(matrix.M11, matrix.M12, matrix.M13, matrix.M14),
@@ -251,11 +201,12 @@ namespace Ara3D.UnityBridge
                 new UVector4(matrix.M41, matrix.M42, matrix.M43, matrix.M44)
             );
 
-        private const float ftm = 0.3408f;
+        private const float FeetToMeters = 0.3408f;
+
         public static UnityEngine.Matrix4x4 ConversionMatrix = new UnityEngine.Matrix4x4(
-            new UVector4(-ftm, 0, 0, 0),
-            new UVector4(0, 0, -ftm, 0),
-            new UVector4(0, ftm, 0, 0),
+            new UVector4(-FeetToMeters, 0, 0, 0),
+            new UVector4(0, 0, -FeetToMeters, 0),
+            new UVector4(0, FeetToMeters, 0, 0),
             new UVector4(0, 0, 0, 1)
         );
 
@@ -292,12 +243,19 @@ namespace Ara3D.UnityBridge
         public static Color ToUnityColor(this Vector4 v)
             => v.ToUnity();
 
+        public static Decomposition Decompose(this Matrix4x4 m)
+        {
+            var r = new Decomposition();
+            r.Decomposed = m.Decompose(out r.Scale, out r.Rotation, out r.Translation);
+            return r;
+        }
+
         public static UnityTriMesh ToUnity(this G3dMesh mesh)
         {
             return new UnityTriMesh()
             {
                 UnityIndices = mesh.Indices.ToArray(),
-                UnityVertices = mesh.Vertices.Select(ToUnity).ToArray(),
+                UnityVertices = mesh.Vertices.ToUnityFromVim(),
                 // TODO: normals and UVs
             };
         }
@@ -315,14 +273,13 @@ namespace Ara3D.UnityBridge
                 var matIndex = m.Submeshes.Count > 0 
                     ? m.Submeshes[0].MaterialIndex 
                     : -1;
-                
-                var set = new UnityMeshInstanceSet
-                {
-                    TriMesh = m.ToUnity(),
-                    Color = matIndex >= 0
+
+                var set = new UnityMeshInstanceSet(
+                    m.ToUnity(),
+                    matIndex >= 0
                         ? g.MaterialColors[matIndex].ToUnityColor()
                         : defaultColor
-                };
+                );
                 r.InstanceSets.Add(set);
             }
 
@@ -333,10 +290,25 @@ namespace Ara3D.UnityBridge
                 if (idx < 0) continue;
                 if (idx > r.InstanceSets.Count) continue;
                 var set = r.InstanceSets[idx];
-                set.Matrices.Add(t.ToUnity());
+                var decomposition = t.Decompose();
+                if (decomposition.Decomposed)
+                    set.Transforms.Add(decomposition);
+                else
+                    Debug.Log($"Failed to decompose matrix {i} =S {t}");
             }
 
             return r;
         }
+    }
+
+    /// <summary>
+    /// Contains the result of decomposition of a matrix
+    /// </summary>
+    public class Decomposition
+    {
+        public bool Decomposed;
+        public Vector3 Translation;
+        public Quaternion Rotation;
+        public Vector3 Scale;
     }
 }

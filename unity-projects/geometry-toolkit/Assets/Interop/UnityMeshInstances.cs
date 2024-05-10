@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Ara3D.UnityBridge
 {
     public class UnityMeshInstanceSet
     {
-        public UnityTriMesh TriMesh;
-        public Color Color;
-        public List<Matrix4x4> Matrices = new List<Matrix4x4>();
+        public readonly UnityTriMesh TriMesh;
+        public readonly Color Color;
+        public readonly List<Decomposition> Transforms = new();
+
+        public UnityMeshInstanceSet(UnityTriMesh triMesh, Color color)
+        {
+            TriMesh = triMesh;
+            Color = color;
+        }
     }
 }

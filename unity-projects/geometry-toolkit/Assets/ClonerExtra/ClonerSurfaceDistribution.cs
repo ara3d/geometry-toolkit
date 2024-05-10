@@ -100,7 +100,7 @@ public class ClonerSurfaceDistribution : ClonerJobComponent
         for (var i = 0; i < n; ++i)
         {
             var uv = (UnityEngine.Vector2)previousData.CpuInstance(i).Uv;
-            var p = ps.Eval(uv.ToAra3D()).ToUnity();
+            var p = ps.Eval(uv.ToAra3D()).ToUnityFromAra3D();
             CachedPoints[i] = p;
         }
 

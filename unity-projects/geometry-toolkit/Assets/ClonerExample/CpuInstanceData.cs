@@ -41,7 +41,7 @@ namespace Assets.ClonerExample
             LastUpdateTime = currentTime;
             var forward = math.mul(gpu.Orientation, Propulsion);
             
-            //gpu.Pos += Velocity * t + Propulsion * forward * t;
+            gpu.Pos += Velocity * t;
             //Velocity += Acceleration * t;
 
             gpu.Pos += forward * t;
@@ -76,6 +76,11 @@ namespace Assets.ClonerExample
             Final = goal;
             //Debug.Log($"Initial {Initial.ToString()}");
             //Debug.Log($"New goal {Final.ToString()}");
+        }
+
+        public float GetAge(float currentTime)
+        {
+            return currentTime - CreateTime;
         }
     }
  }

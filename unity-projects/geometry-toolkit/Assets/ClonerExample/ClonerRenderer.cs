@@ -1,15 +1,8 @@
 using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Rendering;
-using static Unity.VisualScripting.Member;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace Assets.ClonerExample
 {
@@ -38,7 +31,7 @@ namespace Assets.ClonerExample
 
         public void OnEnable()
         {
-            _cloneRenderData = new CloneRenderData();
+             _cloneRenderData = new CloneRenderData();
         }
 
         public void OnValidate()
@@ -93,14 +86,25 @@ namespace Assets.ClonerExample
             if (_cloneRenderData == null)
                 return;
 
-            _handle.Complete();
-            _cloneRenderData.UpdateGpuData(mesh, _cloneData.GpuArray.GetSubArray(0, Count), _material);
+            //_handle.Complete();
+            ScheduleJobs().Complete();
+
+            if (Experimental)
+            {
+                if (Count > 0)
+                    _cloneRenderData.UpdateGpuData(mesh, _cloneData.GpuArray.GetSubArray(0, Count), _material);
+            }
+            else
+            {
+                _cloneRenderData.UpdateGpuData(mesh, _cloneData.GpuArray, _material);
+            }
+
             _cloneRenderData.Render(shadowCasting, receiveShadows);
         }
 
         public void LateUpdate()
         {
-            ScheduleJobs();
+            //ScheduleJobs();
         }
     }
 }

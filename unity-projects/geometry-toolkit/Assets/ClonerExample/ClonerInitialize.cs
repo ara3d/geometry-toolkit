@@ -1,6 +1,7 @@
 using System;
 using Unity.Burst;
 using Unity.Burst.CompilerServices;
+using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
@@ -88,7 +89,7 @@ namespace Assets.ClonerExample
             => Data.Update(CurrentTime, i);
     }
 
-    //[BurstCompile(CompileSynchronously = true)]
+
     [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = false, DisableSafetyChecks = true)]
     public struct JobInitializeData : IJobParallelFor
     {

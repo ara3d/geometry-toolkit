@@ -28,7 +28,7 @@ namespace Ara3D.UnityBridge
 
                 // TODO: support more types
                 mesh.Clear();
-                mesh.vertices = g.Points.ToUnity();
+                mesh.vertices = g.Points.ToUnityFromVim();
                 mesh.triangles = g.Indices().ToUnityIndexBuffer();
                 mesh.RecalculateNormals();
             }

@@ -1,4 +1,5 @@
 using Unity.Mathematics;
+using UnityEngine;
 
 namespace Assets.ClonerExample
 {
@@ -12,5 +13,22 @@ namespace Assets.ClonerExample
         public float Metallic;
         public uint Id;
         public static int Size => 17 * 4;
+
+        public static GpuInstanceData FromMatrix(Matrix4x4 mat, int id, Color color, float smoothness = 0.5f, float metallic = 0.5f)
+        {
+            var scl = mat.lossyScale;
+            var pos = mat.GetPosition();
+            var rot = mat.rotation;
+            return new GpuInstanceData()
+            {
+                Color = color.ToFloat4(),
+                Id = (uint)id,
+                Metallic = metallic,
+                Orientation = rot,
+                Pos = pos,
+                Scl = scl,
+                Smoothness = smoothness,
+            };
+        }
     }
-}
+}   

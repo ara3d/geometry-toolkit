@@ -8,6 +8,9 @@ namespace UnityTemplateProjects
 {
     public class SimpleCameraController : MonoBehaviour
     {
+        public bool FloorLimit;
+        public float FloorHeight = 1.5f;
+
         class CameraState
         {
             public float yaw;
@@ -80,7 +83,7 @@ namespace UnityTemplateProjects
         public bool invertY = false;
 
     
-    void OnEnable()
+         void OnEnable()
         {
             m_TargetCameraState.SetFromTransform(transform);
             m_InterpolatingCameraState.SetFromTransform(transform);
@@ -168,7 +171,12 @@ namespace UnityTemplateProjects
             boost += GetBoostFactor();
             translation *= Mathf.Pow(2.0f, boost);
 
-                transform.Translate(translation);
+            transform.Translate(translation);
+            if (FloorLimit)
+            {
+                if (transform.position.y < FloorHeight)
+                    transform.position = new Vector3(transform.position.x, FloorHeight, transform.position.z);
+            }
 
             // Framerate-independent interpolation
             // Calculate the lerp amount, such that we get 99% of the way to our target in the specified time
