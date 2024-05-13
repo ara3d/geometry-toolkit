@@ -6,56 +6,111 @@ using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Assets.ClonerExample
 {
+    public enum DistributionType
+    {
+        Equal,
+        Linear,
+        Power2,
+        Power3,
+    }
+
+    [Serializable]
+    public struct Range<T>
+    {
+        public Range(T center, T size, DistributionType dist = DistributionType.Equal)
+        {
+            Center = center;
+            Size = size;
+            Distribution = dist;
+        }
+
+        public DistributionType Distribution; 
+        public T Center;
+        public T Size;
+    }
+    
+
     [ExecuteAlways]
     public class ClonerSpawn : ClonerJobComponent, ICloneJob
     {
         public CloneData _cloneData;
         public CloneData _previousCloneData;
-        public Bounds SpawningRegion = new Bounds(Vector3.zero, Vector3.one * 5);
-        public Bounds InitialVelocities = new Bounds(Vector3.one, Vector3.one / 2);
-        public float Lifetime;
-        public int Seed = 367;
+        public Range<float3> Positions = new (Vector3.zero, Vector3.one * 5);
+        public Range<float3> Velocities = new (Vector3.one, Vector3.one / 2);
+        public Range<float3> Rotations = new(Vector3.zero, Vector3.one / 10);
+        public float Lifetime = 5;
+        public ulong Seed = 367;
         public int ParticlesPerSecond = 300;
-        public NativeList<int> ReclaimList;
         public JobHandle Handle { get; set; }
         public JobHandle ReclaimHandle { get; set; }
         public bool Reset;
+        public NativeArray<int> LiveParticleCount;
+
+        public float timeSinceLastSecond;
+        public int particleSpawnCount;
+        public bool deletePreviousData;
+        public int oldSize;
+        public int newSize;
+        public int expectedParticles;
+        public int liveParticleCount;
+        public int particlesCreated;
+        public int LastSecond;
 
         public JobHandle Schedule(ICloneJob previous)
         {
-            var t = Time.deltaTime;
-            var particleSpawnCount = ParticlesPerSecond * t;
-            ReclaimHandle.Complete();
-            if (!ReclaimList.IsCreated)
-                ReclaimList = new NativeList<int>(Allocator.Persistent);
-            
-            var newSpaceRequired = (int)(particleSpawnCount - ReclaimList.Length);
+            if (!LiveParticleCount.IsCreated)
+                LiveParticleCount = new NativeArray<int>(1, Allocator.Persistent);
 
-            _previousCloneData.Dispose();
-            _previousCloneData = _cloneData;
-            
-            var oldSize = _previousCloneData.Count;
-            var newSize = oldSize + newSpaceRequired;
+            timeSinceLastSecond = Time.time - LastSecond;
+            expectedParticles = (int)(timeSinceLastSecond * ParticlesPerSecond);
+            particleSpawnCount = expectedParticles - particlesCreated;
+            if (particleSpawnCount < 0)
+                particleSpawnCount = 0;
+            Seed += (ulong)(particleSpawnCount * 10);
 
-            _cloneData = new CloneData();
-            _cloneData.Resize(newSize);
-
-            var minSize = Math.Min(newSize, oldSize);
-
-            Handle = previous?.Handle ?? default;
-            if (minSize > 0)
+            if (Math.Truncate(Time.time) > LastSecond)
             {
-                var jobCopy = new JobCopy(_previousCloneData, _cloneData, 0, 0);
-                Debug.Log($"Copying {minSize} items where old was {oldSize} and new is {newSize}");
-                Handle = jobCopy.Schedule(minSize, 256, Handle);
+                LastSecond = (int)Math.Truncate(Time.time);
+                particlesCreated = 0;
+            }
+            else
+            {
+                particlesCreated += particleSpawnCount;
             }
 
-            var cpuInst = new CpuInstanceData(Time.time);
+            oldSize = _cloneData.Count;
+            liveParticleCount = LiveParticleCount[0];
+            newSize = LiveParticleCount[0] + particleSpawnCount;
 
+            Handle = previous?.Handle ?? default;
+
+            if (deletePreviousData)
+            {
+                deletePreviousData = false;
+                if (_previousCloneData.IsValid)
+                    _previousCloneData.Dispose();
+            }
+
+            if (newSize > oldSize)
+            {
+                // The previous state is the current _cloneData. 
+                _previousCloneData = _cloneData;
+                _cloneData = new CloneData();
+                _cloneData.Resize(newSize);
+
+                if (oldSize > 0)
+                {
+                    var jobCopy = new JobCopy(_previousCloneData, _cloneData, 0, 0);
+                    Handle = jobCopy.Schedule(oldSize, 256, Handle);
+                    deletePreviousData = true;
+                }
+            }
+
+            // Default CPU and GPU data 
+            var cpuInst = new CpuInstanceData(Time.time);
             var gpuInst = new GpuInstanceData
             {
                 Color = new float4(0.5f, 0.5f, 1, 1),
@@ -67,29 +122,48 @@ namespace Assets.ClonerExample
                 Smoothness = 0.5f,
             };
 
-            var jobSpawn = new JobSpawn(_cloneData,
-                new float3x2(SpawningRegion.min, SpawningRegion.max),
-                new float3x2(InitialVelocities.min, InitialVelocities.max),
-                (ulong)Seed,
-                cpuInst,
-                gpuInst);
-
-            int delta = newSize - oldSize;
-            if (delta > 0)
+            if (newSize > _cloneData.Count)
             {
-                var jobSlice = new JobSlice<JobSpawn>(jobSpawn, oldSize);
-                Debug.Log($"Spawning {delta} objects");
-                Handle = jobSlice.Schedule(delta, 256, Handle);
+                throw new Exception($"{newSize} > {_cloneData.Count}");
+            }
+                
+            if (newSize != LiveParticleCount[0] + particleSpawnCount)
+            {
+                throw new Exception($"{newSize} != {LiveParticleCount[0]} + {particleSpawnCount}");
             }
 
+            // Create the new particles, starting at the LiveParticleCount. 
+            if (particleSpawnCount > 0)
+            {
+                var jobSpawn = new JobSpawn(_cloneData,
+                    Positions,
+                    Velocities,
+                    Rotations,
+                    (ulong)Seed,
+                    cpuInst,
+                    gpuInst,
+                    LiveParticleCount[0]);
+
+                Handle = jobSpawn.Schedule(particleSpawnCount, 256, Handle);
+            }
+
+            LiveParticleCount[0] = newSize;
+            
             var jobUpdate = new JobUpdate(_cloneData, Time.time);
-            Debug.Log($"Updating {newSize} objects. Previous is {_previousCloneData.Count}, and Current is {_cloneData.Count}");
-            Handle = jobUpdate.Schedule(newSize, 256, Handle);
+            Handle = jobUpdate.Schedule(_cloneData.Count, 256, Handle);
+
+            // Gather any particles to be reclaimed, moving them to the back of the list. 
+            if (_cloneData.Count > 0)
+            {
+                var jobGatherReclaim = new JobGatherReclaimed(_cloneData, Time.time, Lifetime, LiveParticleCount);
+                Handle = jobGatherReclaim.Schedule(Handle);
+            }
+
             return Handle;
         }
         
         public ref CloneData CloneData => ref _cloneData;
-        public int Count => CloneData.Count;
+        public int Count => liveParticleCount;
 
         public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
@@ -103,27 +177,48 @@ namespace Assets.ClonerExample
                 _previousCloneData.Resize(0);
                 _cloneData.Resize(0);
                 Reset = false;
+                LiveParticleCount[0] = 0;
             }
         }
     }
 
-    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = false, DisableSafetyChecks = true)]
-    public struct JobGatherReclaimed : IJobFilter
+    // Moves all expired particles to the end of the list, and decrements the "lastIndex"
+    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = true, DisableSafetyChecks = false)]
+    public struct JobGatherReclaimed : IJob
     {
-        public JobGatherReclaimed(CloneData data, float currentTime, float maxAge)
-            => (Data, CurrentTime, MaxAge) = (data, currentTime, maxAge);
+        public JobGatherReclaimed(CloneData data, float currentTime, float maxAge, NativeArray<int> liveParticleCount)
+        {
+            Data = data;
+            CurrentTime = currentTime;
+            MaxAge = maxAge;
+            LiveParticleCount = liveParticleCount;      
+        }
 
         private CloneData Data;
         private readonly float CurrentTime;
         private readonly float MaxAge;
+        private NativeArray<int> LiveParticleCount;
 
-        public bool Execute(int i)
+        public void Execute()
         {
-            return Data.Expired(i, MaxAge, CurrentTime);
+            for (var i = 0; i < LiveParticleCount[0]; i++)
+            {
+                if (Data.Expired(i, CurrentTime, MaxAge))
+                {
+                    // Move the last pointer backwards if it is also expired. 
+                    while (LiveParticleCount[0] > i && Data.Expired(LiveParticleCount[0] - 1, CurrentTime, MaxAge))
+                    {
+                        LiveParticleCount[0] -= 1;
+                    }
+
+                    Data.Swap(i, LiveParticleCount[0] - 1);
+                    LiveParticleCount[0] -= 1;
+                }
+            }
         }
     }
 
-    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = false, DisableSafetyChecks = true)]
+    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = true, DisableSafetyChecks = false)]
     public struct JobSetData : IJobParallelFor
     {
         private CloneData Data;
@@ -149,8 +244,11 @@ namespace Assets.ClonerExample
     [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = false, DisableSafetyChecks = true)]
     public struct JobCopy : IJobParallelFor
     {
-        private CloneData OldData;
+        [ReadOnly]
+        private readonly CloneData OldData;
+        
         private CloneData NewData;
+        
         private int OffsetSource;
         private int OffsetDest;
 
@@ -171,50 +269,64 @@ namespace Assets.ClonerExample
         }
     }
 
-    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = false, DisableSafetyChecks = true)]
-    public struct JobSpawnReclaim : IJobParallelFor
-    {
-        public NativeArray<int> ReclaimList;
-        public JobSpawn SpawnJob;
-
-        [SkipLocalsInit, MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Execute(int i)
-        {
-            SpawnJob.Execute(ReclaimList[i]);
-        }
-    }
-
-    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = false, DisableSafetyChecks = true)]
+    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = true, DisableSafetyChecks = false)]
     public struct JobSpawn : IJobParallelFor
     {
         private CloneData CloneData;
-        private readonly float3x2 PositionRange;
-        private readonly float3x2 VelocityRange;
+        private readonly Range<float3> PositionRange;
+        private readonly Range<float3> VelocityRange;
+        private readonly Range<float3> RotationRange;
         private readonly ulong Seed;
         private readonly GpuInstanceData GpuInst;
         private readonly CpuInstanceData CpuInst;
+        private readonly int Offset;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public JobSpawn(in CloneData cloneData, in float3x2 posRange, in float3x2 velRange, ulong seed,             
-            in CpuInstanceData cpuInst, in GpuInstanceData gpuInst)
+        public JobSpawn(in CloneData cloneData, in Range<float3> posRange, in Range<float3> velRange, in Range<float3> rotRange, ulong seed,             
+            in CpuInstanceData cpuInst, in GpuInstanceData gpuInst, int offset)
         {
             CloneData = cloneData;
             PositionRange = posRange;
             VelocityRange = velRange;
+            RotationRange = rotRange;
             Seed = seed;
             GpuInst = gpuInst;
             CpuInst = cpuInst;
+            Offset = offset;
         }
 
         [SkipLocalsInit, MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Execute(int i)
         {
-            var pos = Rng.GetNthFloat3(Seed, (ulong)i * 2, PositionRange.c0, PositionRange.c1);
-            var vel = Rng.GetNthFloat3(Seed, (uint)i * 2 + 1, VelocityRange.c0, VelocityRange.c1);
+            i += Offset;
+            var pos = GetValue(i, Seed, PositionRange);
+            var vel = GetValue(i, Seed + 444, VelocityRange);
+            var rot = quaternion.EulerXYZ(GetValue(i, Seed + 888, RotationRange));
             CloneData.CpuInstance(i) = CpuInst;
             CloneData.GpuInstance(i) = GpuInst;
             CloneData.CpuInstance(i).Velocity = vel;
             CloneData.GpuInstance(i).Pos = pos;
+            CloneData.GpuInstance(i).Orientation = rot;
+        }
+
+        [SkipLocalsInit, MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 GetValue(int i, ulong seed, in Range<float3> range)
+        {
+            var amount = Rng.GetNthFloat3(seed, (ulong)i);
+
+            if (range.Distribution == DistributionType.Equal)
+            {
+                return range.Lerp(amount);
+            }
+
+            // Scale from -1 to +1
+            amount = amount * 2 -  new float3(1,1,1);
+            if (range.Distribution == DistributionType.Power2)
+                return math.lerp(range.Center, range.GetMax(), amount * amount * math.sign(amount));
+            else if (range.Distribution == DistributionType.Power3)
+                return math.lerp(range.Center, range.GetMax(), amount * amount * amount);
+            
+            return math.lerp(range.Center, range.GetMax(), amount);
         }
     }
 
@@ -238,7 +350,7 @@ namespace Assets.ClonerExample
         }
     }
 
-    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = false, DisableSafetyChecks = true)]
+    [BurstCompile(CompileSynchronously = true, FloatMode = FloatMode.Fast, OptimizeFor = OptimizeFor.Performance, Debug = true, DisableSafetyChecks = false)]
     public struct JobSlice<T> : IJobParallelFor where T : struct, IJobParallelFor
     {
         private T _job;
@@ -280,5 +392,20 @@ namespace Assets.ClonerExample
 
             return previousJob;
         }
+    }
+
+    public static class RangeExtensions
+    {
+        public static float3 GetMin(this in Range<float3> range)
+            => range.Center - range.GetHalfSize();
+
+        public static float3 GetMax(this in Range<float3> range)
+            => range.Center + range.GetHalfSize();
+
+        public static float3 GetHalfSize(this in Range<float3> range)
+            => range.Size / 2f;
+
+        public static float3 Lerp(this in Range<float3> range, in float3 amount)
+            => math.lerp(range.GetMin(), range.GetMax(), amount);
     }
 }

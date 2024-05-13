@@ -44,5 +44,11 @@ namespace Assets.ClonerExample
         {
             CpuInstance(i).Update(currentTime, ref GpuInstance(i));
         }
+
+        public void Swap(int i, int j)
+        {
+            (CpuInstance(i), CpuInstance(j)) = (CpuInstance(j), CpuInstance(i));
+            (GpuInstance(i), GpuInstance(j)) = (GpuInstance(j), GpuInstance(i));
+        }
     }
 }
