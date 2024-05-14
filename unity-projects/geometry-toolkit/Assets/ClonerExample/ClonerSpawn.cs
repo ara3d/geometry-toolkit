@@ -31,7 +31,7 @@ namespace Assets.ClonerExample
         public T Center;
         public T Size;
     }
-    
+
 
     [ExecuteAlways]
     public class ClonerSpawn : ClonerJobComponent, ICloneJob

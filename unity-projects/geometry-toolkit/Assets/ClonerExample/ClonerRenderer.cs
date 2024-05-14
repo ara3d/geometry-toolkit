@@ -6,13 +6,6 @@ using UnityEngine.Rendering;
 
 namespace Assets.ClonerExample
 {
-    public interface ICloneJob
-    {
-        JobHandle Schedule(ICloneJob previous);
-        JobHandle Handle { get; }
-        ref CloneData CloneData { get; }
-        int Count { get; }
-    }
 
     [ExecuteAlways]
     public class ClonerRenderer : MonoBehaviour

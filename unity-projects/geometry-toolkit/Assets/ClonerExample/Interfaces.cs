@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Ara3D.Collections;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
@@ -6,8 +8,32 @@ using UnityEngine;
 
 namespace Assets.ClonerExample
 {
+    public interface ICloneJob
+    {
+        JobHandle Schedule(ICloneJob previous);
+        JobHandle Handle { get; }
+        ref CloneData CloneData { get; }
+        int Count { get; }
+    }
+
+    public interface IPolyCurveComponent
+    {
+        IPolyCurve CurveData { get; }
+    }
+
     public interface IJobData
     { }
+
+    public interface IPolyCurve : IJobData
+    {
+        public NativeArray<float3> Points { get; }
+    }
+
+    public interface IJobDataArray<out T> where T : IJobData
+    {
+        public int Count { get; }
+        public T this[int index] { get; }
+    }
 
     public interface INoData : IJobData
     { }
