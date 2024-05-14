@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "f77bVuD8yvD31JfDpjXSe5aXZ99aWuS7RpXRRodMZGsh4xl4kCdqbgDivm8WMQNESs0WfjqMu3Lnsy+0rdpx6A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cdigg\\.nuget\\packages\\microsoft.build.tasks.git\\8.0.0\\microsoft.build.tasks.git.8.0.0.nupkg.sha512",
+    "C:\\Users\\cdigg\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\cdigg\\.nuget\\packages\\microsoft.sourcelink.common\\8.0.0\\microsoft.sourcelink.common.8.0.0.nupkg.sha512",
+    "C:\\Users\\cdigg\\.nuget\\packages\\microsoft.sourcelink.github\\8.0.0\\microsoft.sourcelink.github.8.0.0.nupkg.sha512",
+    "C:\\Users\\cdigg\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

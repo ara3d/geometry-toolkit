@@ -1,0 +1,773 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj",
+        "projectName": "Ara3D.Collections",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj",
+        "projectName": "Ara3D.GeometryToolkit.Dependencies",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\Ara3D.Geometry.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\Ara3D.Geometry.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Graphics\\Ara3D.Graphics.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Graphics\\Ara3D.Graphics.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\Ara3D.Serialization.G3D.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\Ara3D.Serialization.G3D.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.VIM\\Ara3D.Serialization.VIM.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.VIM\\Ara3D.Serialization.VIM.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\Ara3D.Utils.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\Ara3D.Utils.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\Ara3D.Geometry.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\Ara3D.Geometry.csproj",
+        "projectName": "Ara3D.Geometry",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\Ara3D.Geometry.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\Ara3D.Utils.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\Ara3D.Utils.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj",
+        "projectName": "Ara3D.Mathematics",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj",
+        "projectName": "Ara3D.Buffers",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Graphics\\Ara3D.Graphics.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Graphics\\Ara3D.Graphics.csproj",
+        "projectName": "Ara3D.Graphics",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Graphics\\Ara3D.Graphics.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Graphics\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\Ara3D.Geometry.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\Ara3D.Geometry.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj",
+        "projectName": "Ara3D.Serialization.BFAST",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\Ara3D.Serialization.G3D.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\Ara3D.Serialization.G3D.csproj",
+        "projectName": "Ara3D.Serialization.G3D",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\Ara3D.Serialization.G3D.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.VIM\\Ara3D.Serialization.VIM.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.VIM\\Ara3D.Serialization.VIM.csproj",
+        "projectName": "Ara3D.Serialization.VIM",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.VIM\\Ara3D.Serialization.VIM.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.VIM\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj"
+              },
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\Ara3D.Serialization.G3D.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\Ara3D.Serialization.G3D.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\Ara3D.Utils.csproj": {
+      "version": "1.4.4",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\Ara3D.Utils.csproj",
+        "projectName": "Ara3D.Utils",
+        "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\Ara3D.Utils.csproj",
+        "packagesPath": "C:\\Users\\cdigg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\cdigg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\cdigg\\git\\ara3d\\nuget-feed": {},
+          "C:\\Users\\cdigg\\git\\research\\legacy\\vendor\\nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -300,15 +300,4 @@ namespace Ara3D.UnityBridge
             return r;
         }
     }
-
-    /// <summary>
-    /// Contains the result of decomposition of a matrix
-    /// </summary>
-    public class Decomposition
-    {
-        public bool Decomposed;
-        public Vector3 Translation;
-        public Quaternion Rotation;
-        public Vector3 Scale;
-    }
 }

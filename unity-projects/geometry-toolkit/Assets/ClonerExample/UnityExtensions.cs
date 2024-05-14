@@ -1,13 +1,6 @@
-using Ara3D.Math;
-using System;
 using System.Linq;
-using Unity.Collections;
-using Unity.Mathematics;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-using UnityEngine.UIElements;
 using Matrix4x4 = UnityEngine.Matrix4x4;
-using Quaternion = Ara3D.Math.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Assets.ClonerExample
