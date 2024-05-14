@@ -1,5 +1,3 @@
-using Ara3D.Collections;
-using System;
 using Unity.Burst;  
 using Unity.Jobs;
 namespace Assets.ClonerExample

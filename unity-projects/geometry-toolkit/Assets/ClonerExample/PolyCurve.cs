@@ -1,8 +1,6 @@
  using System;
  using System.Collections.Generic;
  using Ara3D.Geometry;
- using Ara3D.Mathematics;
- using Ara3D.Collections;
  using Unity.Mathematics;
  using UnityEngine;
  using Vector3 = UnityEngine.Vector3;

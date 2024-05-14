@@ -1,7 +1,6 @@
 using Unity.Burst;
 using Unity.Burst.CompilerServices;
 using Unity.Jobs;
-using Unity.Collections;
 using Unity.Mathematics;
 
 namespace Assets.ClonerExample

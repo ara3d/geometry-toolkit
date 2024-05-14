@@ -1,5 +1,3 @@
-using Unity.VisualScripting.Dependencies.NCalc;
-
 namespace Assets.ClonerExample
 {
     /// <summary>

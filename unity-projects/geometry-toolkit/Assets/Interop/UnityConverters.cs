@@ -70,20 +70,26 @@ namespace Ara3D.UnityBridge
         public static IArray<int> ReverseTriangleIndexOrder(this IArray<int> indices)
             => indices.SelectByIndex(indices.Count.Select(i => ((i / 3) + 1) * 3 - 1 - (i % 3)));
 
-       public static Mesh ToUnity(this ITriMesh self, bool fromZUpToYUp, bool invertTriangles)
+       public static Mesh ToUnity(this ITriMesh self, bool fromZUpToYUp, bool invertTriangles, bool doubleSided)
         {
             var mesh = new Mesh();
             mesh.indexFormat = IndexFormat.UInt32;
 
-            mesh.vertices = fromZUpToYUp 
-                ? self.Points.Select(p => new UVector3(p.X, p.Z, p.Y)).ToArray() 
-                : self.Points.Select(p => new UVector3(p.X, p.Y, p.Z)).ToArray();
+            var points = fromZUpToYUp
+                ? self.Points.Select(p => new UVector3(p.X, p.Z, p.Y))
+                : self.Points.Select(p => new UVector3(p.X, p.Y, p.Z));
 
-            mesh.SetIndices(
-                invertTriangles 
-                    ? self.Indices.ToArray() 
-                    : self.Indices.ReverseTriangleIndexOrder().ToArray(),
-                MeshTopology.Triangles, 0);
+            mesh.vertices = doubleSided ? points.Concat(points).ToArray() : points.ToArray();
+
+            var flippedIndices = self.Indices.ReverseTriangleIndexOrder();
+            var indices = invertTriangles ? flippedIndices : self.Indices;
+
+            if (doubleSided)
+            {
+                indices = indices.Concat(indices.ReverseTriangleIndexOrder().Select(i => i + self.Points.Count));
+            }
+
+            mesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
 
             mesh.RecalculateNormals();
             mesh.RecalculateBounds();

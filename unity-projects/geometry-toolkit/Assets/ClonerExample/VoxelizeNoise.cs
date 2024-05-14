@@ -1,6 +1,3 @@
-using System.Numerics;
-using Ara3D.Geometry;
-using ProceduralNoiseProject;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;

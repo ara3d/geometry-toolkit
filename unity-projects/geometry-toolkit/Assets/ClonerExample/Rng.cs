@@ -1,5 +1,4 @@
 using System;
-using System.Reflection;
 using Unity.Mathematics;
 
 namespace Assets.ClonerExample

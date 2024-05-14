@@ -1,4 +1,3 @@
-using Ara3D.Geometry;
 using UnityEngine;
 
 namespace Assets.ClonerExample

@@ -1,4 +1,3 @@
-using Ara3D.Geometry;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;

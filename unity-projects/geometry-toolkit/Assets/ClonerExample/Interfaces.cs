@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using Ara3D.Collections;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;

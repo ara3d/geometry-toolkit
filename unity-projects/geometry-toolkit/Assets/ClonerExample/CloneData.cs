@@ -1,5 +1,4 @@
 using Unity.Collections;
-using UnityEngine;
 
 namespace Assets.ClonerExample
 {

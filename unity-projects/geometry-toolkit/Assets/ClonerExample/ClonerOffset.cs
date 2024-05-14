@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using Unity.Burst;
 using Unity.Jobs;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Assets.ClonerExample

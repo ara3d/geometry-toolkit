@@ -1,4 +1,3 @@
-using Assets.ClonerExample;
 using Unity.Burst;
 using Unity.Jobs;
 using Unity.Mathematics;

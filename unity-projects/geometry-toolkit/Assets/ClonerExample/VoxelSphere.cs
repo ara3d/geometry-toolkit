@@ -1,7 +1,5 @@
 using Assets.ClonerExample;
 using UnityEngine;
-using Unity.Collections;
-using Unity.Burst;
 using Unity.Jobs;
 using Unity.Mathematics;
 
