@@ -8,21 +8,8 @@ using UnityEngine;
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    public class QuadMeshFromArray : MonoBehaviour
+    public class QuadMeshFromArray : ProceduralGeometryObject
     {
-        public Material Material;
-        public Mesh Mesh;
-
-        public void Update()
-        {
-            if (Mesh == null)
-                Mesh = new Mesh();
-            var triMesh = ComputeGeometry();
-            Mesh.UpdateMesh(triMesh);
-            var rparams = new RenderParams(Material);
-            Graphics.RenderMesh(rparams, Mesh, 0, transform.localToWorldMatrix);
-        }
-
         public static IArray<Ara3D.Mathematics.Vector3> ToIArray(IPoints points)
             => points.Points.Length.Select(i =>
             {
@@ -30,7 +17,7 @@ namespace Assets.ClonerExample
                 return new Ara3D.Mathematics.Vector3(p.x, p.y, p.z);
             });
 
-        public ITriMesh ComputeGeometry()
+        public override ITriMesh ComputeGeometry()
         {
             var comps = gameObject.GetComponents<MonoBehaviour>();
 
