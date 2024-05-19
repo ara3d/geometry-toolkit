@@ -1,4 +1,5 @@
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using Matrix4x4 = UnityEngine.Matrix4x4;
 using Vector3 = UnityEngine.Vector3;
@@ -62,5 +63,8 @@ namespace Assets.ClonerExample
             var t2 = Matrix4x4.Translate(p0);
             return t2 * r * s * t1 * Matrix4x4.identity;
         }
+
+        public static Ara3D.Mathematics.Vector3 ToAra3D(this float3 v)
+            => (v.x, v.y, v.z);
     }
 }

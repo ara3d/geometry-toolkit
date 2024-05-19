@@ -8,7 +8,7 @@ using Vector3 = UnityEngine.Vector3;
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    public class VoxelizeNoise : JobScheduler<INoData, IVoxels>, IVoxels
+    public class VoxelizeNoise : JobScheduler<INoData, INativeVoxelData>, INativeVoxelData
     {
         public int GridResolution = 20;
         private int _gridResolution;
@@ -51,7 +51,7 @@ namespace Assets.ClonerExample
             return previous;
         }
 
-        public override IVoxels Result => this;
+        public override INativeVoxelData Result => this;
         public ref VoxelData<float> Voxels => ref _voxels;
     }
 

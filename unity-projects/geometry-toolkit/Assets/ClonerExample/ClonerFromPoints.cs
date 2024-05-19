@@ -1,4 +1,6 @@
 using System;
+using Ara3D.Geometry;
+using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
@@ -19,8 +21,8 @@ namespace Assets.ClonerExample
             if (previousJob == null)
                 throw new Exception("No points generator found");
 
-            var points = previousJob.ScheduleNow().Points;
-            var count = points.Length;
+            var points = previousJob.ScheduleNow();
+            var count = points.Points.Count;
 
             if (count == 0)
             {
@@ -28,9 +30,12 @@ namespace Assets.ClonerExample
                 return (CloneData, previousHandle);
             }
 
+            var newPoints = new NativeArray<float3>(points.Points.Count, Allocator.TempJob);
+            throw new Exception("To-do: properly fill out the new points");
+
             CloneData.Resize(count);
             var job = new JobInitializeFromPoints(CloneData,
-                points,
+                newPoints,
                 new float4(Color.r, Color.g, Color.b, Color.a),
                 Metallic,
                 Smoothness,

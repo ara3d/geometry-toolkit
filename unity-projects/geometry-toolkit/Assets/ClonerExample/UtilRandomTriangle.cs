@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    public class UtilRandomTriangle : JobScheduler<INoData, IVoxels>, IVoxels
+    public class UtilRandomTriangle : JobScheduler<INoData, INativeVoxelData>, INativeVoxelData
     {
         public Bounds Bounds = new Bounds(Vector3.zero, Vector3.one * 10f);
         public bool DrawMesh = true;
@@ -50,7 +50,7 @@ namespace Assets.ClonerExample
             return previous;
         }
 
-        public override IVoxels Result => this;
+        public override INativeVoxelData Result => this;
         public ref VoxelData<float> Voxels => ref _voxels;
     }
 }

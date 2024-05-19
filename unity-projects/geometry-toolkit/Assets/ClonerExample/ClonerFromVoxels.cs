@@ -30,7 +30,7 @@ namespace Assets.ClonerExample
 
         public override (CloneData, JobHandle) Schedule(CloneData previousData, JobHandle previousHandle, int batchSize)
         {
-            var previousJob = this.GetPreviousComponent<IJobScheduler<IVoxels>>();
+            var previousJob = this.GetPreviousComponent<IJobScheduler<INativeVoxelData>>();
             if (previousJob == null)
                 throw new Exception("No voxels generator found");
 

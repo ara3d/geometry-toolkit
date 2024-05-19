@@ -1,12 +1,17 @@
+using System;
+using Ara3D.Collections;
+using Ara3D.Geometry;
 using Assets.ClonerExample;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
+using Matrix4x4 = Ara3D.Mathematics.Matrix4x4;
+using Vector3 = Ara3D.Mathematics.Vector3;
 
 [ExecuteAlways]
-public class VoxelsToPoints : JobScheduler<IVoxels, IPoints>, IPoints
+public class VoxelsToPoints : JobScheduler<INativeVoxelData, IPoints>, IPoints, IArray<Vector3>
 {
     public float Threshold;
     private NativeQueue<float3> _queue;
@@ -15,6 +20,10 @@ public class VoxelsToPoints : JobScheduler<IVoxels, IPoints>, IPoints
     public ref NativeArray<float3> Points => ref _points;
     public NativeArray<float3> _points;
     public override IPoints Result => this;
+    public IIterator<Vector3> Iterator => new ArrayIterator<Vector3>(this);
+
+    public int Count => _points.Length;
+    public Vector3 this[int index] => _points[index].ToAra3D(); 
 
     public void OnDisable()
     {
@@ -22,7 +31,7 @@ public class VoxelsToPoints : JobScheduler<IVoxels, IPoints>, IPoints
         _points.SafeDispose();
     }
 
-    public override JobHandle ScheduleJob(IVoxels inputData, JobHandle previous)
+    public override JobHandle ScheduleJob(INativeVoxelData inputData, JobHandle previous)
     {
         var voxels = inputData.Voxels;
         _queue = new NativeQueue<float3>(Allocator.Persistent);
@@ -37,6 +46,18 @@ public class VoxelsToPoints : JobScheduler<IVoxels, IPoints>, IPoints
         _points = _queue.ToArray(Allocator.Persistent);
         return h;
     }
+
+    public IGeometry Transform(Matrix4x4 mat)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IGeometry Deform(Func<Vector3, Vector3> f)
+    {
+        throw new NotImplementedException();
+    }
+
+    IArray<Vector3> IPoints.Points { get; }
 }
 
 [BurstCompile(FloatPrecision.Standard, FloatMode.Fast, CompileSynchronously = true)]

@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Assets.ClonerExample
 {
     [ExecuteAlways]
-    public class VoxelizeMesh : JobScheduler<INoData, IVoxels>, IVoxels
+    public class VoxelizeMesh : JobScheduler<INoData, INativeVoxelData>, INativeVoxelData
     {
         public Mesh Mesh;
         public int GridResolution = 10;
@@ -59,7 +59,7 @@ namespace Assets.ClonerExample
             return previous;
         }
 
-        public override IVoxels Result => this;
+        public override INativeVoxelData Result => this;
         public ref VoxelData<float> Voxels => ref _voxels;
     }
 

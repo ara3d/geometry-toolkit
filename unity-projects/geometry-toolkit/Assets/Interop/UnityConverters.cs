@@ -41,7 +41,11 @@ namespace Ara3D.UnityBridge
         public static UVector3 ToUnityFromVim(this Vector3 v)
             => ToUnityFromVim(v.X, v.Y, v.Z);
 
-        public static UVector3 ToUnityFromAra3D(float x, float y, float z) => new(-x, z, -y);
+        public static UVector3 ToUnity(this Vector3 v)
+            => new(v.X, v.Y, v.Z);
+
+        public static UVector3 ToUnityFromAra3D(float x, float y, float z) 
+            => new(-x, z, -y);
 
         public static UVector3 ToUnityFromVim(float x, float y, float z)
             => ToUnityFromAra3D(x, y, z) * FeetToMeters;
@@ -195,5 +199,8 @@ namespace Ara3D.UnityBridge
 
             return r;
         }
+
+        public static UnityTriMesh ToAra3D(this Mesh mesh)
+            => new UnityTriMesh(mesh);
     }
 }

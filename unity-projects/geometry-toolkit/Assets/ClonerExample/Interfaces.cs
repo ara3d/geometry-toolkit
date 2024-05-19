@@ -1,131 +1,101 @@
-using Unity.Collections;
+using System;
+using System.Collections.Generic;
+using Ara3D.Geometry;
 using Unity.Jobs;
-using Unity.Mathematics;
-using UnityEngine;
-
+using Unity.Profiling;
 
 namespace Assets.ClonerExample
 {
-    public interface ICloneJob
+    public enum TypeEnum 
     {
-        JobHandle Schedule(ICloneJob previous);
-        JobHandle Handle { get; }
-        ref CloneData CloneData { get; }
-        int Count { get; }
+        Array,
+        Object,
+
+        Mesh, // Vector2, Vector3
+        Polygon, // Vector2, Vector3 
+        PolyLine, // Vector2, Vector3
+        Points, // Vector2, Vector3
+        
+        Bitmap, 
+        Voxels,
+        
+        Instances, // Vector2, Vector3
+        Curve, // Number, Vector2, Vector3, 
+        Field, // Vector2, Vector3, Vector4 ||=>|| Number, Vector2, Vector3, Vector4  
+        Transforms, // Vector2, Vector3 
+        Particles, // Vector2, Vector3  
+        
+        Number,
+        Vector2,
+        Vector3,
+        Vector4,
+        Transform, //  2d, 3d 
+        Rotation, // 2d, 3d
+        Scale, // 2d, 3d
+        Color, 
+
+        Pair,
+        Sphere, // 2d, 3d
     }
 
-    public interface IPolyCurveComponent
+    public static class POperators
     {
-        IPolyCurve CurveData { get; }
-    }
+        //== 
+        // Generators:
 
-    public interface IJobData
-    { }
+        // Can be used to create a Curve, 2D, 3D, or field 
+        public class Noise { }
+        
 
-    public interface IPolyCurve : IJobData
-    {
-        public NativeArray<float3> Points { get; }
-    }
+        //==
 
-    public interface IJobDataArray<out T> where T : IJobData
-    {
-        public int Count { get; }
-        public T this[int index] { get; }
-    }
+        // Projects 3D data onto a 2D plane 
+        public class Project2D { }
 
-    public interface INoData : IJobData
-    { }
 
-    public class NoData : INoData
-    {
-        public static NoData Instance = new NoData();
-    }
 
-    public interface IPoints : IJobData
-    {
-        ref NativeArray<float3> Points { get; }
-    }
+        // Extrudes 2D data linearly into 3D 
+        public class Extrude { }
+        
 
-    public interface IVoxels : IJobData
-    {
-        ref VoxelData<float> Voxels { get; }
-    }
+        //===
+        // Mesh specific operations 
+        
+        // Extract each line from a mesh 
+        public class Lines {}
 
-    public interface IClones : IJobData
-    {
-        ref CloneData CloneData { get; }
-    }
+        // Extract points frrom 
+        public class Vertices { }
 
-    public interface IMesh : IJobData
-    {
-    }
+        //== 
+        // Polygons 
 
-    public interface IJobResult 
-    {
-        JobHandle Handle { get; }
-    }
+        // Converts a polygon into a mesh 
+        public class EarClipper { }
 
-    public interface IJobResult<out TOutput>
-        : IJobResult
-        where TOutput : IJobData
-    {
-        TOutput Result { get; }
-    }
+        //== 
+        // General cnoverters
 
-    public class JobResult<TOutput> : IJobResult<TOutput>
-        where TOutput : IJobData
-    {
-        public JobResult(TOutput result, JobHandle handle)
-        {
-            Result = result;
-            Handle = handle;
-        }
+        // Converts a polygon into a mesh using Ear clipping
+        // or 
+        public class Triangulate { }
 
-        public TOutput Result { get; }
-        public JobHandle Handle { get; }
-    }
+        // Converts 3D data into voxels. Implicitly treats 2D data as 3D.
+        public class Voxelize {}
 
-    public interface IJobScheduler 
-    {
-    }
+        // Converts a 2D point cloud into a mesh 
+        public class Delaunay { }
 
-    public interface IJobScheduler<out TOutput>
-        : IJobScheduler
-        where TOutput : IJobData
-    {
-        IJobResult<TOutput> Schedule();
-    }
+        // Converts a 2D point cloud into 
+        // To-do: support 3D as well.
+        public class Voronoi { }
 
-    public abstract class JobScheduler<TInput, TOutput> :
-        MonoBehaviour,
-        IJobScheduler<TOutput>
-        where TInput : IJobData
-        where TOutput : IJobData
-    {
-        public abstract JobHandle ScheduleJob(TInput inputData, JobHandle previousHandle);
+        // Converts a signed distance field into a mesh 
+        public class MarchingCubes { }
 
-        public abstract TOutput Result { get; }
+        //==
+        // Generic
 
-        public IJobResult<TOutput> Schedule()
-        {
-            var previous = this.GetPreviousComponent<IJobScheduler<TInput>>();
-            var previousResult = previous != null ? previous.Schedule() : null;
-            var h = previousResult != null
-                ? ScheduleJob(previousResult.Result, previousResult.Handle)
-                : ScheduleJob(default, default);
-            return new JobResult<TOutput>(Result, h);
-        }
-    }
-
-    public static class JobSchedulerExtensions
-    {
-
-        public static TOutput ScheduleNow<TOutput>(this IJobScheduler<TOutput> self)
-            where TOutput : IJobData
-        {
-            var r = self.Schedule();
-            r.Handle.Complete();
-            return r.Result;
-        }
+        public class Array { }
     }
 }

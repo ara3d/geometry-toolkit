@@ -6,8 +6,10 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 
+
+
 [ExecuteAlways]
-public class VoxelsToMesh : JobScheduler<IVoxels, IMesh>, IMesh
+public class VoxelsToMesh : JobScheduler<INativeVoxelData, Mesh>
 {
     private Mesh Mesh;
     public Material Material;
@@ -31,7 +33,7 @@ public class VoxelsToMesh : JobScheduler<IVoxels, IMesh>, IMesh
         Graphics.DrawMesh(Mesh, t.position, t.rotation, Material, 0);
     }
 
-    public override JobHandle ScheduleJob(IVoxels inputData, JobHandle previousHandle)
+    public override JobHandle ScheduleJob(INativeVoxelData inputData, JobHandle previousHandle)
     {
         triangles.SafeDispose();
         triangles = new NativeQueue<float3x3>(Allocator.Persistent);
@@ -45,7 +47,7 @@ public class VoxelsToMesh : JobScheduler<IVoxels, IMesh>, IMesh
         return job.Schedule(inputData.Voxels.VoxelCount, 64, previousHandle);
     }
 
-    public override IMesh Result => this;
+    public override Mesh Result => Mesh;
 }
 
 
@@ -79,24 +81,6 @@ public struct MarchingCubesJob : IJobParallelFor
             var lerpAmount = math.unlerp(fieldValue0, fieldValue1, Threshold);
             if (lerpAmount >= 0 && lerpAmount <= 1)
                 return math.lerp(vertex0, vertex1, lerpAmount);
-            /*
-                     const float eps = 0.00001f;
-        
-
-            if (math.abs(fieldValue0) < eps)
-                return vertex0;
-
-            if (math.abs(fieldValue1) < eps)
-                return vertex1;
-
-            if (math.abs(fieldValue0 - fieldValue1) > eps)
-            {
-                var mu = (fieldValue0) / (fieldValue1 - fieldValue0);
-                return vertex0 + mu * (vertex1 - vertex0);
-                
-                //return (vertex0 + vertex1) / 2;
-            }
-            */
         }
 
         return (vertex0 + vertex1) / 2;

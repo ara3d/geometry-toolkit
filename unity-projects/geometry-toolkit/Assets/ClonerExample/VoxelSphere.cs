@@ -4,7 +4,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 
 [ExecuteAlways]
-public class VoxelSphere : JobScheduler<INoData, IVoxels>, IVoxels
+public class VoxelSphere : JobScheduler<INoData, INativeVoxelData>, INativeVoxelData
 {
     public int GridResolution = 10;
     public Bounds Bounds = new(Vector3.zero, Vector3.one * 10);
@@ -44,7 +44,7 @@ public class VoxelSphere : JobScheduler<INoData, IVoxels>, IVoxels
         return previous;
     }
 
-    public override IVoxels Result => this;
+    public override INativeVoxelData Result => this;
     public ref VoxelData<float> Voxels => ref _voxels;
 }
 
