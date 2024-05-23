@@ -8,11 +8,21 @@ using Ara3D.UnityBridge;
 using UnityEngine;
 using IPoints = Ara3D.Geometry.IPoints;
 using Matrix4x4 = Ara3D.Mathematics.Matrix4x4;
+using Vector2 = Ara3D.Mathematics.Vector2;
 using Vector3 = Ara3D.Mathematics.Vector3;
-
 
 namespace Assets.ClonerExample
 {
+    // Render:
+    // points (cube, sphere, icosahederon, tetrahedron,arrow)
+    // lines [polyline/line] (cube, cylinder, arrow),
+    // meshes 
+    // meshes as (points + lines)
+    // voxels
+    // bitmaps
+    // Functions (distance fields / vector fields / curves / maps) 
+    // - suggests we need a sample as  
+
     [ExecuteAlways]
     public class FilterRender : MonoBehaviour
     {
@@ -74,7 +84,7 @@ namespace Assets.ClonerExample
             var expectedType = f.Input;
             if (input == null) 
                 return f.Eval(input);
-
+                
             var inputType = input.GetType();
             if (expectedType.IsAssignableFrom(inputType))
                 return f.Eval(input);
@@ -110,9 +120,12 @@ namespace Assets.ClonerExample
                     m.ToUnity(ZUp, FlipTriangles, DoubleSided));
             if (obj is Matrix4x4 mat)
                 return new TransformedMesh(InstanceMesh, mat.ToUnityRaw());
+            if (obj is Vector2 vec2)
+                return new TransformedMesh(InstanceMesh,
+                    UnityEngine.Matrix4x4.Translate(ZUp ? vec2.ToVector3().ToUnityFromAra3D() : vec2.ToVector3().ToUnity()));
             if (obj is Vector3 vec)
                 return new TransformedMesh(InstanceMesh,
-                    UnityEngine.Matrix4x4.Translate(vec.ToUnity()));
+                    UnityEngine.Matrix4x4.Translate(ZUp ? vec.ToUnityFromAra3D() : vec.ToUnity()));
             throw new Exception($"Could not convert {obj} to TransformedMesh");
         }
 
@@ -122,7 +135,9 @@ namespace Assets.ClonerExample
                 return list.SelectMany(ToUnityMeshes);
             if (obj is IPoints points && !(obj is ITriMesh))
                 return points.Points.ToEnumerable().Select(p => ToUnityMesh(p));
- 
+            if (obj is IPolyLine2D polyLine)
+                return polyLine.Points.ToEnumerable().Select(p => ToUnityMesh(p));
+
             // TODO: handle, lines, points, transforms, strands, curves. 
             return new[] { ToUnityMesh(obj) };
         }

@@ -16,8 +16,6 @@ namespace Assets.ClonerExample
     [ExecuteAlways]
     public abstract class BaseFilterComponent : MonoBehaviour, IFilter
     {
-        public float OverallStrength = 1f;
-        public bool InterpolateArray = true;
         public Type Input { get; }
         public Type Output { get; }
 

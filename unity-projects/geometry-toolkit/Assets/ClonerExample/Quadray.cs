@@ -216,36 +216,7 @@ namespace Assets.ClonerExample
 
     }
 
-    public class ConvexHull
-    {
-        public List<int> Indices;
-        public Vector3[] Positions;
-
-        public void Merge(ConvexHull other)
-        {
-
-        }
-
-        public static List<int> ComputeStartingPoints(IReadOnlyList<Vector3> points)
-        {
-            var r = new List<int>();
-            for (var i = 0; i < points.Count; i += 3)
-            {
-                r.Add(i);
-            }
-
-            return r;
-
-            //==
-
-            // Every tetrahedron is a convex hull. 
-
-            // Merging tetrahedrons. 
-
-            // 
-        }
-    }
-
+    
     public static class RationalTrig
     {
         // https://www.cut-the-knot.org/pythagoras/RationalTrig/CutTheKnot.shtml

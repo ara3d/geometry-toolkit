@@ -150,6 +150,9 @@ namespace Ara3D.UnityBridge
         public static Color ToUnityColor(this Vector4 v)
             => v.ToUnity();
 
+        public static AABox ToAra3D(this Bounds bounds)
+            => (bounds.min.ToAra3D(), bounds.max.ToAra3D());
+
         public static UnityTriMesh ToUnity(this G3dMesh mesh)
         {
             return new UnityTriMesh()
