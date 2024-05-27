@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Assets.ClonerExample
 {
     // https://www.red3d.com/cwr/boids/
+    // https://swharden.com/csdv/simulations/boids/
     [ExecuteAlways]
     public class ClonerBoids : ClonerJobComponent
     {

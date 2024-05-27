@@ -5,6 +5,7 @@ using Ara3D.Collections;
 using Ara3D.Geometry;
 using Ara3D.Mathematics;
 using Ara3D.UnityBridge;
+using Filters;
 using UnityEngine;
 using IPoints = Ara3D.Geometry.IPoints;
 using Matrix4x4 = Ara3D.Mathematics.Matrix4x4;
@@ -26,15 +27,52 @@ namespace Assets.ClonerExample
     [ExecuteAlways]
     public class FilterRender : MonoBehaviour
     {
+        public BaseFilterComponent Source;
+
+        public enum LineMeshEnum
+        {
+            None,
+            Box,
+            Prism,
+            Cylinder, 
+            PrismArrow,
+            CylinderArrow,
+            Custom,
+        }
+
+        public enum PointMeshEnum
+        {
+            None,
+            Triangle,
+            Square,
+            Tetrahedron,
+            Cube,
+            Octahederon,
+            Icosahedron,
+            Cylinder,
+            Custom,
+        }
+
+        public BaseFilterComponent Filter;
         public Material Material;
         public Mesh InstanceMesh;
         public bool ZUp;
         public bool FlipTriangles;
         public bool DoubleSided;
+
+        // 
+        public bool RenderInWorldSpace; 
         
-        // Maybe?
-        // public float Scale; 
-        // public useCubesOrCylindersForLines;
+        public int NumCurveSamples = 100;
+        
+        public PointMeshEnum PointMesh;
+        public Vector3 PointMeshScale = Vector3.One;
+        public Mesh CustomPointMesh;
+
+        public LineMeshEnum LineMesh;
+        public Vector3 LineMeshScale = Vector3.One;
+        public Mesh CustomLineMesh;
+
         // public useBoxesOrSpheresForPoints; 
 
         public class TransformedMesh
@@ -53,23 +91,15 @@ namespace Assets.ClonerExample
 
         public void Update()
         {
-            var comps = gameObject.GetComponents<MonoBehaviour>();
+            var comp = Filter != null ? Filter : this.GetPreviousComponent<BaseFilterComponent>();
 
-            if (comps.Length == 0)
-                return;
-
-            object val = default;
-
-            for (var i = 0; i < comps.Length; ++i)
+            if (comp == null)
             {
-                if (comps[i] == this)
-                    break;
-                if (!comps[i].enabled)
-                    continue;
-                if (comps[i] is IFilter filter)
-                    val = EvalFilter(filter, val, 1);
+                Debug.Log($"No filter to evaluate");
+                return;
             }
 
+            object val = comp.Eval();
             var meshes = ToUnityMeshes(val);
 
             var rp = new RenderParams(Material);
@@ -79,39 +109,6 @@ namespace Assets.ClonerExample
             }
         }
 
-        public object EvalFilter(IFilter f, object input, float strength)
-        {
-            var expectedType = f.Input;
-            if (input == null) 
-                return f.Eval(input);
-                
-            var inputType = input.GetType();
-            if (expectedType.IsAssignableFrom(inputType))
-                return f.Eval(input);
-
-            if (input is List<object> list)
-            {
-                // Auto-mapping 
-                return list
-                    .Select((item, i) 
-                        => EvalFilter(f, item, (float)i / (list.Count - 1)))
-                    .ToList();
-            }
-
-            if (expectedType == typeof(Vector3))
-            {
-                var deformer = input.GetType().GetMethod("Deform");
-                if (deformer != null)
-                {
-                    Func<Vector3, Vector3> func 
-                        = v => v.Lerp((Vector3)f.Eval(v), strength);
-                    
-                    return deformer.Invoke(input, new object[] { func });
-                }
-            }
-
-            throw new Exception($"Cannot cast from {inputType} to {expectedType}");
-        }
 
         public TransformedMesh ToUnityMesh(object obj)
         {
