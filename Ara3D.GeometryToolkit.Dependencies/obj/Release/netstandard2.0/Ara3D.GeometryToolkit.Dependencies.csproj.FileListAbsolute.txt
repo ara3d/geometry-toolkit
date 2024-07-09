@@ -1,0 +1,10 @@
+C:\Users\cdigg\git\ara3d\geometry-toolkit\unity-projects\geometry-toolkit\Assets\Plugins\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.deps.json
+C:\Users\cdigg\git\ara3d\geometry-toolkit\unity-projects\geometry-toolkit\Assets\Plugins\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.dll
+C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.csproj.AssemblyReference.cache
+C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.AssemblyInfoInputs.cache
+C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.AssemblyInfo.cs
+C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.csproj.CoreCompileInputs.cache
+C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.sourcelink.json
+C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.csproj.CopyComplete
+C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Release\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.dll

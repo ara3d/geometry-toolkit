@@ -1,0 +1,195 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "Ara3D.GeometryToolkit.Dependencies/1.4.4": {
+        "dependencies": {
+          "Ara3D.Buffers": "1.4.4",
+          "Ara3D.Collections": "1.4.4",
+          "Ara3D.Geometry": "1.4.4",
+          "Ara3D.Graphics": "1.4.4",
+          "Ara3D.Mathematics": "1.4.4",
+          "Ara3D.Serialization.BFAST": "1.4.4",
+          "Ara3D.Serialization.G3D": "1.4.4",
+          "Ara3D.Serialization.VIM": "1.4.4",
+          "Ara3D.Utils": "1.4.4",
+          "Microsoft.SourceLink.GitHub": "8.0.0",
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "Ara3D.GeometryToolkit.Dependencies.dll": {}
+        }
+      },
+      "Microsoft.Build.Tasks.Git/8.0.0": {},
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.SourceLink.Common/8.0.0": {},
+      "Microsoft.SourceLink.GitHub/8.0.0": {
+        "dependencies": {
+          "Microsoft.Build.Tasks.Git": "8.0.0",
+          "Microsoft.SourceLink.Common": "8.0.0"
+        }
+      },
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "Ara3D.Buffers/1.4.4": {
+        "runtime": {
+          "Ara3D.Buffers.dll": {}
+        }
+      },
+      "Ara3D.Collections/1.4.4": {
+        "runtime": {
+          "Ara3D.Collections.dll": {}
+        }
+      },
+      "Ara3D.Geometry/1.4.4": {
+        "dependencies": {
+          "Ara3D.Collections": "1.4.4",
+          "Ara3D.Mathematics": "1.4.4",
+          "Ara3D.Utils": "1.4.4"
+        },
+        "runtime": {
+          "Ara3D.Geometry.dll": {}
+        }
+      },
+      "Ara3D.Graphics/1.4.4": {
+        "dependencies": {
+          "Ara3D.Buffers": "1.4.4",
+          "Ara3D.Geometry": "1.4.4"
+        },
+        "runtime": {
+          "Ara3D.Graphics.dll": {}
+        }
+      },
+      "Ara3D.Mathematics/1.4.4": {
+        "runtime": {
+          "Ara3D.Mathematics.dll": {}
+        }
+      },
+      "Ara3D.Serialization.BFAST/1.4.4": {
+        "runtime": {
+          "Ara3D.Serialization.BFAST.dll": {}
+        }
+      },
+      "Ara3D.Serialization.G3D/1.4.4": {
+        "dependencies": {
+          "Ara3D.Collections": "1.4.4",
+          "Ara3D.Mathematics": "1.4.4",
+          "Ara3D.Serialization.BFAST": "1.4.4"
+        },
+        "runtime": {
+          "Ara3D.Serialization.G3D.dll": {}
+        }
+      },
+      "Ara3D.Serialization.VIM/1.4.4": {
+        "dependencies": {
+          "Ara3D.Buffers": "1.4.4",
+          "Ara3D.Serialization.BFAST": "1.4.4",
+          "Ara3D.Serialization.G3D": "1.4.4"
+        },
+        "runtime": {
+          "Ara3D.Serialization.VIM.dll": {}
+        }
+      },
+      "Ara3D.Utils/1.4.4": {
+        "runtime": {
+          "Ara3D.Utils.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ara3D.GeometryToolkit.Dependencies/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Build.Tasks.Git/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bZKfSIKJRXLTuSzLudMFte/8CempWjVamNUR5eHJizsy+iuOuO/k2gnh7W0dHJmYY0tBf+gUErfluCv5mySAOQ==",
+      "path": "microsoft.build.tasks.git/8.0.0",
+      "hashPath": "microsoft.build.tasks.git.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.Common/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dk9JPxTCIevS75HyEQ0E4OVAFhB2N+V9ShCXf8Q6FkUQZDkgLI12y679Nym1YqsiSysuQskT7Z+6nUf3yab6Vw==",
+      "path": "microsoft.sourcelink.common/8.0.0",
+      "hashPath": "microsoft.sourcelink.common.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.GitHub/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-G5q7OqtwIyGTkeIOAc3u2ZuV/kicQaec5EaRnc0pIeSnh9LUjj+PYQrJYBURvDt7twGl2PKA7nSN0kz1Zw5bnQ==",
+      "path": "microsoft.sourcelink.github/8.0.0",
+      "hashPath": "microsoft.sourcelink.github.8.0.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "Ara3D.Buffers/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ara3D.Collections/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ara3D.Geometry/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ara3D.Graphics/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ara3D.Mathematics/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ara3D.Serialization.BFAST/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ara3D.Serialization.G3D/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ara3D.Serialization.VIM/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ara3D.Utils/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
