@@ -375,6 +375,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.5.5, )"
             }
           },
           "imports": [
@@ -499,7 +503,11 @@
         "frameworks": {
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj": {
+                "projectPath": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
