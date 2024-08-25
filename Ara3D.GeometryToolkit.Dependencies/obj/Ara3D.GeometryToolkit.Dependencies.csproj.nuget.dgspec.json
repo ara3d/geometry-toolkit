@@ -810,6 +810,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[8.0.4, )"
             }
           },
           "imports": [

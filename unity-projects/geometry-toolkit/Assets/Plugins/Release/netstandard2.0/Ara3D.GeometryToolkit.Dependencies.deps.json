@@ -81,12 +81,18 @@
           "System.Memory": "4.5.5"
         },
         "runtime": {
-          "Ara3D.Buffers.dll": {}
+          "Ara3D.Buffers.dll": {
+            "assemblyVersion": "1.4.4",
+            "fileVersion": "1.4.4"
+          }
         }
       },
       "Ara3D.Collections/1.4.4": {
         "runtime": {
-          "Ara3D.Collections.dll": {}
+          "Ara3D.Collections.dll": {
+            "assemblyVersion": "1.4.4",
+            "fileVersion": "1.4.4"
+          }
         }
       },
       "Ara3D.Geometry/1.4.4": {
@@ -96,7 +102,10 @@
           "Ara3D.Utils": "1.4.4"
         },
         "runtime": {
-          "Ara3D.Geometry.dll": {}
+          "Ara3D.Geometry.dll": {
+            "assemblyVersion": "1.4.4",
+            "fileVersion": "1.4.4"
+          }
         }
       },
       "Ara3D.Graphics/1.4.4": {
@@ -105,12 +114,18 @@
           "Ara3D.Geometry": "1.4.4"
         },
         "runtime": {
-          "Ara3D.Graphics.dll": {}
+          "Ara3D.Graphics.dll": {
+            "assemblyVersion": "1.4.4",
+            "fileVersion": "1.4.4"
+          }
         }
       },
       "Ara3D.Mathematics/1.4.4": {
         "runtime": {
-          "Ara3D.Mathematics.dll": {}
+          "Ara3D.Mathematics.dll": {
+            "assemblyVersion": "1.4.4",
+            "fileVersion": "1.4.4"
+          }
         }
       },
       "Ara3D.Serialization.BFAST/1.4.4": {
@@ -118,7 +133,10 @@
           "Ara3D.Buffers": "1.4.4"
         },
         "runtime": {
-          "Ara3D.Serialization.BFAST.dll": {}
+          "Ara3D.Serialization.BFAST.dll": {
+            "assemblyVersion": "1.4.4",
+            "fileVersion": "1.4.4"
+          }
         }
       },
       "Ara3D.Serialization.G3D/1.4.4": {
@@ -128,7 +146,10 @@
           "Ara3D.Serialization.BFAST": "1.4.4"
         },
         "runtime": {
-          "Ara3D.Serialization.G3D.dll": {}
+          "Ara3D.Serialization.G3D.dll": {
+            "assemblyVersion": "1.4.4",
+            "fileVersion": "1.4.4"
+          }
         }
       },
       "Ara3D.Serialization.VIM/1.4.4": {
@@ -138,12 +159,18 @@
           "Ara3D.Serialization.G3D": "1.4.4"
         },
         "runtime": {
-          "Ara3D.Serialization.VIM.dll": {}
+          "Ara3D.Serialization.VIM.dll": {
+            "assemblyVersion": "1.4.4",
+            "fileVersion": "1.4.4"
+          }
         }
       },
       "Ara3D.Utils/1.4.4": {
         "runtime": {
-          "Ara3D.Utils.dll": {}
+          "Ara3D.Utils.dll": {
+            "assemblyVersion": "1.4.4",
+            "fileVersion": "1.4.4"
+          }
         }
       }
     }
