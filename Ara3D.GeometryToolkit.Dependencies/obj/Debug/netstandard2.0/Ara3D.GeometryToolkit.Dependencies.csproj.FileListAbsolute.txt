@@ -26,4 +26,4 @@ C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj
 C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Debug\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.AssemblyInfo.cs
 C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Debug\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.csproj.CoreCompileInputs.cache
 C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Debug\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.sourcelink.json
-C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Debug\netstandard2.0\Ara3D.GeometryToolkit.Dependencies.csproj.CopyComplete
+C:\Users\cdigg\git\ara3d\geometry-toolkit\Ara3D.GeometryToolkit.Dependencies\obj\Debug\netstandard2.0\Ara3D.Ge.3C3B3B73.Up2Date

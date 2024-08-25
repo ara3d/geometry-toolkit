@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\Collections\\Ara3D.Collections\\Ara3D.Collections.csproj",
         "projectName": "Ara3D.Collections",
@@ -80,7 +80,7 @@
       }
     },
     "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj",
         "projectName": "Ara3D.GeometryToolkit.Dependencies",
@@ -183,7 +183,7 @@
       }
     },
     "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\Ara3D.Geometry.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\Geometry\\Ara3D.Geometry\\Ara3D.Geometry.csproj",
         "projectName": "Ara3D.Geometry",
@@ -268,7 +268,7 @@
       }
     },
     "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\Mathematics\\Ara3D.Mathematics\\Ara3D.Mathematics.csproj",
         "projectName": "Ara3D.Mathematics",
@@ -343,7 +343,7 @@
       }
     },
     "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Buffers\\Ara3D.Buffers.csproj",
         "projectName": "Ara3D.Buffers",
@@ -422,7 +422,7 @@
       }
     },
     "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Graphics\\Ara3D.Graphics.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Graphics\\Ara3D.Graphics.csproj",
         "projectName": "Ara3D.Graphics",
@@ -504,7 +504,7 @@
       }
     },
     "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.BFAST\\Ara3D.Serialization.BFAST.csproj",
         "projectName": "Ara3D.Serialization.BFAST",
@@ -583,7 +583,7 @@
       }
     },
     "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\Ara3D.Serialization.G3D.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.G3D\\Ara3D.Serialization.G3D.csproj",
         "projectName": "Ara3D.Serialization.G3D",
@@ -668,7 +668,7 @@
       }
     },
     "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.VIM\\Ara3D.Serialization.VIM.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\src\\Ara3D.Serialization.VIM\\Ara3D.Serialization.VIM.csproj",
         "projectName": "Ara3D.Serialization.VIM",
@@ -753,7 +753,7 @@
       }
     },
     "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\Ara3D.Utils.csproj": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "restore": {
         "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\Utils\\Ara3D.Utils\\Ara3D.Utils.csproj",
         "projectName": "Ara3D.Utils",

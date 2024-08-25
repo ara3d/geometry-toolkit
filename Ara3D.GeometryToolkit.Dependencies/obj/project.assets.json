@@ -194,7 +194,7 @@
           }
         }
       },
-      "Ara3D.Buffers/1.4.4": {
+      "Ara3D.Buffers/1.4.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -207,7 +207,7 @@
           "bin/placeholder/Ara3D.Buffers.dll": {}
         }
       },
-      "Ara3D.Collections/1.4.4": {
+      "Ara3D.Collections/1.4.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
@@ -217,13 +217,13 @@
           "bin/placeholder/Ara3D.Collections.dll": {}
         }
       },
-      "Ara3D.Geometry/1.4.4": {
+      "Ara3D.Geometry/1.4.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Ara3D.Collections": "1.4.4",
-          "Ara3D.Mathematics": "1.4.4",
-          "Ara3D.Utils": "1.4.4"
+          "Ara3D.Collections": "1.4.5",
+          "Ara3D.Mathematics": "1.4.5",
+          "Ara3D.Utils": "1.4.5"
         },
         "compile": {
           "bin/placeholder/Ara3D.Geometry.dll": {}
@@ -232,12 +232,12 @@
           "bin/placeholder/Ara3D.Geometry.dll": {}
         }
       },
-      "Ara3D.Graphics/1.4.4": {
+      "Ara3D.Graphics/1.4.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Ara3D.Buffers": "1.4.4",
-          "Ara3D.Geometry": "1.4.4"
+          "Ara3D.Buffers": "1.4.5",
+          "Ara3D.Geometry": "1.4.5"
         },
         "compile": {
           "bin/placeholder/Ara3D.Graphics.dll": {}
@@ -246,7 +246,7 @@
           "bin/placeholder/Ara3D.Graphics.dll": {}
         }
       },
-      "Ara3D.Mathematics/1.4.4": {
+      "Ara3D.Mathematics/1.4.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
@@ -256,11 +256,11 @@
           "bin/placeholder/Ara3D.Mathematics.dll": {}
         }
       },
-      "Ara3D.Serialization.BFAST/1.4.4": {
+      "Ara3D.Serialization.BFAST/1.4.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Ara3D.Buffers": "1.4.4"
+          "Ara3D.Buffers": "1.4.5"
         },
         "compile": {
           "bin/placeholder/Ara3D.Serialization.BFAST.dll": {}
@@ -269,13 +269,13 @@
           "bin/placeholder/Ara3D.Serialization.BFAST.dll": {}
         }
       },
-      "Ara3D.Serialization.G3D/1.4.4": {
+      "Ara3D.Serialization.G3D/1.4.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Ara3D.Collections": "1.4.4",
-          "Ara3D.Mathematics": "1.4.4",
-          "Ara3D.Serialization.BFAST": "1.4.4"
+          "Ara3D.Collections": "1.4.5",
+          "Ara3D.Mathematics": "1.4.5",
+          "Ara3D.Serialization.BFAST": "1.4.5"
         },
         "compile": {
           "bin/placeholder/Ara3D.Serialization.G3D.dll": {}
@@ -284,13 +284,13 @@
           "bin/placeholder/Ara3D.Serialization.G3D.dll": {}
         }
       },
-      "Ara3D.Serialization.VIM/1.4.4": {
+      "Ara3D.Serialization.VIM/1.4.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Ara3D.Buffers": "1.4.4",
-          "Ara3D.Serialization.BFAST": "1.4.4",
-          "Ara3D.Serialization.G3D": "1.4.4"
+          "Ara3D.Buffers": "1.4.5",
+          "Ara3D.Serialization.BFAST": "1.4.5",
+          "Ara3D.Serialization.G3D": "1.4.5"
         },
         "compile": {
           "bin/placeholder/Ara3D.Serialization.VIM.dll": {}
@@ -299,7 +299,7 @@
           "bin/placeholder/Ara3D.Serialization.VIM.dll": {}
         }
       },
-      "Ara3D.Utils/1.4.4": {
+      "Ara3D.Utils/1.4.5": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -887,47 +887,47 @@
         "version.txt"
       ]
     },
-    "Ara3D.Buffers/1.4.4": {
+    "Ara3D.Buffers/1.4.5": {
       "type": "project",
       "path": "../../src/Ara3D.Buffers/Ara3D.Buffers.csproj",
       "msbuildProject": "../../src/Ara3D.Buffers/Ara3D.Buffers.csproj"
     },
-    "Ara3D.Collections/1.4.4": {
+    "Ara3D.Collections/1.4.5": {
       "type": "project",
       "path": "../../Collections/Ara3D.Collections/Ara3D.Collections.csproj",
       "msbuildProject": "../../Collections/Ara3D.Collections/Ara3D.Collections.csproj"
     },
-    "Ara3D.Geometry/1.4.4": {
+    "Ara3D.Geometry/1.4.5": {
       "type": "project",
       "path": "../../Geometry/Ara3D.Geometry/Ara3D.Geometry.csproj",
       "msbuildProject": "../../Geometry/Ara3D.Geometry/Ara3D.Geometry.csproj"
     },
-    "Ara3D.Graphics/1.4.4": {
+    "Ara3D.Graphics/1.4.5": {
       "type": "project",
       "path": "../../src/Ara3D.Graphics/Ara3D.Graphics.csproj",
       "msbuildProject": "../../src/Ara3D.Graphics/Ara3D.Graphics.csproj"
     },
-    "Ara3D.Mathematics/1.4.4": {
+    "Ara3D.Mathematics/1.4.5": {
       "type": "project",
       "path": "../../Mathematics/Ara3D.Mathematics/Ara3D.Mathematics.csproj",
       "msbuildProject": "../../Mathematics/Ara3D.Mathematics/Ara3D.Mathematics.csproj"
     },
-    "Ara3D.Serialization.BFAST/1.4.4": {
+    "Ara3D.Serialization.BFAST/1.4.5": {
       "type": "project",
       "path": "../../src/Ara3D.Serialization.BFAST/Ara3D.Serialization.BFAST.csproj",
       "msbuildProject": "../../src/Ara3D.Serialization.BFAST/Ara3D.Serialization.BFAST.csproj"
     },
-    "Ara3D.Serialization.G3D/1.4.4": {
+    "Ara3D.Serialization.G3D/1.4.5": {
       "type": "project",
       "path": "../../src/Ara3D.Serialization.G3D/Ara3D.Serialization.G3D.csproj",
       "msbuildProject": "../../src/Ara3D.Serialization.G3D/Ara3D.Serialization.G3D.csproj"
     },
-    "Ara3D.Serialization.VIM/1.4.4": {
+    "Ara3D.Serialization.VIM/1.4.5": {
       "type": "project",
       "path": "../../src/Ara3D.Serialization.VIM/Ara3D.Serialization.VIM.csproj",
       "msbuildProject": "../../src/Ara3D.Serialization.VIM/Ara3D.Serialization.VIM.csproj"
     },
-    "Ara3D.Utils/1.4.4": {
+    "Ara3D.Utils/1.4.5": {
       "type": "project",
       "path": "../../Utils/Ara3D.Utils/Ara3D.Utils.csproj",
       "msbuildProject": "../../Utils/Ara3D.Utils/Ara3D.Utils.csproj"
@@ -935,15 +935,15 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Ara3D.Buffers >= 1.4.4",
-      "Ara3D.Collections >= 1.4.4",
-      "Ara3D.Geometry >= 1.4.4",
-      "Ara3D.Graphics >= 1.4.4",
-      "Ara3D.Mathematics >= 1.4.4",
-      "Ara3D.Serialization.BFAST >= 1.4.4",
-      "Ara3D.Serialization.G3D >= 1.4.4",
-      "Ara3D.Serialization.VIM >= 1.4.4",
-      "Ara3D.Utils >= 1.4.4",
+      "Ara3D.Buffers >= 1.4.5",
+      "Ara3D.Collections >= 1.4.5",
+      "Ara3D.Geometry >= 1.4.5",
+      "Ara3D.Graphics >= 1.4.5",
+      "Ara3D.Mathematics >= 1.4.5",
+      "Ara3D.Serialization.BFAST >= 1.4.5",
+      "Ara3D.Serialization.G3D >= 1.4.5",
+      "Ara3D.Serialization.VIM >= 1.4.5",
+      "Ara3D.Utils >= 1.4.5",
       "Microsoft.SourceLink.GitHub >= 8.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
@@ -953,7 +953,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.4.4",
+    "version": "1.4.5",
     "restore": {
       "projectUniqueName": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj",
       "projectName": "Ara3D.GeometryToolkit.Dependencies",
