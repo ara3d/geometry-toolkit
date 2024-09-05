@@ -184,7 +184,7 @@
               "RelativeDocumentMoniker": "Assets\\RoslynTest.cs",
               "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\RoslynTest.cs",
               "RelativeToolTip": "Assets\\RoslynTest.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACoAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAcwDEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-30T20:22:53.659Z",
               "EditorCaption": ""
@@ -232,9 +232,10 @@
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\ClonerBehavior.cs",
               "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\ClonerBehavior.cs",
               "RelativeToolTip": "Assets\\ClonerExample\\ClonerBehavior.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAewDsAAABBAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVDhPYxgFCHDh4YX/sQtj/6u3qP9XblL\u002BHzk/8j9UiuHtx7f/VZpVwHxkNggwgohLjy79D18SzmAua86QZJbEwM/Bz3D91XWGCNMIRpAGo34jsGJkwMrMynCn9g5YP0PK0pT/3tO9/3/58gVuMjLA5wImEHH68WkGN3U3Bh4eHoiJJACwAb/\u002B/gI7CRuAeeH3398M8g3ycDayKxjC5oX9D54TjNX5IIDPC2Ann7x78n/E4ggGDw0PhgiDCLBrLj2/xJBhl0HQS3AFe67t\u002BT/lyBSGO2/uMHCxcTHYK9szdAd2kxwmIw8wMAAAESl0qwYO77cAAAAASUVORK5CYII=",
-              "WhenOpened": "2024-05-22T22:56:08.338Z"
+              "ViewState": "AgIAADAAAAAAAAAAAAAewDsAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T22:56:08.338Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
