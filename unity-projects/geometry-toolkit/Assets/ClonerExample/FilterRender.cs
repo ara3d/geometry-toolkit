@@ -119,10 +119,10 @@ namespace Assets.ClonerExample
                 return new TransformedMesh(InstanceMesh, mat.ToUnityRaw());
             if (obj is Vector2 vec2)
                 return new TransformedMesh(InstanceMesh,
-                    UnityEngine.Matrix4x4.Translate(ZUp ? vec2.ToVector3().ToUnityFromAra3D() : vec2.ToVector3().ToUnity()));
+                    UnityEngine.Matrix4x4.Translate(ZUp ? vec2.ToVector3().ToUnity() : vec2.ToVector3().ToUnity()));
             if (obj is Vector3 vec)
                 return new TransformedMesh(InstanceMesh,
-                    UnityEngine.Matrix4x4.Translate(ZUp ? vec.ToUnityFromAra3D() : vec.ToUnity()));
+                    UnityEngine.Matrix4x4.Translate(ZUp ? vec.ToUnity() : vec.ToUnity()));
             throw new Exception($"Could not convert {obj} to TransformedMesh");
         }
 

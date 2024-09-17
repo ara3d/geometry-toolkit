@@ -35,37 +35,19 @@ namespace Ara3D.UnityBridge
         public static int TriFaceToUnity(int index)
             => PolyFaceToUnity(index, 3);
 
-        public static UVector3 ToUnityFromAra3D(this Vector3 v)
-            => ToUnityFromAra3D(v.X, v.Y, v.Z);
-
-        public static UVector3 ToUnityFromVim(this Vector3 v)
-            => ToUnityFromVim(v.X, v.Y, v.Z);
-
         public static UVector3 ToUnity(this Vector3 v)
-            => new(v.X, v.Y, v.Z);
+            => new(v.X, -v.Z, v.Y);
 
-        public static UVector3 ToUnityFromAra3D(float x, float y, float z) 
-            => new(-x, z, -y);
-
-        public static UVector3 ToUnityFromVim(float x, float y, float z)
-            => ToUnityFromAra3D(x, y, z) * FeetToMeters;
-            
         public static UQuaternion ToUnity(this Quaternion rot)
             => new(rot.X, -rot.Z, rot.Y, rot.W);
 
         public static UVector3 SwizzleToUnity(float x, float y, float z) => new(x, z, y);
 
-        public static UVector3 SwizzleToUnity(Vector3 v)
-            => SwizzleToUnity(v.X, v.Z, v.Y);
-
         public static UVector3 ToUnityScale(this Vector3 scl)
-            => SwizzleToUnity(scl);
+            => new(scl.X, scl.Z, scl.Y);
 
-        public static Bounds ToUnityFromVim(this AABox box) =>
-            new(ToUnityFromVim(box.Center), SwizzleToUnity(box.Extent));
-
-        public static UVector3[] ToUnityFromVim(this IArray<Vector3> vertices)
-            => vertices.Select(ToUnityFromVim).ToArray();
+        public static Vector3 ToAra3DScale(this UVector3 scl)
+            => new(scl.x, scl.z, scl.y);
 
         public static int[] ToUnityIndexBuffer(this IArray<int> indices)
             => indices.ReverseTriangleIndexOrder().ToArray();
@@ -125,7 +107,7 @@ namespace Ara3D.UnityBridge
             => new(v.x, v.y);
 
         public static Vector3 ToAra3D(this UVector3 v) 
-            => new(v.x, v.y, v.z);
+            => new(v.x, v.z, -v.y);
 
         public static Vector4 ToAra3D(this UVector4 v) 
             => new(v.x, v.y, v.z, v.w);
@@ -158,7 +140,7 @@ namespace Ara3D.UnityBridge
             return new UnityTriMesh()
             {
                 UnityIndices = mesh.Indices.ToArray(),
-                UnityVertices = mesh.Vertices.ToUnityFromVim(),
+                UnityVertices = mesh.Vertices.Select(ToUnity).ToArray(),
                 // TODO: normals and UVs
             };
         }

@@ -1,4 +1,5 @@
-﻿using Ara3D.Geometry;
+﻿using Ara3D.Collections;
+using Ara3D.Geometry;
 using Ara3D.Graphics;
 using UnityEngine;
 
@@ -28,7 +29,7 @@ namespace Ara3D.UnityBridge
 
                 // TODO: support more types
                 mesh.Clear();
-                mesh.vertices = g.Points.ToUnityFromVim();
+                mesh.vertices = g.Points.Select(p => p.ToUnity()).ToArray();
                 mesh.triangles = g.Indices().ToUnityIndexBuffer();
                 mesh.RecalculateNormals();
             }

@@ -90,7 +90,7 @@ namespace Ara3D.UnityBridge
             => new UnityTriMesh(this)
             {
                 UnityVertices = UnityVertices
-                    .Select(v => f(v.ToAra3D()).ToUnityFromAra3D())
+                    .Select(v => f(v.ToAra3D()).ToUnity())
                     .ToArray()
             };
 
