@@ -17,11 +17,23 @@ using UQuaternion = UnityEngine.Quaternion;
 using Vector2 = Ara3D.Mathematics.Vector2;
 using Vector3 = Ara3D.Mathematics.Vector3;
 using Vector4 = Ara3D.Mathematics.Vector4;
+using System.Collections.Generic;
 
 namespace Ara3D.UnityBridge
 {
     public static class UnityConverters
     {
+        public static Matrix4x4 ToAraMatrix(this Transform t)
+        {
+            var p = t.position;
+            var r = t.rotation;
+            var s = t.localScale;
+            return Matrix4x4.CreateTRS(p.ToAra3D(), r.ToAra3D(), s.ToAra3DScale());
+        }
+
+        public static UnityEngine.Vector2 ToUnity(Vector2 v)
+            => new UnityEngine.Vector2(v.X, v.Y);
+
         // When translating G3D faces to unity we need
         // to reverse the triangle winding.
         public static int PolyFaceToUnity(int index, int faceSize)
@@ -36,12 +48,10 @@ namespace Ara3D.UnityBridge
             => PolyFaceToUnity(index, 3);
 
         public static UVector3 ToUnity(this Vector3 v)
-            => new(v.X, -v.Z, v.Y);
+            => new(v.X, v.Z, -v.Y);
 
         public static UQuaternion ToUnity(this Quaternion rot)
             => new(rot.X, -rot.Z, rot.Y, rot.W);
-
-        public static UVector3 SwizzleToUnity(float x, float y, float z) => new(x, z, y);
 
         public static UVector3 ToUnityScale(this Vector3 scl)
             => new(scl.X, scl.Z, scl.Y);
@@ -56,14 +66,12 @@ namespace Ara3D.UnityBridge
         public static IArray<int> ReverseTriangleIndexOrder(this IArray<int> indices)
             => indices.SelectByIndex(indices.Count.Select(i => ((i / 3) + 1) * 3 - 1 - (i % 3)));
 
-       public static Mesh ToUnity(this ITriMesh self, bool fromZUpToYUp, bool invertTriangles, bool doubleSided)
+       public static Mesh ToUnity(this ITriMesh self, bool invertTriangles, bool doubleSided)
         {
             var mesh = new Mesh();
             mesh.indexFormat = IndexFormat.UInt32;
 
-            var points = fromZUpToYUp
-                ? self.Points.Select(p => new UVector3(p.X, p.Z, p.Y))
-                : self.Points.Select(p => new UVector3(p.X, p.Y, p.Z));
+            var points = self.Points.Select(p => p.ToUnity());
 
             mesh.vertices = doubleSided ? points.Concat(points).ToArray() : points.ToArray();
 
@@ -107,7 +115,7 @@ namespace Ara3D.UnityBridge
             => new(v.x, v.y);
 
         public static Vector3 ToAra3D(this UVector3 v) 
-            => new(v.x, v.z, -v.y);
+            => new(v.x, -v.z, v.y);
 
         public static Vector4 ToAra3D(this UVector4 v) 
             => new(v.x, v.y, v.z, v.w);

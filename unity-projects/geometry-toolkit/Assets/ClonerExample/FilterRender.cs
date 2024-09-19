@@ -56,7 +56,6 @@ namespace Assets.ClonerExample
         public BaseFilterComponent Filter;
         public Material Material;
         public Mesh InstanceMesh;
-        public bool ZUp;
         public bool FlipTriangles;
         public bool DoubleSided;
 
@@ -114,15 +113,15 @@ namespace Assets.ClonerExample
         {
             if (obj is ITriMesh m)
                 return new TransformedMesh(
-                    m.ToUnity(ZUp, FlipTriangles, DoubleSided));
+                    m.ToUnity(FlipTriangles, DoubleSided));
             if (obj is Matrix4x4 mat)
                 return new TransformedMesh(InstanceMesh, mat.ToUnityRaw());
             if (obj is Vector2 vec2)
                 return new TransformedMesh(InstanceMesh,
-                    UnityEngine.Matrix4x4.Translate(ZUp ? vec2.ToVector3().ToUnity() : vec2.ToVector3().ToUnity()));
+                    UnityEngine.Matrix4x4.Translate(vec2.ToVector3().ToUnity()));
             if (obj is Vector3 vec)
                 return new TransformedMesh(InstanceMesh,
-                    UnityEngine.Matrix4x4.Translate(ZUp ? vec.ToUnity() : vec.ToUnity()));
+                    UnityEngine.Matrix4x4.Translate(vec.ToUnity()));
             throw new Exception($"Could not convert {obj} to TransformedMesh");
         }
 

@@ -9,17 +9,17 @@ namespace Ara3D.UnityBridge
     {
         public bool Render = true;
         public Material Material;
-        public bool ZUp;
         public bool FlipTriangles;
-        public bool DoubleSided; 
+        public bool DoubleSided;
+        public bool ApplyTransform = true;
 
         public void Update()
         {
             if (Render)
             {
-                var mesh = ComputeGeometry().ToUnity(ZUp, FlipTriangles, DoubleSided);
+                var mesh = ComputeGeometry().ToUnity(FlipTriangles, DoubleSided);
                 var rp = new RenderParams(Material);
-                UnityEngine.Graphics.RenderMesh(rp, mesh, 0, transform.localToWorldMatrix);
+                UnityEngine.Graphics.RenderMesh(rp, mesh, 0, ApplyTransform ? transform.localToWorldMatrix : Matrix4x4.identity);
             }
         }
 

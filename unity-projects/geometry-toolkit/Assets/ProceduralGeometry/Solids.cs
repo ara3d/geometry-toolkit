@@ -1,7 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Ara3D.Collections;
 using Ara3D.Mathematics;
+using Ara3D.UnityBridge;
+using UnityEngine;
+using Matrix4x4 = Ara3D.Mathematics.Matrix4x4;
+using Quaternion = Ara3D.Mathematics.Quaternion;
+using Vector2 = Ara3D.Mathematics.Vector2;
+using Vector3 = Ara3D.Mathematics.Vector3;
 
 namespace Ara3D.Geometry
 {
@@ -57,8 +64,10 @@ namespace Ara3D.Geometry
     public static class Solids
     {
         public static float eps = 1e-7f;
+        
         public static Solid Sphere => new Solid(SpherePoint, PointToSphereUv);
         public static Solid Cylinder => new Solid(CylinderPoint, PointToCylinderUv);
+        public static Solid Cube => new Solid(BoxPoint, PointToBoxUV);
 
         public static SurfacePoint SpherePoint(Vector2 uv)
         {
@@ -311,7 +320,37 @@ namespace Ara3D.Geometry
 
             throw new ArgumentException("Point is not on the surface of the box.");
         }
-        
+
+        public static Vector2 ClosestUVOnTorus(Vector3 point, float r)
+        {
+            // Project the 3D point onto the XY plane (ignore Z)
+            var x = point.X;
+            var y = point.Y;
+
+            // Step 1: Find the closest point on the major circle (radius 1)
+            var u = Math.Atan2(y, x); // Angle around the major circle
+            if (u < 0) u += 2 * Math.PI; // Ensure u is in the range [0, 2 * PI]
+
+            // Step 2: Calculate the closest point on the minor circle (radius r)
+            // First, find the distance from the projected point to the center of the torus's tube
+            var majorCircleX = Math.Cos(u); // X coordinate of the point on the major circle
+            var majorCircleY = Math.Sin(u); // Y coordinate of the point on the major circle
+
+            // Calculate the distance from the point to the torus's major circle
+            var projectedPoint = new Vector2(x, y);
+            var majorCirclePoint = new Vector2((float)majorCircleX, (float)majorCircleY);
+            var distToMajorCircle = projectedPoint.Distance(majorCirclePoint);
+
+            // Step 3: Find the closest angle on the minor circle (v)
+            // The distance from the major circle center to the point gives the radial distance
+            // Use the distance to figure out the angle on the minor circle
+            var v = Math.Acos(Math.Clamp((distToMajorCircle - 1) / r, -1f, 1f));
+
+            // Step 4: Return UV coordinates (normalized)
+            var x1 = u / (2 * Math.PI);
+            var y1 = v / (2 * Math.PI);
+            return new Vector2((float)x1, (float)y1);
+        }
     }
 
     public class Polyline
@@ -497,7 +536,7 @@ namespace Ara3D.Geometry
             // Apply Marching Squares algorithm
             for (var i = 0; i < gridSize; i++)
             {
-                for (var j = 0; j < vDivs; j++)
+                for (var j = 0; j < gridSize; j++)
                 {
                     // Get distances at the four corners of the cell
                     var d00 = distances[i, j];
@@ -506,7 +545,10 @@ namespace Ara3D.Geometry
                     var d01 = distances[i, j + 1];
 
                     // Determine if there's an intersection by checking sign changes
-                    var caseIndex = ((d00 >= 0) ? 1 : 0) | ((d10 >= 0) ? 2 : 0) | ((d11 >= 0) ? 4 : 0) | ((d01 >= 0) ? 8 : 0);
+                    var caseIndex = ((d00 >= 0) ? 1 : 0) 
+                                    | ((d10 >= 0) ? 2 : 0) 
+                                    | ((d11 >= 0) ? 4 : 0) 
+                                    | ((d01 >= 0) ? 8 : 0);
 
                     if (caseIndex == 0 || caseIndex == 15) continue;
 
@@ -597,7 +639,7 @@ namespace Ara3D.Geometry
                 uv => solid.Eval(uv).Translate(offset),
                 p => solid.Uv(p - offset));
 
-        public static ISolid Transform(this ISolid solid, Matrix4x4 m)
+        public static ISolid Transform(this ISolid solid, Ara3D.Mathematics.Matrix4x4 m)
         {
             var im = m.Inverse(); 
             return new Solid(
