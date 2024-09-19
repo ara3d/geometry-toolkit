@@ -8,6 +8,8 @@ prints/
 #StreamingAssets/
 #StreamingAssets.meta
 
+*.log
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -25,6 +27,8 @@ obj/
 *.booproj
 *.vsconfig
 *.vsidx
+
+.vs/
 
 # ============ #
 # OS generated #
