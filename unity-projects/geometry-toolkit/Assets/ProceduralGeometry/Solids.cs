@@ -28,28 +28,27 @@ namespace Ara3D.Geometry
     {
         public readonly Vector3 Position;
         public readonly Vector3 Normal;
-        public readonly Vector3 Tangent;
 
-        public SurfacePoint(Vector3 position, Vector3 normal, Vector3 tangent) =>
-            (Position, Normal, Tangent) = (position, normal, tangent);
+        public SurfacePoint(Vector3 position, Vector3 normal) =>
+            (Position, Normal) = (position, normal);
 
-        public static implicit operator (Vector3, Vector3, Vector3)(SurfacePoint p) =>
-            (p.Position, p.Normal, p.Tangent);
+        public static implicit operator (Vector3, Vector3)(SurfacePoint p) =>
+            (p.Position, p.Normal);
 
-        public static implicit operator SurfacePoint((Vector3, Vector3, Vector3) t) =>
-            new SurfacePoint(t.Item1, t.Item2, t.Item3);
+        public static implicit operator SurfacePoint((Vector3, Vector3) t) =>
+            new SurfacePoint(t.Item1, t.Item2);
 
         public SurfacePoint Scale(float f)
-            => (Position * f, Normal, Tangent);
+            => (Position * f, Normal);
 
         public SurfacePoint Translate(Vector3 v)
-            => (Position + v, Normal, Tangent);
+            => (Position + v, Normal);
 
         public SurfacePoint Rotate(Quaternion q)
             => Transform(q.ToMatrix());
 
         public SurfacePoint Transform(Matrix4x4 mat)
-            => (Position.Transform(mat), Normal.TransformNormal(mat), Tangent.TransformNormal(mat));
+            => (Position.Transform(mat), Normal.TransformNormal(mat));
     }
 
     public class Solid : ISolid
@@ -85,14 +84,7 @@ namespace Ara3D.Geometry
             // The normal is the same as the position vector (since it's a unit sphere)
             var normal = position.Normalize();
 
-            // Tangent (derivative with respect to u, i.e., theta)
-            var tangent = new Vector3(
-                -(float)Math.Sin(theta),
-                (float)Math.Cos(theta),
-                0
-            );
-
-            return (position, normal, tangent);
+            return (position, normal);
         }
 
         public static SurfacePoint CylinderPoint(Vector2 uv)
@@ -102,28 +94,23 @@ namespace Ara3D.Geometry
             if (uv.Y <= 0.25f) // Bottom face (v = [0, 0.25])
             {
                 var r = uv.Y / 0.25f; // Maps v from [0, 0.25] to radius 0-1
-                var y = -1.0f; // Fixed height at the bottom of the cylinder
-                var position = new Vector3(r * (float)Math.Cos(theta), y, r * (float)Math.Sin(theta));
-                var normal = new Vector3(0, -1, 0); // Normal points downwards for the bottom face
-                var tangent = new Vector3(-(float)Math.Sin(theta), 0, (float)Math.Cos(theta));
-                return (position, normal, tangent);
+                var position = new Vector3(r * (float)Math.Cos(theta), r * (float)Math.Sin(theta), 0);
+                var normal = -Vector3.UnitZ; // Normal points downwards for the bottom face
+                return (position, normal);
             }
             else if (uv.Y <= 0.75f) // Side of the cylinder (v = [0.25, 0.75])
             {
-                var y = (uv.Y - 0.25f) * 2.0f - 1.0f; // Maps v from [0.25, 0.75] to [-1, 1]
-                var position = new Vector3((float)Math.Cos(theta), y, (float)Math.Sin(theta));
-                var normal = new Vector3((float)Math.Cos(theta), 0, (float)Math.Sin(theta));
-                var tangent = new Vector3(-(float)Math.Sin(theta), 0, (float)Math.Cos(theta));
-                return (position, normal, tangent);
+                var z = (uv.Y - 0.25f) * 2.0f; 
+                var position = new Vector3((float)Math.Cos(theta), (float)Math.Sin(theta), z);
+                var normal = new Vector3((float)Math.Cos(theta), (float)Math.Sin(theta), 0);
+                return (position, normal);
             }
             else // Top face (v = [0.75, 1.0])
             {
-                var r = (uv.Y - 0.75f) / 0.25f; // Maps v from [0.75, 1.0] to radius 0-1
-                var y = 1.0f; // Fixed height at the top of the cylinder
-                var position = new Vector3(r * (float)Math.Cos(theta), y, r * (float)Math.Sin(theta));
-                var normal = new Vector3(0, 1, 0); // Normal points upwards for the top face
-                var tangent = new Vector3(-(float)Math.Sin(theta), 0, (float)Math.Cos(theta));
-                return (position, normal, tangent);
+                var r = (1.0f - uv.Y) / 0.25f; // Maps v from [0.75, 1.0] to radius 1-0
+                var position = new Vector3(r * (float)Math.Cos(theta), r * (float)Math.Sin(theta), 1);
+                var normal = Vector3.UnitZ; // Normal points upwards for the top face
+                return (position, normal);
             }
         }
 
@@ -202,8 +189,7 @@ namespace Ara3D.Geometry
                 var localV = (v - 0.25f) / 0.25f;
                 var position = new Vector3(localU * size - halfSize, localV * size - halfSize, halfSize);
                 var normal = new Vector3(0, 0, 1);
-                var tangent = new Vector3(1, 0, 0);
-                return (position, normal, tangent);
+                return (position, normal);
             }
 
             // Back face (z = -halfSize)
@@ -213,30 +199,27 @@ namespace Ara3D.Geometry
                 var localV = (v - 0.25f) / 0.25f;
                 var position = new Vector3(localU * size - halfSize, localV * size - halfSize, -halfSize);
                 var normal = new Vector3(0, 0, -1);
-                var tangent = new Vector3(-1, 0, 0);
-                return (position, normal, tangent);
+                return (position, normal);
             }
 
             // Left face (x = -halfSize)
-            if (u >= 0.0f && u <= 0.25f && v >= 0.25f && v <= 0.5f)
+            if (u <= 0.25f && v >= 0.25f && v <= 0.5f)
             {
                 var localU = u / 0.25f;
                 var localV = (v - 0.25f) / 0.25f;
                 var position = new Vector3(-halfSize, localV * size - halfSize, localU * size - halfSize);
                 var normal = new Vector3(-1, 0, 0);
-                var tangent = new Vector3(0, 0, 1);
-                return (position, normal, tangent);
+                return (position, normal);
             }
 
             // Right face (x = halfSize)
-            if (u >= 0.75f && u <= 1.0f && v >= 0.25f && v <= 0.5f)
+            if (u >= 0.75f && v >= 0.25f && v <= 0.5f)
             {
                 var localU = (u - 0.75f) / 0.25f;
                 var localV = (v - 0.25f) / 0.25f;
                 var position = new Vector3(halfSize, localV * size - halfSize, localU * size - halfSize);
                 var normal = new Vector3(1, 0, 0);
-                var tangent = new Vector3(0, 0, -1);
-                return (position, normal, tangent);
+                return (position, normal);
             }
 
             // Top face (y = halfSize)
@@ -246,22 +229,20 @@ namespace Ara3D.Geometry
                 var localV = (v - 0.5f) / 0.25f;
                 var position = new Vector3(localU * size - halfSize, halfSize, localV * size - halfSize);
                 var normal = new Vector3(0, 1, 0);
-                var tangent = new Vector3(1, 0, 0);
-                return (position, normal, tangent);
+                return (position, normal);
             }
 
             // Bottom face (y = -halfSize)
-            if (u >= 0.25f && u <= 0.5f && v >= 0.0f && v <= 0.25f)
+            if (u >= 0.25f && u <= 0.5f && v <= 0.25f)
             {
                 var localU = (u - 0.25f) / 0.25f;
                 var localV = v / 0.25f;
                 var position = new Vector3(localU * size - halfSize, -halfSize, localV * size - halfSize);
                 var normal = new Vector3(0, -1, 0);
-                var tangent = new Vector3(1, 0, 0);
-                return (position, normal, tangent);
+                return (position, normal);
             }
 
-            throw new ArgumentException("Invalid UV coordinates for box mapping.");
+            throw new Exception("Not expected");
         }
 
         // Maps a 3D point (Vector3) to UV coordinates on the nearest face of the box
@@ -363,13 +344,6 @@ namespace Ara3D.Geometry
     {
         public static Vector3 Point(this ISolid s, Vector2 uv)
             => s.Eval(uv).Position;
-
-        public static Vector3 Binormal(this SurfacePoint sp)
-            => sp.Normal.Cross(sp.Tangent);
-
-        public static Vector3 Binormal(this ISolid s, Vector2 uv)
-            => s.Eval(uv).Binormal();
-
         public static Vector3 SurfacePosition(this ISolid s, Vector3 p)
             => s.Point(s.Uv(p));
 

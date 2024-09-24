@@ -9,7 +9,7 @@ public class SolidIntersection : MonoBehaviour
 {
     public Solid A;
     public Solid B;
-    
+    public float LineWidth = 0.1f;
     public int MarchingCubeGrid = 20;
 
     public void Update()
@@ -34,7 +34,7 @@ public class SolidIntersection : MonoBehaviour
                 lineSegments.Add(points);
             }
 
-            lineDrawer.DrawLineSegments(lineSegments);
+            lineDrawer.DrawLineSegments(lineSegments, LineWidth);
         }
 
     }

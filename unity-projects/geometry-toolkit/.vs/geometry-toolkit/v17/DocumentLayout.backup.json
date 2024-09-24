@@ -3,27 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\clonerexample\\filterrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\clonerexample\\filterrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|c:\\users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\solids.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\solids.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|c:\\users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\proceduralgeometryobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\proceduralgeometryobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\interop\\unitymesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\interop\\unitymesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|c:\\users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\deformer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\deformer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|c:\\users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\clonerextra\\clonersurfacedistribution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\clonerextra\\clonersurfacedistribution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|c:\\users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\scenerenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\scenerenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|c:\\users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\solid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\solid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\solid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -31,14 +23,31 @@
       "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\interop\\unityconverters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\cdigg\\git\\ara3d\\geometry\\Ara3D.Geometry\\Solids.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\clonerexample\\filterrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\clonerexample\\filterrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|c:\\users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\platonicsolid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\solidintersection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\solidintersection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\deformer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\deformer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\clonerextra\\clonersurfacedistribution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\clonerextra\\clonersurfacedistribution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\scenerenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\scenerenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\platonicsolid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\platonicsolid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|c:\\users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\roslyntest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\roslyntest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\roslyntest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -124,10 +133,6 @@
       "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\clonerexample\\planarpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\proceduralgeometry\\proceduralgeometryobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\proceduralgeometry\\proceduralgeometryobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\assets\\clonerexample\\filtertransform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDD63EE6-2EE1-6B79-174F-5F16C222790A}|Assembly-CSharp.csproj|solutionrelative:assets\\clonerexample\\filtertransform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -171,11 +176,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "FilterRepeat.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\FilterRepeat.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\FilterRepeat.cs",
@@ -188,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ClonerBoids.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\ClonerBoids.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\ClonerBoids.cs",
@@ -201,72 +206,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Deformer.cs",
-              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\Deformer.cs",
-              "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\Deformer.cs",
-              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\Deformer.cs",
-              "RelativeToolTip": "Assets\\ProceduralGeometry\\Deformer.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAArwCEAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Solids.cs",
+              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\Solids.cs",
+              "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\Solids.cs",
+              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\Solids.cs",
+              "RelativeToolTip": "Assets\\ProceduralGeometry\\Solids.cs",
+              "ViewState": "AgIAAEkBAAAAAAAAAAAwwFkBAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T14:07:03.025Z",
+              "WhenOpened": "2024-09-21T21:16:11.959Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SolidIntersection.cs",
+              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\SolidIntersection.cs",
+              "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\SolidIntersection.cs",
+              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\SolidIntersection.cs",
+              "RelativeToolTip": "Assets\\ProceduralGeometry\\SolidIntersection.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:10:27.603Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ClonerSurfaceDistribution.cs",
-              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExtra\\ClonerSurfaceDistribution.cs",
-              "RelativeDocumentMoniker": "Assets\\ClonerExtra\\ClonerSurfaceDistribution.cs",
-              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExtra\\ClonerSurfaceDistribution.cs",
-              "RelativeToolTip": "Assets\\ClonerExtra\\ClonerSurfaceDistribution.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAArwGYAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T14:06:32.384Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SceneRenderer.cs",
-              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\SceneRenderer.cs",
-              "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\SceneRenderer.cs",
-              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\SceneRenderer.cs",
-              "RelativeToolTip": "Assets\\ProceduralGeometry\\SceneRenderer.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAArwDoAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T14:05:56.325Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Solids.cs",
-              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry\\Ara3D.Geometry\\Solids.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\geometry\\Ara3D.Geometry\\Solids.cs",
-              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry\\Ara3D.Geometry\\Solids.cs",
-              "RelativeToolTip": "..\\..\\..\\geometry\\Ara3D.Geometry\\Solids.cs",
-              "ViewState": "AgIAAGwBAAAAAAAAAAAUwFoAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T02:22:20.38Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Solid.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\Solid.cs",
               "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\Solid.cs",
               "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\Solid.cs",
               "RelativeToolTip": "Assets\\ProceduralGeometry\\Solid.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADwAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T02:18:23.63Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-16T02:18:23.63Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UnityMesh.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\Interop\\UnityMesh.cs",
               "RelativeDocumentMoniker": "Assets\\Interop\\UnityMesh.cs",
@@ -274,25 +251,84 @@
               "RelativeToolTip": "Assets\\Interop\\UnityMesh.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAArwFwAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T16:13:14.63Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T16:13:14.63Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "FilterRender.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\FilterRender.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\FilterRender.cs",
               "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\FilterRender.cs",
               "RelativeToolTip": "Assets\\ClonerExample\\FilterRender.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAArwHcAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAD4v24AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T19:16:41.38Z",
+              "WhenOpened": "2024-05-17T19:16:41.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UnityConverters.cs",
+              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\Interop\\UnityConverters.cs",
+              "RelativeDocumentMoniker": "Assets\\Interop\\UnityConverters.cs",
+              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\Interop\\UnityConverters.cs",
+              "RelativeToolTip": "Assets\\Interop\\UnityConverters.cs",
+              "ViewState": "AgIAALMAAAAAAAAAAAD4vzIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T18:23:28.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProceduralGeometryObject.cs",
+              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\ProceduralGeometryObject.cs",
+              "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\ProceduralGeometryObject.cs",
+              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\ProceduralGeometryObject.cs",
+              "RelativeToolTip": "Assets\\ProceduralGeometry\\ProceduralGeometryObject.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAABBwB4AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T19:33:26.28Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SceneRenderer.cs",
+              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\SceneRenderer.cs",
+              "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\SceneRenderer.cs",
+              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\SceneRenderer.cs",
+              "RelativeToolTip": "Assets\\ProceduralGeometry\\SceneRenderer.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAArwDoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T14:05:56.325Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "ClonerSurfaceDistribution.cs",
+              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExtra\\ClonerSurfaceDistribution.cs",
+              "RelativeDocumentMoniker": "Assets\\ClonerExtra\\ClonerSurfaceDistribution.cs",
+              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExtra\\ClonerSurfaceDistribution.cs",
+              "RelativeToolTip": "Assets\\ClonerExtra\\ClonerSurfaceDistribution.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAArwGYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T14:06:32.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Deformer.cs",
+              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\Deformer.cs",
+              "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\Deformer.cs",
+              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\Deformer.cs",
+              "RelativeToolTip": "Assets\\ProceduralGeometry\\Deformer.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAArwCEAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T14:07:03.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "PlatonicSolid.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\PlatonicSolid.cs",
               "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\PlatonicSolid.cs",
@@ -300,12 +336,11 @@
               "RelativeToolTip": "Assets\\ProceduralGeometry\\PlatonicSolid.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T13:24:37.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-16T13:24:37.145Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "CpuInstanceData.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\CpuInstanceData.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\CpuInstanceData.cs",
@@ -317,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "JobClonerToVoxels.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\JobClonerToVoxels.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\JobClonerToVoxels.cs",
@@ -329,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Ara3D.Utils.dll",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\Plugins\\Release\\netstandard2.0\\Ara3D.Utils.dll",
               "RelativeDocumentMoniker": "Assets\\Plugins\\Release\\netstandard2.0\\Ara3D.Utils.dll",
@@ -340,20 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UnityConverters.cs",
-              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\Interop\\UnityConverters.cs",
-              "RelativeDocumentMoniker": "Assets\\Interop\\UnityConverters.cs",
-              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\Interop\\UnityConverters.cs",
-              "RelativeToolTip": "Assets\\Interop\\UnityConverters.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-14T18:23:28.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "RoslynTest.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\RoslynTest.cs",
               "RelativeDocumentMoniker": "Assets\\RoslynTest.cs",
@@ -361,12 +383,11 @@
               "RelativeToolTip": "Assets\\RoslynTest.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAcwCUAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T20:22:53.659Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T20:22:53.659Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "ClonerBehavior.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\ClonerBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\ClonerBehavior.cs",
@@ -374,12 +395,11 @@
               "RelativeToolTip": "Assets\\ClonerExample\\ClonerBehavior.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAewDsAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T22:56:08.338Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T22:56:08.338Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "GoalState.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\GoalState.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\GoalState.cs",
@@ -391,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Meshes.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry\\Ara3D.Geometry\\Meshes.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\geometry\\Ara3D.Geometry\\Meshes.cs",
@@ -403,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "GridMesh.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry\\Ara3D.Geometry\\GridMesh.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\geometry\\Ara3D.Geometry\\GridMesh.cs",
@@ -415,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "FilterMesh.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\FilterMesh.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\FilterMesh.cs",
@@ -427,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "FilterComponent.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\FilterComponent.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\FilterComponent.cs",
@@ -439,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "IFilter.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\IFilter.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\IFilter.cs",
@@ -451,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "PolygonTriangulation.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\WIP\\PolygonTriangulation.cs",
               "RelativeDocumentMoniker": "Assets\\WIP\\PolygonTriangulation.cs",
@@ -463,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "QuadMeshFromArray.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\QuadMeshFromArray.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\QuadMeshFromArray.cs",
@@ -475,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "ClonerFromPoints.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\ClonerFromPoints.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\ClonerFromPoints.cs",
@@ -487,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "PolyCurve.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\PolyCurve.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\PolyCurve.cs",
@@ -499,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "Triangulate.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\Triangulate.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\Triangulate.cs",
@@ -511,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "Interfaces.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\Interfaces.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\Interfaces.cs",
@@ -523,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "VoxelsToMesh.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\VoxelsToMesh.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\VoxelsToMesh.cs",
@@ -535,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "PlanarPoints.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\PlanarPoints.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\PlanarPoints.cs",
@@ -548,18 +568,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 31,
-              "Title": "ProceduralGeometryObject.cs",
-              "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\ProceduralGeometryObject.cs",
-              "RelativeDocumentMoniker": "Assets\\ProceduralGeometry\\ProceduralGeometryObject.cs",
-              "ToolTip": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ProceduralGeometry\\ProceduralGeometryObject.cs",
-              "RelativeToolTip": "Assets\\ProceduralGeometry\\ProceduralGeometryObject.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAlAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVDhPYxgFCHDh4YX/sQtj/6u3qP9XblL\u002BHzk/8j9UiuHtx7f/VZpVwHxkNggwgohLjy79D18SzmAua86QZJbEwM/Bz3D91XWGCNMIRpAGo34jsGJkwMrMynCn9g5YP0PK0pT/3tO9/3/58gVuMjLA5wImEHH68WkGN3U3Bh4eHoiJJACwAb/\u002B/gI7CRuAeeH3398M8g3ycDayKxjC5oX9D54TjNX5IIDPC2Ann7x78n/E4ggGDw0PhgiDCLBrLj2/xJBhl0HQS3AFe67t\u002BT/lyBSGO2/uMHCxcTHYK9szdAd2kxwmIw8wMAAAESl0qwYO77cAAAAASUVORK5CYII=",
-              "WhenOpened": "2024-05-14T19:33:26.28Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
               "Title": "PolyCurveToPoints.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\PolyCurveToPoints.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\PolyCurveToPoints.cs",
@@ -571,7 +579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "FilterTransform.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\FilterTransform.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\FilterTransform.cs",
@@ -583,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "QuadMeshTest.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\QuadMeshTest.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\QuadMeshTest.cs",
@@ -595,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "VoxelizeNoise.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\VoxelizeNoise.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\VoxelizeNoise.cs",
@@ -607,7 +615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "JobScheduler.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\JobScheduler.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\JobScheduler.cs",
@@ -619,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "VoxelsToPoints.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\VoxelsToPoints.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\VoxelsToPoints.cs",
@@ -631,7 +639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "EarClipper.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\WIP\\EarClipper.cs",
               "RelativeDocumentMoniker": "Assets\\WIP\\EarClipper.cs",
@@ -643,7 +651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "UnityExtensions.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\UnityExtensions.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\UnityExtensions.cs",
@@ -655,7 +663,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "QuadrayDemo.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\ClonerExample\\QuadrayDemo.cs",
               "RelativeDocumentMoniker": "Assets\\ClonerExample\\QuadrayDemo.cs",
@@ -667,7 +675,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "Delaunator2D.cs",
               "DocumentMoniker": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\unity-projects\\geometry-toolkit\\Assets\\WIP\\Delaunator2D.cs",
               "RelativeDocumentMoniker": "Assets\\WIP\\Delaunator2D.cs",
