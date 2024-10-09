@@ -240,6 +240,18 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Ara3D.Collections": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "Ara3D.Mathematics": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "Ara3D.Utils": {
+              "target": "Package",
+              "version": "[*, )"
+            },
             "Microsoft.SourceLink.GitHub": {
               "suppressParent": "All",
               "target": "Package",
@@ -476,6 +488,14 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Ara3D.Buffers": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "Ara3D.Geometry": {
+              "target": "Package",
+              "version": "[*, )"
+            },
             "Microsoft.SourceLink.GitHub": {
               "suppressParent": "All",
               "target": "Package",
@@ -640,6 +660,18 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Ara3D.Collections": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "Ara3D.Mathematics": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "Ara3D.Serialization.BFAST": {
+              "target": "Package",
+              "version": "[*, )"
+            },
             "Microsoft.SourceLink.GitHub": {
               "suppressParent": "All",
               "target": "Package",
@@ -725,6 +757,18 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Ara3D.Buffers": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "Ara3D.Serialization.BFAST": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "Ara3D.Serialization.G3D": {
+              "target": "Package",
+              "version": "[*, )"
+            },
             "Microsoft.SourceLink.GitHub": {
               "suppressParent": "All",
               "target": "Package",
