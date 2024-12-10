@@ -1,4 +1,4 @@
-### DEPRECATED: We no longer use Unity and are building our own [https://ara3d.com](real-time 3D engine).
+### DEPRECATED: We no longer use Unity and are building [Ara 3D Real-time Engine](https://ara3d.com).
 
 # 📐 Ara 3D Geometry Toolkit
 
