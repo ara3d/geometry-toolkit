@@ -1,10 +1,22 @@
+### DEPRECATED: We no longer use Unity and are building our own [https://ara3d.com](real-time 3D engine).
+
 # 📐 Ara 3D Geometry Toolkit
 
 A set of components, scripts, and libraries for geometry creation and manipulation primarily in the Unity editor. 
 This library is intended to help in the creation of editor tools, and for learning and experimenting 
-with geometric routines. 
+with geometric routines. The code is being built for the built-in (standard) rendering pipeline.  
 
-The code is being built for the built-in (standard) rendering pipeline.  
+##📽️ Demo Videos 
+
+https://github.com/user-attachments/assets/9eb96749-726c-4f12-bbe4-85721933c028
+
+https://github.com/user-attachments/assets/f6e73ced-e3e9-4080-95a3-c82462317f1d
+
+https://github.com/user-attachments/assets/20024993-f5b7-4a46-be01-ececc547ffa5
+
+https://github.com/user-attachments/assets/32b086f3-a5e3-4e09-8ded-ccb2d0d7f793
+
+https://github.com/user-attachments/assets/1c82c15e-f568-4f11-b154-103ded502998
 
 ## ℹ️ About Ara 3D Geometry and Mathematics
 
