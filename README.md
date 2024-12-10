@@ -6,7 +6,7 @@ A set of components, scripts, and libraries for geometry creation and manipulati
 This library is intended to help in the creation of editor tools, and for learning and experimenting 
 with geometric routines. The code is being built for the built-in (standard) rendering pipeline.  
 
-##📽️ Demo Videos 
+## 📽️ Demo Videos 
 
 https://github.com/user-attachments/assets/9eb96749-726c-4f12-bbe4-85721933c028
 
