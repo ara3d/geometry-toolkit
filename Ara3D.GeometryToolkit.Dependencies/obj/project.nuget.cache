@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qa6vtsg1gcY=",
+  "dgSpecHash": "VwltaQkLJSs=",
   "success": true,
   "projectFilePath": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\cdigg\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
     "C:\\Users\\cdigg\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
     "C:\\Users\\cdigg\\.nuget\\packages\\ara3d.buffers\\1.4.5\\ara3d.buffers.1.4.5.nupkg.sha512",
+    "C:\\Users\\cdigg\\.nuget\\packages\\ara3d.mathematics\\1.4.5\\ara3d.mathematics.1.4.5.nupkg.sha512",
     "C:\\Users\\cdigg\\.nuget\\packages\\ara3d.utils\\1.4.5\\ara3d.utils.1.4.5.nupkg.sha512"
   ],
   "logs": []

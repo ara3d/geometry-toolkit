@@ -142,7 +142,6 @@
       "Ara3D.Serialization.G3D/1.4.5": {
         "dependencies": {
           "Ara3D.Collections": "1.4.5",
-          "Ara3D.Mathematics": "1.4.5",
           "Ara3D.Serialization.BFAST": "1.4.5"
         },
         "runtime": {
