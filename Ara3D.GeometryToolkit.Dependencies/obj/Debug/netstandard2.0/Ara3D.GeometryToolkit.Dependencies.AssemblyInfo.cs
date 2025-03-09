@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright (c) Ara 3D Inc 2024, Licensed under MIT License")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.4.5")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.4.5+ff57dfc252a9f4638c143fae6dcd09d2fed025c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.4.5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ara3D.GeometryToolkit.Dependencies")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ara3D.GeometryToolkit.Dependencies")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.4.5")]
