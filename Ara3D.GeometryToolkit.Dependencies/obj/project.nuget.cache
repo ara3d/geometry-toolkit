@@ -1,21 +1,58 @@
 {
   "version": 2,
-  "dgSpecHash": "Y/1WF2uRESM=",
-  "success": true,
+  "dgSpecHash": "uSQz+ZH3ksU=",
+  "success": false,
   "projectFilePath": "C:\\Users\\cdigg\\git\\ara3d\\geometry-toolkit\\Ara3D.GeometryToolkit.Dependencies\\Ara3D.GeometryToolkit.Dependencies.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cdigg\\.nuget\\packages\\microsoft.build.tasks.git\\8.0.0\\microsoft.build.tasks.git.8.0.0.nupkg.sha512",
-    "C:\\Users\\cdigg\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\cdigg\\.nuget\\packages\\microsoft.sourcelink.common\\8.0.0\\microsoft.sourcelink.common.8.0.0.nupkg.sha512",
-    "C:\\Users\\cdigg\\.nuget\\packages\\microsoft.sourcelink.github\\8.0.0\\microsoft.sourcelink.github.8.0.0.nupkg.sha512",
-    "C:\\Users\\cdigg\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\cdigg\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\cdigg\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
-    "C:\\Users\\cdigg\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
-    "C:\\Users\\cdigg\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
     "C:\\Users\\cdigg\\.nuget\\packages\\ara3d.buffers\\1.4.5\\ara3d.buffers.1.4.5.nupkg.sha512",
     "C:\\Users\\cdigg\\.nuget\\packages\\ara3d.mathematics\\1.4.5\\ara3d.mathematics.1.4.5.nupkg.sha512",
     "C:\\Users\\cdigg\\.nuget\\packages\\ara3d.utils\\1.4.5\\ara3d.utils.1.4.5.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Ara3D.Serialization.G3D is not compatible with netstandard2.0 (.NETStandard,Version=v2.0). Project Ara3D.Serialization.G3D supports: net8.0 (.NETCoreApp,Version=v8.0)",
+      "libraryId": "Ara3D.Serialization.G3D",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Ara3D.Buffers is not compatible with netstandard2.0 (.NETStandard,Version=v2.0). Project Ara3D.Buffers supports: net8.0 (.NETCoreApp,Version=v8.0)",
+      "libraryId": "Ara3D.Buffers",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Ara3D.Graphics is not compatible with netstandard2.0 (.NETStandard,Version=v2.0). Project Ara3D.Graphics supports: net8.0 (.NETCoreApp,Version=v8.0)",
+      "libraryId": "Ara3D.Graphics",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Ara3D.Serialization.VIM is not compatible with netstandard2.0 (.NETStandard,Version=v2.0). Project Ara3D.Serialization.VIM supports: net8.0 (.NETCoreApp,Version=v8.0)",
+      "libraryId": "Ara3D.Serialization.VIM",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Ara3D.Serialization.BFAST is not compatible with netstandard2.0 (.NETStandard,Version=v2.0). Project Ara3D.Serialization.BFAST supports: net8.0 (.NETCoreApp,Version=v8.0)",
+      "libraryId": "Ara3D.Serialization.BFAST",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

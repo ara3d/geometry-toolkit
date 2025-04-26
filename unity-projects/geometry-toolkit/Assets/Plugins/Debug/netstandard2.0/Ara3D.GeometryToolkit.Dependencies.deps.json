@@ -130,7 +130,8 @@
       },
       "Ara3D.Serialization.BFAST/1.4.5": {
         "dependencies": {
-          "Ara3D.Buffers": "1.4.5"
+          "Ara3D.Buffers": "1.4.5",
+          "Ara3D.Utils": "1.4.5"
         },
         "runtime": {
           "Ara3D.Serialization.BFAST.dll": {
