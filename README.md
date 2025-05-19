@@ -1,4 +1,4 @@
-### DEPRECATED: We no longer use Unity and are building our own [Ara 3D Real-time Engine](https://ara3d.com).
+### ARCHIVED: This project is now being developed for [Ara 3D Studio](https://github.com/ara3d/ara3d-sdk).
 
 # 📐 Ara 3D Geometry Toolkit
 
